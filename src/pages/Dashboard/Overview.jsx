@@ -1,9 +1,10 @@
 import React from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
+import Layout from '../../Layout/Layout';
 
 const Overview = () => {
   return (
-    <div>
+    <Layout>
       <div className='pt-11'>
         {/* AVATAR & NAME */}
         <div className='flex items-center'>
@@ -54,7 +55,7 @@ const Overview = () => {
         {/* TABLE */}
         <div></div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
