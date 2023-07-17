@@ -11,16 +11,26 @@ const Overview = () => {
         <AvatarCard />
         <div>
           {/* EARNINGS */}
-          <div className='mt-[72px]'>
-            <h2 className='text-[1.75rem] font-bold leading-8'>Earnings</h2>
-            <div>
-              <span>$8,690.62</span>
-              <IoEye />
-              <IoEyeOff />
-            </div>
-            <div>
-              <span>14</span>
-              <span>completed projects</span>
+          <div className='mx-auto shadow-md rounded-[25px] mt-[72px] inline-block'>
+            <div className='flex flex-col items-start gap-7 p-7 pb-11'>
+              <h2 className='text-[1.75rem] font-bold leading-8 '>Earnings</h2>
+              <div className='flex items-center gap-10'>
+                <span className='text-4xl font-semibold leading-8'>
+                  $8,690.62
+                </span>
+                <span>
+                  <IoEye />
+                  <IoEyeOff />
+                </span>
+              </div>
+              <div className='flex gap-4'>
+                <span className='text-[1.75rem] font-semibold leading-10'>
+                  14
+                </span>
+                <span className='text-xl leading-10 text-black'>
+                  completed projects
+                </span>
+              </div>
             </div>
           </div>
           {/* MY OFFER */}
