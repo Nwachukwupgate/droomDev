@@ -1,30 +1,18 @@
 import React from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import Layout from '../../Layout/Layout';
+import AvatarCard from '../../components/Cards/AvatarCard';
 
 const Overview = () => {
   return (
     <Layout>
-      <div className='pt-11'>
+      <div className='pt-11 px-4'>
         {/* AVATAR & NAME */}
-        <div className='flex items-center'>
-          <div className='w-[60px] h-[60px]'>
-            <img className='rounded-full' alt='profile avatar' />
-          </div>
-          <div>
-            <p className='font-semibold text-lg leading-8 text-[#575555]'>
-              Ali Hussnain
-            </p>
-            <p className='text-sm leading-8 text-[#8D8989]'>
-              Node JS Developer
-            </p>
-          </div>
-        </div>
-
+        <AvatarCard />
         <div>
           {/* EARNINGS */}
           <div className='mt-[72px]'>
-            <h2>Earnings</h2>
+            <h2 className='text-[1.75rem] font-bold leading-8'>Earnings</h2>
             <div>
               <span>$8,690.62</span>
               <IoEye />

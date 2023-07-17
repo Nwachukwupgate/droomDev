@@ -1,7 +1,7 @@
 import { FiMenu, FiSearch } from 'react-icons/fi';
 import Logo from '../../assets/images/logo.png';
-import SideNav from './SideNav';
 import React, { useState } from 'react';
+import SideNav from './SideNav';
 
 const Navbar = () => {
   const [showSideNav, setShowSideNav] = useState(false);
