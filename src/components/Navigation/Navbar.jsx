@@ -25,6 +25,11 @@ const Navbar = () => {
         {/* SideBar */}
         <SideNav showSideNav={showSideNav} />
       </div>
+
+      {/* SideBar */}
+      {/* <div className='fixed left-0'>
+        <SideNav showSideNav={showSideNav} />
+      </div> */}
     </div>
   );
 };

@@ -12,3 +12,24 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Global text color styles */
+/* :root {
+  --text-color: var(--color-text-light);
+} */
+
+body {
+  color: #001935;
+  /* color: red; */
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: ;
+  }
+}
+
+/* Apply global text color to elements
+.text-global {
+  color: var(--text-color);
+} */

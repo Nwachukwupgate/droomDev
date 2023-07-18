@@ -3,7 +3,8 @@ import { IoEye, IoEyeOff } from 'react-icons/io5';
 import Layout from '../../Layout/Layout';
 import AvatarCard from '../../components/Cards/AvatarCard';
 import Button from '../../components/Button';
-import Table from '../../components/Table';
+import Table from '../../components/Table/Table';
+import MatchedJob from '../../components/Table/MatchedJob';
 
 const Overview = () => {
   return (
@@ -66,7 +67,7 @@ const Overview = () => {
         </div>
         {/* TABLE */}
         <div className=' mt-14 px-4'>
-          <Table />
+          <MatchedJob />
         </div>
       </div>
     </Layout>

@@ -14,7 +14,7 @@ const AvatarCard = () => {
         <p className='text-left text-lg leading-8 font-semibold text-[#575555]'>
           Alli Hussnain
         </p>
-        <p className='text-left text-sm font-semibold text-[#8D8989]'>
+        <p className='text-left text-sm font-semibold text-[#8D8989] whitespace-nowrap'>
           Node JS Developer
         </p>
       </div>
