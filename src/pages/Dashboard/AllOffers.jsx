@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import Layout from '../../Layout/Layout';
-import Table from './Table';
 import { tableList } from '../../mockData/index';
+import Table from '../../components/Table/Table';
 
 const AllOffers = () => {
   const tableHeader = useMemo(
@@ -32,11 +32,13 @@ const AllOffers = () => {
   return (
     <div>
       <Layout>
-        <>
-          <h1 className='text-primary mb-[85px]'>All Offers</h1>
+        <div className='px-4'>
+          <h1 className='text-xl font-extrabold leading-8 mb-[85px] mt-11 md:mb-6 text-left'>
+            All Offers
+          </h1>
 
-          <Table header={tableHeader} label='Matched Jobs' column={tableList} />
-        </>
+          <Table header={tableHeader} column={tableList} />
+        </div>
       </Layout>
     </div>
   );

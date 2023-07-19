@@ -29,6 +29,7 @@ h3,
 h4,
 table {
   color: #001935;
+  line-height: 32px;
 }
 
 @media (prefers-color-scheme: dark) {
