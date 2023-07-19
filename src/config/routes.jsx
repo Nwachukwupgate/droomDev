@@ -5,9 +5,8 @@ import PageLoader from '../components/Loader/PageLoader';
 const AllRoutes = () => {
   const Overview = lazy(() => import('../pages/Dashboard/Overview'));
   const AllOffers = lazy(() => import('../pages/Dashboard/AllOffers'));
-  const JobDescription = lazy(() =>
-    import('../pages/Dashboard/JobDescription')
-  );
+  const MyOffers = lazy(() => import('../pages/Dashboard/MyOffers'));
+  const Invite = lazy(() => import('../pages/Dashboard/Invite'));
 
   return (
     <Suspense fallback={<PageLoader />}>
@@ -15,7 +14,8 @@ const AllRoutes = () => {
         <Routes>
           <Route path='/' element={<Overview />} />
           <Route path='/alloffer' element={<AllOffers />} />
-          <Route path='/job-description' element={<JobDescription />} />
+          <Route path='/myoffer' element={<MyOffers />} />
+          <Route path='/invites' element={<Invite />} />
         </Routes>
       </BrowserRouter>
     </Suspense>

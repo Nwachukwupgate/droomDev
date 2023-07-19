@@ -58,7 +58,7 @@ const Overview = () => {
           {/* Invite */}
           <div className='mx-auto shadow-md rounded-[25px] inline-block w-[300px]'>
             <div className='flex flex-col items-start gap-7 p-7 pb-11'>
-              <h2 className='text-[1.75rem] font-bold leading-8 '>My offer</h2>
+              <h2 className='text-[1.75rem] font-bold leading-8 '>invite</h2>
               <div className=''>
                 <p className='text-xl mb-10'>2 new invites</p>
                 <div className='text-left'>

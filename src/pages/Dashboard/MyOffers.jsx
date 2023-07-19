@@ -1,11 +1,13 @@
 import React from 'react';
 import Layout from '../../Layout/Layout';
+import Badge from '../../components/Badge/Badge';
+import MilestoneTable from '../../components/Table/MilestoneTable';
 
-const JobDescription = () => {
+const MyOffer = () => {
   return (
     <Layout>
-      <div className='px-4 py-11 text-left'>
-        <div className='pb-[30px] mb-[30px] border-b border-divider-grey'>
+      <div className='px-4 py-11 text-left flex flex-col gap-[25px]'>
+        <div className='pb-[30px] border-b border-divider-grey'>
           <h1 className='text-xl font-semibold leading-8 mb-[30px] md:mb-6 text-left'>
             Description
           </h1>
@@ -17,7 +19,9 @@ const JobDescription = () => {
             faucibus suspendisse scelerisque orci pulvinar.
           </p>
         </div>
-        <div className='flex flex-col gap-[30px]'>
+
+        {/* TALENT DETAILS */}
+        <div className='flex flex-col gap-[30px] pb-7'>
           <div className='flex gap-9'>
             <div>
               <h3 className='font-semibold leading-8'>Amount</h3>
@@ -39,12 +43,33 @@ const JobDescription = () => {
             </div>
           </div>
           <div>
-            <h3 className='font-semibold leading-8'>Framework</h3>
+            <h3 className='font-semibold leading-8  mb-3'>Skills</h3>
+            <Badge />
           </div>
+          <div>
+            <h3 className='font-semibold leading-8  mb-3'>Stack</h3>
+            <Badge />
+          </div>
+          <div>
+            <h3 className='font-semibold leading-8 mb-3'>Framework</h3>
+            <Badge />
+          </div>
+        </div>
+
+        {/* CLIENT DETAILS */}
+        <div></div>
+
+        {/* MILESTONE */}
+        <div>
+          <h2 className=' leading-8 mb-8 text-2xl font-extrabold'>
+            Milestone Progress
+          </h2>
+
+          <MilestoneTable />
         </div>
       </div>
     </Layout>
   );
 };
 
-export default JobDescription;
+export default MyOffer;
