@@ -22,48 +22,54 @@ const sideNavItems = [
 ];
 
 const SideNav = ({ showSideNav }) => {
+  console.log(showSideNav);
   return (
     <div
       className={`${
         !showSideNav && 'translate-x-0'
-      } absolute z-50 w-60 -translate-x-full overflow-y-scroll bg-[#D9D9D9] shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] dark:bg-zinc-800 min-h-screen px-4 py-11 flex flex-col justify-between`}
+      }  -translate-x-full  bg-[#D9D9D9] shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] dark:bg-zinc-800 px-4 py-11 `}
     >
-      <div>
+      <div className='overflow-y-scroll flex flex-col justify-between'>
         {/* AVATAR CARD */}
         <div className='mb-11'>
           <AvatarCard />
         </div>
-        <nav id='sidenav'>
-          <ul className='flex flex-col gap-2.5 justify-center'>
-            {sideNavItems.map(({ label, id, src }) => (
-              <li className='' key={id}>
-                <NavLink className={`px-4 flex gap-4 items-center p-3`} to='/'>
-                  {/* <Icon name={id} width={20} height={20} /> */}
-                  {src && (
-                    <div>
-                      <img src={src} alt='id' />
-                    </div>
-                  )}
-                  <p className='leading-8 text-primary capitalize'>{label}</p>
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className='px-4 text-left mt-7'>
-          <p className='text-lg font-semibold leading-8'>Refer & Earn</p>
-        </div>
-      </div>
-      <div className='px-4 flex justify-between items-center pb-[71px]'>
-        <div className='flex gap-3'>
-          <div>
-            <img src={SignOut} alt='signout-button' />
+        <div className='overflow-scroll'>
+          <nav id='sidenav'>
+            <ul className='flex flex-col gap-2.5 justify-center'>
+              {sideNavItems.map(({ label, id, src }) => (
+                <li className='' key={id}>
+                  <NavLink
+                    className={`px-4 flex gap-4 items-center p-3`}
+                    to='/'
+                  >
+                    {/* <Icon name={id} width={20} height={20} /> */}
+                    {src && (
+                      <div>
+                        <img src={src} alt='id' />
+                      </div>
+                    )}
+                    <p className='leading-8 text-primary capitalize'>{label}</p>
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className='px-4 text-left mt-7'>
+            <p className='text-lg font-semibold leading-8'>Refer & Earn</p>
           </div>
-          <button>Sign out</button>
         </div>
-        <div>
-          {/* THENE TOGGLE SWITCH */}
-          <button>Dark</button>
+        <div className='px-4 flex justify-between items-center pb-[71px]'>
+          <div className='flex gap-3'>
+            <div>
+              <img src={SignOut} alt='signout-button' />
+            </div>
+            <button>Sign out</button>
+          </div>
+          <div>
+            {/* THENE TOGGLE SWITCH */}
+            <button>Dark</button>
+          </div>
         </div>
       </div>
     </div>

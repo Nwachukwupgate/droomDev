@@ -9,21 +9,21 @@ import MatchedJob from '../../components/Table/MatchedJob';
 const Overview = () => {
   return (
     <Layout>
-      <div className='pt-11 px-4'>
+      <div className='py-11 px-4'>
         {/* AVATAR & NAME */}
         <AvatarCard />
-        <div className=' mt-[72px] flex flex-col md:flex-row gap-10'>
+        <div className=' mt-[72px] flex flex-col md:flex-row gap-10 flex-wrap justify-start'>
           {/* EARNINGS */}
           <div className='mx-auto shadow-md rounded-[25px] inline-block'>
             <div className='flex flex-col items-start gap-7 p-7 pb-11'>
               <h2 className='text-[1.75rem] font-bold leading-8 '>Earnings</h2>
               <div className='flex items-center gap-10'>
-                <span className='text-4xl font-semibold leading-8'>
+                <span className='text-4xl font-semibold leading-8 text-[#575555]'>
                   $8,690.62
                 </span>
                 <span>
-                  <IoEye />
-                  <IoEyeOff />
+                  <IoEye size={25} />
+                  {/* <IoEyeOff size={25} /> */}
                 </span>
               </div>
               <div className='flex gap-4'>
@@ -37,7 +37,7 @@ const Overview = () => {
             </div>
           </div>
           {/* MY OFFER */}
-          <div className='mx-auto shadow-md rounded-[25px] inline-block'>
+          <div className='mx-auto shadow-md rounded-[25px] inline-block '>
             <div className='flex flex-col items-start gap-7 p-7 pb-11'>
               <h2 className='text-[1.75rem] font-bold leading-8 '>My offer</h2>
               <div className='flex gap-12 items-end'>
@@ -47,19 +47,25 @@ const Overview = () => {
                   <p className='text-xl text-left'>1 declined</p>
                 </div>
                 <div>
-                  <Button label='see offer' className={'inline-block'} />
+                  <Button
+                    label='see offer'
+                    className={'inline-block bg-[#001935]'}
+                  />
                 </div>
               </div>
             </div>
           </div>
           {/* Invite */}
-          <div className='mx-auto shadow-md rounded-[25px] inline-block'>
+          <div className='mx-auto shadow-md rounded-[25px] inline-block w-[300px]'>
             <div className='flex flex-col items-start gap-7 p-7 pb-11'>
               <h2 className='text-[1.75rem] font-bold leading-8 '>My offer</h2>
-              <div className='inline-flex gap-10'>
-                <p className='text-xl'>2 new invites</p>
-                <div>
-                  <Button label='offfer' className={'inline-block'} />
+              <div className=''>
+                <p className='text-xl mb-10'>2 new invites</p>
+                <div className='text-left'>
+                  <Button
+                    label='Open'
+                    className={'inline-block bg-[#F58800]'}
+                  />
                 </div>
               </div>
             </div>

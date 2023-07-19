@@ -10,8 +10,8 @@ module.exports = {
       colors: {
         primary: '#001935',
       },
-      backgroundColor: ['dark'],
-      textColor: ['dark'],
+      // backgroundColor: ['dark'],
+      // textColor: ['dark'],
     },
   },
   plugins: [],

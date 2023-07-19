@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navigation/Navbar';
+import SideNav from '../components/Navigation/SideNav';
 
 const Layout = ({ children }) => {
   return (
@@ -7,7 +8,16 @@ const Layout = ({ children }) => {
       <header>
         <Navbar />
       </header>
-      <main className='mt-36'>{children}</main>
+      <div className='relative lg:mt-36 min-h-screen flex md:gap-14 lg:gap-20'>
+        <div className='lg:w-60 hidden lg:block lg:basis-[22%] '>
+          <div className='fixed left-0'>
+            <SideNav />
+          </div>
+        </div>
+        <main className=' mt-36 md:mt-0 lg:w-[78%] lg:basis-[78%] min-h-screen overflow-x-hidden'>
+          {children}
+        </main>
+      </div>
     </div>
   );
 };

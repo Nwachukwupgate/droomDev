@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <div className='relative'>
-      <div className=' fixed top-0 left-0 w-full'>
+      <div className=' fixed top-0 left-0 w-full z-50'>
         <div className='relative flex justify-between items-center px-5 py-11 shadow-md bg-white z-[1035]'>
           {/* MENU AND LOGO  */}
           <div className='flex items-center gap-7'>
@@ -22,14 +22,11 @@ const Navbar = () => {
             <FiSearch size={24} />
           </div>
         </div>
-        {/* SideBar */}
-        <SideNav showSideNav={showSideNav} />
+        {/* Mobile SideBar */}
+        <div className='lg:hidden overflow-y-scroll w-60 -mt-1 '>
+          <SideNav showSideNav={showSideNav} />
+        </div>
       </div>
-
-      {/* SideBar */}
-      {/* <div className='fixed left-0'>
-        <SideNav showSideNav={showSideNav} />
-      </div> */}
     </div>
   );
 };
