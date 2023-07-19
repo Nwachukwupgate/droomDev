@@ -23,7 +23,7 @@ const Navbar = () => {
           </div>
         </div>
         {/* Mobile SideBar */}
-        <div className='lg:hidden overflow-y-scroll w-60 -mt-1 '>
+        <div className='lg:hidden overflow-y-scroll w-72 -mt-1 '>
           <SideNav showSideNav={showSideNav} />
         </div>
       </div>

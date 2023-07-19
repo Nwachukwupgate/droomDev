@@ -8,8 +8,8 @@ const Layout = ({ children }) => {
       <header>
         <Navbar />
       </header>
-      <div className='relative lg:mt-36 min-h-screen flex md:gap-14 lg:gap-20'>
-        <div className='lg:w-60 hidden lg:block lg:basis-[22%] '>
+      <div className='relative lg:mt-36 flex md:gap-14 lg:gap-20'>
+        <div className='relative min-h-full -mt-1.5 lg:w-60 hidden lg:block lg:basis-[22%] '>
           <div className='fixed left-0'>
             <SideNav />
           </div>

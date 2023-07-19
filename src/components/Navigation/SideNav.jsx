@@ -9,6 +9,7 @@ import Wallet from '../../assets/svgs/wallet.svg';
 import Test from '../../assets/svgs/test-icon.svg';
 import Support from '../../assets/svgs/support.svg';
 import SignOut from '../../assets/svgs/logout-icon.svg';
+import ToggleSwitch from '../Inputs/ToggleSwitch';
 
 const sideNavItems = [
   { label: 'dashboard', id: 'dashboard-icon', src: Dashboard },
@@ -18,25 +19,23 @@ const sideNavItems = [
   { label: 'test', id: 'test-icon', src: Test },
   { label: 'support', id: 'support-icon', src: Support },
   { label: 'find jobs', id: 'search-icon', src: Search },
-  { label: 'notifications' },
 ];
 
 const SideNav = ({ showSideNav }) => {
-  console.log(showSideNav);
   return (
     <div
       className={`${
         !showSideNav && 'translate-x-0'
-      }  -translate-x-full  bg-[#D9D9D9] shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] dark:bg-zinc-800 px-4 py-11 `}
+      } -translate-x-full  bg-[#D9D9D9] shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] dark:bg-zinc-800 px-4 py-11 lg:p-[60px]`}
     >
-      <div className='overflow-y-scroll flex flex-col justify-between'>
+      <div className='max-h-full flex flex-col justify-between'>
         {/* AVATAR CARD */}
-        <div className='mb-11'>
+        <div className='mb-11 lg:hidden'>
           <AvatarCard />
         </div>
-        <div className='overflow-scroll'>
-          <nav id='sidenav'>
-            <ul className='flex flex-col gap-2.5 justify-center'>
+        <div className='overflow-y-scroll scrollbar-hide lg:mb-16'>
+          <nav id='sidenav' className=''>
+            <ul className='flex flex-col gap-2.5 justify-center lg:gap-5'>
               {sideNavItems.map(({ label, id, src }) => (
                 <li className='' key={id}>
                   <NavLink
@@ -55,7 +54,7 @@ const SideNav = ({ showSideNav }) => {
               ))}
             </ul>
           </nav>
-          <div className='px-4 text-left mt-7'>
+          <div className='px-4 text-left mt-7 lg:hidden mb-24'>
             <p className='text-lg font-semibold leading-8'>Refer & Earn</p>
           </div>
         </div>
@@ -64,11 +63,11 @@ const SideNav = ({ showSideNav }) => {
             <div>
               <img src={SignOut} alt='signout-button' />
             </div>
-            <button>Sign out</button>
+            <button className='whitespace-nowrap'>Sign out</button>
           </div>
-          <div>
-            {/* THENE TOGGLE SWITCH */}
-            <button>Dark</button>
+          <div className='lg:hidden'>
+            {/* THEME TOGGLE SWITCH */}
+            <ToggleSwitch />
           </div>
         </div>
       </div>
