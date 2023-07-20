@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
-import Layout from '../../Layout/Layout';
 import AvatarCard from '../../components/Cards/AvatarCard';
-import Button from '../../components/Button';
-import Table from '../../components/Table/Table';
 import MatchedJob from '../../components/Table/MatchedJob';
 import LinkButton from '../../components/Button/LinkButton';
 
 const Overview = () => {
+  const [showEarnings, setShowEarnings] = useState(true);
+
+  const amount = '$8,690.62';
   return (
     // <Layout>
     <div className='py-11 px-4'>
@@ -18,13 +18,13 @@ const Overview = () => {
         <div className='mx-auto shadow-md rounded-[25px] inline-block'>
           <div className='flex flex-col items-start gap-7 p-7 pb-11'>
             <h2 className='text-[1.75rem] font-bold leading-8 '>Earnings</h2>
-            <div className='flex items-center gap-10'>
-              <span className='text-4xl font-semibold leading-8 text-[#575555]'>
-                $8,690.62
+            <div className='flex justify-between w-full items-center gap-10'>
+              <span className='text-4xl font-semibold leading-8 text-[#575555] '>
+                {showEarnings ? amount : '****.**'}
               </span>
-              <span>
-                <IoEye size={25} />
-                {/* <IoEyeOff size={25} /> */}
+              <span onClick={() => setShowEarnings((o) => !o)}>
+                {!showEarnings && <IoEye size={25} />}
+                {showEarnings && <IoEyeOff size={25} />}
               </span>
             </div>
             <div className='flex gap-4'>

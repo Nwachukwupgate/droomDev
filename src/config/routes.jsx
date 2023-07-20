@@ -8,6 +8,8 @@ const AllRoutes = () => {
   const AllOffers = lazy(() => import('../pages/Dashboard/AllOffers'));
   const MyOffers = lazy(() => import('../pages/Dashboard/MyOffers'));
   const Invite = lazy(() => import('../pages/Dashboard/Invite'));
+  const Profile = lazy(() => import('../pages/Profile/Profile'));
+  const EditProfile = lazy(() => import('../pages/Profile/EditProfile'));
 
   return (
     <Suspense fallback={<PageLoader />}>
@@ -19,7 +21,8 @@ const AllRoutes = () => {
             <Route path='/alloffer' element={<AllOffers />} />
             <Route path='/myoffer' element={<MyOffers />} />
             <Route path='/invites' element={<Invite />} />
-            <Route path='/pprofile' element={<Invite />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile/edit' element={<EditProfile />} />
             <Route path='/project' element={<Invite />} />
             <Route path='/wallet' element={<Invite />} />
             <Route path='/test' element={<Invite />} />
