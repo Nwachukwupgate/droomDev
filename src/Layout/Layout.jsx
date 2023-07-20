@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
             <SideNav />
           </div>
         </div>
-        <main className='lg:mt-0 lg:w-[78%] lg:basis-[78%] min-h-screen overflow-x-hidden'>
+        <main className='w-full lg:mt-0 lg:w-[78%] lg:basis-[78%] min-h-screen overflow-x-hidden'>
           {children}
         </main>
       </div>

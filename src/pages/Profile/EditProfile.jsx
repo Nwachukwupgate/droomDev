@@ -15,11 +15,13 @@ const EditProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(STEPS.LEVEL);
 
+  const handleSubmit = () => {};
+
   const onBack = () => {
     setStep((value) => value - 1);
   };
 
-  const onNext = () => {
+  const onNext = (data) => {
     setStep((value) => value + 1);
   };
 
@@ -29,25 +31,26 @@ const EditProfile = () => {
     }
 
     setIsLoading(true);
-    console.log(data);
+    console.log(isLoading);
     setStep(STEPS.LEVEL);
+    console.log(step);
     setIsLoading(false);
   };
 
   const actionLabel = useMemo(() => {
-    if (step === STEPS.PRICE) {
-      return 'Create';
+    if (step === STEPS.DETAILS) {
+      return 'Update';
     }
 
     return 'Next';
   }, [step]);
 
   const secondaryActionLabel = useMemo(() => {
-    if (step === STEPS.CATEGORY) {
-      return undefined;
+    if (step === STEPS.LEVEL) {
+      return 'Cancel';
     }
 
-    return 'Back';
+    return 'Previous';
   }, [step]);
 
   let bodyContent = (
@@ -67,8 +70,8 @@ work with'
     bodyContent = (
       <div className='flex flex-col gap-8'>
         <Heading
-          title='Where is your place located?'
-          subtitle='Help guests find you!'
+          title='Select Language'
+          subtitle='Choose the language that you work with'
         />
         {/* <LanguageSelect /> */}
       </div>
@@ -79,8 +82,8 @@ work with'
     bodyContent = (
       <div className='flex flex-col gap-8'>
         <Heading
-          title='Where is your place located?'
-          subtitle='Help guests find you!'
+          title='Select Framework'
+          subtitle='Choose the Framework you know'
         />
         {/* <LanguageSelect /> */}
       </div>
@@ -91,8 +94,8 @@ work with'
     bodyContent = (
       <div className='flex flex-col gap-8'>
         <Heading
-          title='Where is your place located?'
-          subtitle='Help guests find you!'
+          title='Personal Details'
+          subtitle='Fill in the accurate details of your personal information'
         />
         {/* <LanguageSelect /> */}
       </div>
@@ -105,9 +108,9 @@ work with'
         disabled={isLoading}
         title=''
         actionLabel={actionLabel}
-        //   onSubmit={handleSubmit(onSubmit)}
+        onSubmit={onSubmit}
         secondaryActionLabel={secondaryActionLabel}
-        secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
+        secondaryAction={step === STEPS.LEVEL ? undefined : onBack}
         body={bodyContent}
       />
     </div>
