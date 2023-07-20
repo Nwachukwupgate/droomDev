@@ -5,6 +5,7 @@ import AvatarCard from '../../components/Cards/AvatarCard';
 import Button from '../../components/Button';
 import Table from '../../components/Table/Table';
 import MatchedJob from '../../components/Table/MatchedJob';
+import LinkButton from '../../components/Button/LinkButton';
 
 const Overview = () => {
   return (
@@ -47,7 +48,8 @@ const Overview = () => {
                   <p className='text-xl text-left'>1 declined</p>
                 </div>
                 <div>
-                  <Button
+                  <LinkButton
+                    href='myoffer'
                     label='see offer'
                     className={'inline-block bg-[#001935]'}
                   />
@@ -62,7 +64,8 @@ const Overview = () => {
               <div className=''>
                 <p className='text-xl mb-10'>2 new invites</p>
                 <div className='text-left'>
-                  <Button
+                  <LinkButton
+                    href='invites'
                     label='Open'
                     className={'inline-block bg-[#F58800]'}
                   />
