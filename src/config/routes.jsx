@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageLoader from '../components/Loader/PageLoader';
+import Layout from '../Layout/Layout';
 
 const AllRoutes = () => {
   const Overview = lazy(() => import('../pages/Dashboard/Overview'));
@@ -11,12 +12,14 @@ const AllRoutes = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Overview />} />
-          <Route path='/alloffer' element={<AllOffers />} />
-          <Route path='/myoffer' element={<MyOffers />} />
-          <Route path='/invites' element={<Invite />} />
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route path='/' element={<Overview />} />
+            <Route path='/alloffer' element={<AllOffers />} />
+            <Route path='/myoffer' element={<MyOffers />} />
+            <Route path='/invites' element={<Invite />} />
+          </Routes>
+        </Layout>
       </BrowserRouter>
     </Suspense>
   );

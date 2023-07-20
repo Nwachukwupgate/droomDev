@@ -1,4 +1,3 @@
-import React from 'react';
 import Navbar from '../components/Navigation/Navbar';
 import SideNav from '../components/Navigation/SideNav';
 

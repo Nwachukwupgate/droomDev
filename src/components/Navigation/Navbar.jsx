@@ -1,14 +1,14 @@
 import { FiMenu, FiSearch } from 'react-icons/fi';
 import Logo from '../../assets/images/logo.png';
 import React, { useState } from 'react';
-import SideNav from './SideNav';
 import ToggleSwitch from '../Inputs/ToggleSwitch';
 import { IoMdNotifications } from 'react-icons/io';
 import Button from '../Button';
 import AvatarCard from '../Cards/AvatarCard';
+import MobileMenu from './MobileMenu';
 
 const Navbar = () => {
-  const [showSideNav, setShowSideNav] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
     <div className='relative'>
@@ -18,7 +18,7 @@ const Navbar = () => {
           <div className='flex items-center gap-7'>
             <div className='lg:hidden'>
               {/* MOBILE HAMBURGER MENU ICON */}
-              <FiMenu size={40} onClick={() => setShowSideNav((o) => !o)} />
+              <FiMenu size={40} onClick={() => setShowMobileMenu((o) => !o)} />
             </div>
             <div className='w-[50px] h-[50px]'>
               <img src={Logo} alt='droomwork-logo' />
@@ -41,9 +41,12 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile SideBar */}
+        {/* Mobile Menu */}
         <div className='lg:hidden overflow-y-scroll w-72 -mt-1 '>
-          <SideNav showSideNav={showSideNav} />
+          <MobileMenu
+            showMobileMenu={showMobileMenu}
+            setShowMobileMenu={setShowMobileMenu}
+          />
         </div>
       </div>
     </div>
