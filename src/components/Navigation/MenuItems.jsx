@@ -8,13 +8,18 @@ import Test from '../../assets/svgs/test-icon.svg';
 import Support from '../../assets/svgs/support.svg';
 
 const sideNavItems = [
-  { label: 'dashboard', id: 'dashboard-icon', src: Dashboard },
-  { label: 'profile', id: 'profile-icon', src: Profile },
-  { label: 'project', id: 'project-icon', src: Project },
-  { label: 'wallet', id: 'wallet-icon', src: Wallet },
-  { label: 'test', id: 'test-icon', src: Test },
-  { label: 'support', id: 'support-icon', src: Support },
-  { label: 'find jobs', id: 'search-icon', src: Search },
+  {
+    label: 'dashboard',
+    id: 'dashboard-icon',
+    page: 'dashboard',
+    src: Dashboard,
+  },
+  { label: 'profile', id: 'profile-icon', page: 'profile', src: Profile },
+  { label: 'project', id: 'project-icon', page: 'project', src: Project },
+  { label: 'wallet', id: 'wallet-icon', page: 'wallet', src: Wallet },
+  { label: 'test', id: 'test-icon', page: 'test', src: Test },
+  { label: 'support', id: 'support-icon', page: 'support', src: Support },
+  { label: 'find jobs', id: 'search-icon', page: 'jobs', src: Search },
 ];
 
 const MenuItems = ({ setShowMobileMenu }) => {
@@ -23,11 +28,11 @@ const MenuItems = ({ setShowMobileMenu }) => {
       <div className='overflow-y-scroll scrollbar-hide lg:mb-16'>
         <nav id='sidenav' className=''>
           <ul className='flex flex-col gap-2.5 justify-center lg:gap-5'>
-            {sideNavItems.map(({ label, id, src }) => (
+            {sideNavItems.map(({ label, id, page, src }) => (
               <li className='' key={id}>
                 <NavLink
                   className={`px-4 flex gap-4 items-center p-3`}
-                  to='/'
+                  to={`/${page}`}
                   onClick={() => setShowMobileMenu(false)}
                 >
                   {/* <Icon name={id} width={20} height={20} /> */}

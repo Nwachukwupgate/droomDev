@@ -42,7 +42,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className='lg:hidden overflow-y-scroll w-72 -mt-1 '>
+        <div className='lg:hidden h-full w-72 -mt-1 '>
           <MobileMenu
             showMobileMenu={showMobileMenu}
             setShowMobileMenu={setShowMobileMenu}

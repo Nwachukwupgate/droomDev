@@ -8,7 +8,7 @@ const MobileMenu = ({ showMobileMenu, setShowMobileMenu }) => {
     <>
       {showMobileMenu && (
         <div
-          className={`bg-[#D9D9D9] shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] dark:bg-zinc-800 px-4 py-11 lg:p-[60px] lg:hidden`}
+          className={`bg-[#D9D9D9] shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] dark:bg-zinc-800 px-4 py-11 lg:p-[60px] overflow-y-scroll`}
         >
           <div className='max-h-full flex flex-col justify-between'>
             {/* AVATAR CARD */}

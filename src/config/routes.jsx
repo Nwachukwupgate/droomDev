@@ -15,9 +15,15 @@ const AllRoutes = () => {
         <Layout>
           <Routes>
             <Route path='/' element={<Overview />} />
+            <Route path='/dashboard' element={<Overview />} />
             <Route path='/alloffer' element={<AllOffers />} />
             <Route path='/myoffer' element={<MyOffers />} />
             <Route path='/invites' element={<Invite />} />
+            <Route path='/pprofile' element={<Invite />} />
+            <Route path='/project' element={<Invite />} />
+            <Route path='/wallet' element={<Invite />} />
+            <Route path='/test' element={<Invite />} />
+            <Route path='/jobs' element={<Invite />} />
           </Routes>
         </Layout>
       </BrowserRouter>
