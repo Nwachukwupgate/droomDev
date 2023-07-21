@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Dashboard from '../../assets/svgs/dashboard-icon.svg';
 import Profile from '../../assets/svgs/profile-icon.svg';
@@ -11,39 +11,48 @@ import Support from '../../assets/svgs/support.svg';
 const sideNavItems = [
   {
     label: 'dashboard',
-    id: 'dashboard-icon',
+    key: '0',
     path: 'dashboard',
     src: Dashboard,
   },
-  { label: 'profile', id: '0', path: 'profile', src: Profile },
-  { label: 'project', id: '1', path: 'project', src: Project },
-  { label: 'wallet', id: '2', path: 'wallet', src: Wallet },
-  { label: 'test', id: '3', path: 'test', src: Test },
-  { label: 'support', id: '4', path: 'support', src: Support },
-  { label: 'find jobs', id: '5', path: 'jobs', src: Search },
+  { label: 'profile', key: '1', path: 'profile', src: Profile },
+  { label: 'project', key: '2', path: 'project', src: Project },
+  { label: 'wallet', key: '3', path: 'wallet', src: Wallet },
+  { label: 'test', key: '4', path: 'test', src: Test },
+  { label: 'support', key: '5', path: 'support', src: Support },
+  { label: 'find jobs', key: '6', path: 'jobs', src: Search },
 ];
 
 const MenuItems = ({ setShowMobileMenu }) => {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState('0');
 
-  const linkHandler = (id) => {
-    setShowMobileMenu(false);
-    setActive(id);
-  };
+  //   useEffect(() => {
+  //  setActive(0)
+  //   }, [])
 
   return (
     <div>
       <div className='overflow-y-scroll scrollbar-hide lg:mb-16'>
         <nav id='sidenav' className=''>
           <ul className='flex flex-col gap-2.5 justify-center lg:gap-5'>
-            {sideNavItems.map(({ label, id, path, src }) => (
-              <li className='' key={id}>
+            {sideNavItems.map(({ label, key, path, src }) => (
+              <li className='' key={key}>
                 <NavLink
+                  id={key}
                   className={`px-4 flex gap-4 items-center p-3 ${
-                    id === active && 'bg-white round-[0.675rem]'
+                    key === active && 'bg-white round-[0.675rem] rounded-[10px]'
                   }`}
                   to={`/${path}`}
-                  onClick={(id) => linkHandler(id)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (
+                      setShowMobileMenu &&
+                      typeof setShowMobileMenu === 'function'
+                    ) {
+                      setShowMobileMenu(false);
+                    }
+                    setActive(key);
+                  }}
                 >
                   {/* <Icon name={id} width={20} height={20} /> */}
                   {src && (
