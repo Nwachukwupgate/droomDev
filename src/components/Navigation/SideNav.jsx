@@ -8,7 +8,7 @@ const SideNav = () => {
     >
       <div className=' flex flex-col justify-between'>
         <MenuItems />
-        <div className='px-4 flex justify-between items-center pb-[71px]'>
+        <div className='px-4 flex justify-between items-center mb-[69px]'>
           <div className='flex gap-3 items-center'>
             <div>
               <img src={SignOut} alt='signout-button' />
