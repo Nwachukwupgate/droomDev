@@ -26,10 +26,6 @@ const sideNavItems = [
 const MenuItems = ({ setShowMobileMenu }) => {
   const [active, setActive] = useState('0');
 
-  //   useEffect(() => {
-  //  setActive(0)
-  //   }, [])
-
   return (
     <div>
       <div className='overflow-y-scroll scrollbar-hide lg:mb-16'>
@@ -44,7 +40,6 @@ const MenuItems = ({ setShowMobileMenu }) => {
                   }`}
                   to={`/${path}`}
                   onClick={(e) => {
-                    e.preventDefault();
                     if (
                       setShowMobileMenu &&
                       typeof setShowMobileMenu === 'function'
