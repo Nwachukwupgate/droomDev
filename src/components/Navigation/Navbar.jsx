@@ -30,10 +30,10 @@ const Navbar = () => {
           </div>
 
           {/* LARGER SCREEN BUTTONS */}
-          <div class='hidden lg:flex items-center gap-7'>
+          <div className='hidden lg:flex items-center gap-7'>
             <ToggleSwitch />
             <Button label={'Refer & Earn'} className={'bg-primary'} />
-            <div class='inline-block h-[42px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 opacity-100 dark:opacity-50 m-auto'></div>
+            <div className='inline-block h-[42px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 opacity-100 dark:opacity-50 m-auto'></div>
             <div className='flex items-center gap-10'>
               <IoMdNotifications size={32} />
               <AvatarCard />

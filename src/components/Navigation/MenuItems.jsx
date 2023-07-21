@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Dashboard from '../../assets/svgs/dashboard-icon.svg';
 import Profile from '../../assets/svgs/profile-icon.svg';
@@ -11,29 +12,38 @@ const sideNavItems = [
   {
     label: 'dashboard',
     id: 'dashboard-icon',
-    page: 'dashboard',
+    path: 'dashboard',
     src: Dashboard,
   },
-  { label: 'profile', id: 'profile-icon', page: 'profile', src: Profile },
-  { label: 'project', id: 'project-icon', page: 'project', src: Project },
-  { label: 'wallet', id: 'wallet-icon', page: 'wallet', src: Wallet },
-  { label: 'test', id: 'test-icon', page: 'test', src: Test },
-  { label: 'support', id: 'support-icon', page: 'support', src: Support },
-  { label: 'find jobs', id: 'search-icon', page: 'jobs', src: Search },
+  { label: 'profile', id: '0', path: 'profile', src: Profile },
+  { label: 'project', id: '1', path: 'project', src: Project },
+  { label: 'wallet', id: '2', path: 'wallet', src: Wallet },
+  { label: 'test', id: '3', path: 'test', src: Test },
+  { label: 'support', id: '4', path: 'support', src: Support },
+  { label: 'find jobs', id: '5', path: 'jobs', src: Search },
 ];
 
 const MenuItems = ({ setShowMobileMenu }) => {
+  const [active, setActive] = useState(0);
+
+  const linkHandler = (id) => {
+    setShowMobileMenu(false);
+    setActive(id);
+  };
+
   return (
     <div>
       <div className='overflow-y-scroll scrollbar-hide lg:mb-16'>
         <nav id='sidenav' className=''>
           <ul className='flex flex-col gap-2.5 justify-center lg:gap-5'>
-            {sideNavItems.map(({ label, id, page, src }) => (
+            {sideNavItems.map(({ label, id, path, src }) => (
               <li className='' key={id}>
                 <NavLink
-                  className={`px-4 flex gap-4 items-center p-3`}
-                  to={`/${page}`}
-                  onClick={() => setShowMobileMenu(false)}
+                  className={`px-4 flex gap-4 items-center p-3 ${
+                    id === active && 'bg-white round-[0.675rem]'
+                  }`}
+                  to={`/${path}`}
+                  onClick={(id) => linkHandler(id)}
                 >
                   {/* <Icon name={id} width={20} height={20} /> */}
                   {src && (
@@ -41,7 +51,7 @@ const MenuItems = ({ setShowMobileMenu }) => {
                       <img src={src} alt='id' />
                     </div>
                   )}
-                  <p className='leading-8 text-primary capitalize lg:text-[1.375rem] '>
+                  <p className='leading-8 text-primary capitalize  lg:text-lg xl:text-[1.375rem] '>
                     {label}
                   </p>
                 </NavLink>

@@ -7,9 +7,9 @@ const Layout = ({ children }) => {
       <header>
         <Navbar />
       </header>
-      <div className='relative mt-[144px] md:mt-36 flex lg:gap-14 xl:gap-[83px] lg:px-[60px]'>
+      <div className='relative min-h-screen mt-[144px] md:mt-36 flex lg:gap-14 xl:gap-[83px] lg:px-[60px]'>
         <div className='lg:w-60 xl:w-80 hidden lg:block '>
-          <div className='fixed left-0 lg:w-60 xl:w-80 z-20'>
+          <div className='fixed left-0 lg:w-60 xl:w-80 z-20 h-screen overflow-y-scroll scrollbar-hide'>
             <SideNav />
           </div>
         </div>
