@@ -7,13 +7,13 @@ const Layout = ({ children }) => {
       <header>
         <Navbar />
       </header>
-      <div className='relative mt-[144px] md:mt-36 flex md:gap-14 lg:gap-20'>
-        <div className='relative min-h-full -mt-1.5 lg:w-60 hidden lg:block lg:basis-[22%] '>
-          <div className='fixed left-0'>
+      <div className='relative mt-[144px] md:mt-36 flex lg:gap-14 xl:gap-[83px] lg:px-[60px]'>
+        <div className='lg:w-60 xl:w-80 hidden lg:block '>
+          <div className='fixed left-0 lg:w-60 xl:w-80 z-20'>
             <SideNav />
           </div>
         </div>
-        <main className='w-full lg:mt-0 lg:w-[78%] lg:basis-[78%] min-h-screen overflow-x-hidden'>
+        <main className='w-full lg:mt-0  min-h-screen overflow-x-hidden'>
           {children}
         </main>
       </div>

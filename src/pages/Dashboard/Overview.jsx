@@ -10,7 +10,7 @@ const Overview = () => {
   const amount = '$8,690.62';
   return (
     // <Layout>
-    <div className='py-11 px-4'>
+    <div className='py-11 px-4 xl:pr-[62px]'>
       {/* AVATAR & NAME */}
       <AvatarCard />
       <div className=' mt-[72px] flex flex-col md:flex-row gap-10 flex-wrap justify-start'>

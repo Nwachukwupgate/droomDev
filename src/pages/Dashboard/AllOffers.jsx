@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import Layout from '../../Layout/Layout';
 import { tableList } from '../../mockData/index';
 import Table from '../../components/Table/Table';
 

@@ -41,7 +41,9 @@ const MenuItems = ({ setShowMobileMenu }) => {
                       <img src={src} alt='id' />
                     </div>
                   )}
-                  <p className='leading-8 text-primary capitalize'>{label}</p>
+                  <p className='leading-8 text-primary capitalize lg:text-[1.375rem] '>
+                    {label}
+                  </p>
                 </NavLink>
               </li>
             ))}
