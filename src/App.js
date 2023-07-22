@@ -1,5 +1,4 @@
 import './App.css';
-import Layout from './Layout/Layout';
 import AllRoutes from './config/routes';
 import { ThemeProvider } from './context/ThemeContext';
 

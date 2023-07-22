@@ -41,3 +41,15 @@ table {
 .text-global {
   color: var(--text-color);
 } */
+
+/* TOGGLE SWITCH CSS */
+.toggle-switch:checked {
+  background-color: #22c55e; /* bg-green-500 */
+}
+
+.toggle-switch:checked ~ span:last-child {
+  --tw-translate-x: 1.75rem; /* translate-x-7 */
+}
+.toggle-switch:checked ~ span:last-child {
+  --tw-translate-x: 3rem; /* translate-x-7 */
+}

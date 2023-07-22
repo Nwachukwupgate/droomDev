@@ -35,12 +35,12 @@ const Table = ({ header, column, loader, url, label }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {column.map((row, i) => (
+                  {column?.map((row, i) => (
                     <tr
                       className='transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600 border-b-[0.5px] border-[#8d8989] border-opacity-80'
                       key={i}
                     >
-                      {row.map((item, index) => (
+                      {row?.map((item, index) => (
                         <td className='whitespace-nowrap py-3 pr-4' key={index}>
                           {item}
                         </td>
