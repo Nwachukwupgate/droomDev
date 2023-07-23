@@ -4,6 +4,7 @@ import Balance from '../../components/Cards/Balance';
 import Button from '../../components/Button';
 import Divider from '../../components/Divider';
 import TransactionTable from './TransactionTable';
+import LinkButton from '../../components/Button/LinkButton';
 
 const Wallet = () => {
   return (
@@ -24,7 +25,8 @@ const Wallet = () => {
             withdrawal. Ensure the payment details provided is correct. Input
             your account number and bank name.
           </p>
-          <Button
+          <LinkButton
+            href={'wallet/withdraw'}
             label={'Withdraw funds'}
             className={'text-white bg-primary'}
           />
