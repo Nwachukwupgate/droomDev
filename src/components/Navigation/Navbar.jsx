@@ -11,9 +11,9 @@ const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
-    <div className='relative'>
+    <div className='relative pb-16'>
       <div className=' fixed top-0 left-0 w-full z-50'>
-        <div className='relative flex justify-between items-center px-5 py-11 lg:px-[60px] shadow-md bg-white z-[1035]'>
+        <div className='relative flex justify-between items-center py-8 px-[18px] lg:py-11 lg:px-[60px] shadow-md bg-white z-[1035]'>
           {/* MENU AND LOGO  */}
           <div className='flex items-center gap-7'>
             <div className='lg:hidden'>
@@ -30,10 +30,13 @@ const Navbar = () => {
           </div>
 
           {/* LARGER SCREEN BUTTONS */}
-          <div class='hidden lg:flex items-center gap-7'>
+          <div className='hidden lg:flex items-center gap-7'>
             <ToggleSwitch />
-            <Button label={'Refer & Earn'} className={'bg-primary'} />
-            <div class='inline-block h-[42px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 opacity-100 dark:opacity-50 m-auto'></div>
+            <Button
+              label={'Refer & Earn'}
+              className={'bg-primary text-white'}
+            />
+            <div className='inline-block h-[42px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 opacity-100 dark:opacity-50 m-auto'></div>
             <div className='flex items-center gap-10'>
               <IoMdNotifications size={32} />
               <AvatarCard />
@@ -42,7 +45,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className='lg:hidden h-full w-72 -mt-1 '>
+        <div className='lg:hidden w-72 h-screen overflow-y-scroll'>
           <MobileMenu
             showMobileMenu={showMobileMenu}
             setShowMobileMenu={setShowMobileMenu}

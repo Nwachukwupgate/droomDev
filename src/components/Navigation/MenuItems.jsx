@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Dashboard from '../../assets/svgs/dashboard-icon.svg';
 import Profile from '../../assets/svgs/profile-icon.svg';
@@ -10,30 +11,43 @@ import Support from '../../assets/svgs/support.svg';
 const sideNavItems = [
   {
     label: 'dashboard',
-    id: 'dashboard-icon',
-    page: 'dashboard',
+    key: '0',
+    path: 'dashboard',
     src: Dashboard,
   },
-  { label: 'profile', id: 'profile-icon', page: 'profile', src: Profile },
-  { label: 'project', id: 'project-icon', page: 'project', src: Project },
-  { label: 'wallet', id: 'wallet-icon', page: 'wallet', src: Wallet },
-  { label: 'test', id: 'test-icon', page: 'test', src: Test },
-  { label: 'support', id: 'support-icon', page: 'support', src: Support },
-  { label: 'find jobs', id: 'search-icon', page: 'jobs', src: Search },
+  { label: 'profile', key: '1', path: 'profile', src: Profile },
+  { label: 'project', key: '2', path: 'project', src: Project },
+  { label: 'wallet', key: '3', path: 'wallet', src: Wallet },
+  { label: 'test', key: '4', path: 'test', src: Test },
+  { label: 'support', key: '5', path: 'support', src: Support },
+  { label: 'find jobs', key: '6', path: 'jobs', src: Search },
 ];
 
 const MenuItems = ({ setShowMobileMenu }) => {
+  const [active, setActive] = useState('0');
+
   return (
     <div>
       <div className='overflow-y-scroll scrollbar-hide lg:mb-16'>
         <nav id='sidenav' className=''>
           <ul className='flex flex-col gap-2.5 justify-center lg:gap-5'>
-            {sideNavItems.map(({ label, id, page, src }) => (
-              <li className='' key={id}>
+            {sideNavItems.map(({ label, key, path, src }) => (
+              <li className='' key={key}>
                 <NavLink
-                  className={`px-4 flex gap-4 items-center p-3`}
-                  to={`/${page}`}
-                  onClick={() => setShowMobileMenu(false)}
+                  id={key}
+                  className={`px-4 flex gap-4 items-center p-3 ${
+                    key === active && 'bg-white round-[0.675rem] rounded-[10px]'
+                  }`}
+                  to={`/${path}`}
+                  onClick={(e) => {
+                    if (
+                      setShowMobileMenu &&
+                      typeof setShowMobileMenu === 'function'
+                    ) {
+                      setShowMobileMenu(false);
+                    }
+                    setActive(key);
+                  }}
                 >
                   {/* <Icon name={id} width={20} height={20} /> */}
                   {src && (
@@ -41,7 +55,7 @@ const MenuItems = ({ setShowMobileMenu }) => {
                       <img src={src} alt='id' />
                     </div>
                   )}
-                  <p className='leading-8 text-primary capitalize lg:text-[1.375rem] '>
+                  <p className='leading-8 text-primary capitalize  lg:text-lg xl:text-[1.375rem] '>
                     {label}
                   </p>
                 </NavLink>

@@ -6,7 +6,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className='App'>
-        <div className='min-h-screen'>
+        <div className=''>
           <AllRoutes />
         </div>
       </div>
