@@ -49,28 +49,6 @@ const Table = ({ header, column, loader, url, label }) => {
                   ))}
                 </tbody>
               </table>
-
-              {/* LARGE SCREEN TABLE */}
-              {/* <table className='hidden md:block min-w-full text-left text-sm font-light'>
-                <thead className=' font-medium border-b-[0.5px] border-[#8d8989] border-opacity-80'>
-                  <tr className=''>
-                    {largeHeader?.map(({ title, key }) => (
-                      <th scope='col' className='pt-6 pb-3' key={key}>
-                        {title}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {largeColumn.map((row, i) => (
-                    <tr className='transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600 border-b-[0.5px] border-[#8d8989] border-opacity-80'>
-                      {row.map((item, index) => (
-                        <td className='whitespace-nowrap py-3 '>{item}</td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table> */}
             </div>
           </div>
         </div>

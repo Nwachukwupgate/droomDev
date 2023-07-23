@@ -1,12 +1,12 @@
 import { IoLocationSharp } from 'react-icons/io5';
-const Client = () => {
+const ClientDetails = () => {
   return (
     <section id='client-details'>
       <div>
         <h2 className='text-[1.75rem] font-bold leading-8 mb-3.5'>
           Client's details
         </h2>
-        <div className='flex items-center gap-20'>
+        <div className='flex flex-col lg:flex-row items-center gap-20'>
           <div className='flex gap-[18px] items-center'>
             <div className='w-11 h-11'>
               <img
@@ -27,10 +27,14 @@ const Client = () => {
             <h3 className='text-xl font-bold'>Payment Verification</h3>
             <p className='lg:text-lg'>Verified</p>
           </div>
+          <div className=''>
+            <h3 className='text-xl font-bold'>Proposed amount</h3>
+            <p className='lg:text-lg'>$3,000.00 (Negotiable) </p>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Client;
+export default ClientDetails;

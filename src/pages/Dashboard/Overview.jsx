@@ -49,7 +49,7 @@ const Overview = () => {
               </div>
               <div>
                 <LinkButton
-                  href='myoffer'
+                  href='alloffer'
                   label='see offer'
                   className={'inline-block bg-[#001935]'}
                 />
