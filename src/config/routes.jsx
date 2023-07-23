@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageLoader from '../components/Loader/PageLoader';
 import Layout from '../Layout/Layout';
 
-import Withdraw from '../pages/Wallet/Withdraw';
+import Test from '../pages/Test/Test';
 
 const AllRoutes = () => {
   const Overview = lazy(() => import('../pages/Dashboard/Overview'));
@@ -17,6 +17,7 @@ const AllRoutes = () => {
   const Wallet = lazy(() => import('../pages/Wallet/Wallet'));
   const Withdraw = lazy(() => import('../pages/Wallet/Withdraw'));
   const MatchedJobs = lazy(() => import('../pages/Dashboard/MatchedJobs'));
+  const Test = lazy(() => import('../pages/Test/Test'));
 
   return (
     <Suspense fallback={<PageLoader />}>
@@ -38,7 +39,7 @@ const AllRoutes = () => {
             />
             <Route path='/wallet' element={<Wallet />} />
             <Route path='/wallet/withdraw' element={<Withdraw />} />
-            <Route path='/test' element={<Invite />} />
+            <Route path='/test' element={<Test />} />
             <Route path='/jobs' element={<Invite />} />
           </Routes>
         </Layout>
