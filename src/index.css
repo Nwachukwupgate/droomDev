@@ -20,7 +20,7 @@ img {
 
 body {
   color: #575555;
-  /* color: red; */
+  background-color: #fff;
 }
 
 h1,
@@ -34,22 +34,19 @@ table {
 
 @media (prefers-color-scheme: dark) {
   body {
+    background-color: #001935;
+    color: white;
   }
 }
 
-/* Apply global text color to elements
-.text-global {
-  color: var(--text-color);
-} */
-
 /* TOGGLE SWITCH CSS */
 .toggle-switch:checked {
-  background-color: #22c55e; /* bg-green-500 */
+  background-color: #fff;
 }
 
+/* .toggle-switch:checked ~ span:last-child {
+  --tw-translate-x: 1.75rem;
+} */
 .toggle-switch:checked ~ span:last-child {
-  --tw-translate-x: 1.75rem; /* translate-x-7 */
-}
-.toggle-switch:checked ~ span:last-child {
-  --tw-translate-x: 3rem; /* translate-x-7 */
+  --tw-translate-x: 2.3rem;
 }

@@ -1,8 +1,7 @@
 import React from 'react';
-import { getPaginationData } from '../../utils/utils';
 import { CiCircleChevLeft, CiCircleChevRight } from 'react-icons/ci';
 
-const Pagination = ({ query, setQuery, count, per_page }) => {
+const Pagination = () => {
   return (
     <div aria-label='table pagination' className='m-auto'>
       <ul className=' flex gap-11 justify-center items-center'>
