@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import Dashboard from '../../assets/svgs/dashboard-icon.svg';
 import Profile from '../../assets/svgs/profile-icon.svg';
 import Project from '../../assets/svgs/project-icon.svg';
@@ -24,7 +23,7 @@ const sideNavItems = [
 ];
 
 const MenuItems = ({ setShowMobileMenu }) => {
-  const [active, setActive] = useState('0');
+  const location = useLocation();
 
   return (
     <div>
@@ -36,7 +35,8 @@ const MenuItems = ({ setShowMobileMenu }) => {
                 <NavLink
                   id={key}
                   className={`px-4 flex gap-4 items-center p-3 ${
-                    key === active && 'bg-white round-[0.675rem] rounded-[10px]'
+                    location.pathname.split(' ')[0].includes(`/${path}`) &&
+                    'bg-white round-[0.675rem] rounded-[10px]'
                   }`}
                   to={`/${path}`}
                   onClick={(e) => {
@@ -46,7 +46,7 @@ const MenuItems = ({ setShowMobileMenu }) => {
                     ) {
                       setShowMobileMenu(false);
                     }
-                    setActive(key);
+                    // setActive(key);
                   }}
                 >
                   {/* <Icon name={id} width={20} height={20} /> */}
