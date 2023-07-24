@@ -3,6 +3,7 @@ import TransactionTable from './TransactionTable';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import Button from '../../components/Button';
 import OutlineButton from '../../components/Button/OutlineButton';
+import Pagination from '../../components/Pagination/Pagination';
 
 const Withdraw = () => {
   const [showEarnings, setShowEarnings] = useState(true);
@@ -66,8 +67,9 @@ const Withdraw = () => {
           </form>
         </section>
       </div>
-      <div className='basis-1/2'>
+      <div className='basis-1/2 flex flex-col  gap-3'>
         <TransactionTable />
+        <Pagination />
       </div>
     </div>
   );
