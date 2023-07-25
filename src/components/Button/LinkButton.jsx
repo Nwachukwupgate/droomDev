@@ -13,7 +13,7 @@ const LinkButton = ({ label, href, className, onClick }) => {
       <Link
         to={`/${href ? href : ''}`}
         className={`${className} whitespace-nowrap text-sm rounded-lg  text-white px-[30px] py-3.5`}
-        onClick={handleClick}
+        // onClick={handleClick}
       >
         {label}
       </Link>
