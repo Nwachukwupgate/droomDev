@@ -4,7 +4,7 @@ const Button = ({ label, className, onClick }) => {
   return (
     <div>
       <button
-        className={`${className} text-sm rounded-lg px-[30px] py-3.5`}
+        className={`${className} text-sm rounded-lg px-[30px] py-3.5 border border-transparent`}
         onClick={onClick}
       >
         {label}

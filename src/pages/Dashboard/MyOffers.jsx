@@ -1,7 +1,7 @@
 import React from 'react';
 import Badge from '../../components/Badge/Badge';
 import MilestoneTable from '../../components/Table/MilestoneTable';
-import Client from '../../components/Cards/Client';
+import ClientDetails from '../../components/Cards/ClientDetails';
 
 const MyOffer = () => {
   return (
@@ -19,7 +19,7 @@ const MyOffer = () => {
         </p>
       </div>
 
-      {/* TALENT DETAILS */}
+      {/* JOB DETAILS */}
       <div className='gap-[30px] pb-7 grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 border-b border-divider-grey'>
         <div>
           <h3 className='font-semibold leading-8 lg:text-xl'>Amount</h3>
@@ -55,7 +55,7 @@ const MyOffer = () => {
 
       {/* CLIENT DETAILS */}
       <div className='pb-[51px] border-b border-divider-grey'>
-        <Client />
+        <ClientDetails />
       </div>
 
       {/* MILESTONE */}
