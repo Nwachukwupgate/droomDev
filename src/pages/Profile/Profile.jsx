@@ -1,25 +1,12 @@
 import Badge from '../../components/Badge/Badge';
 import LinkButton from '../../components/Button/LinkButton';
 import AvatarCard from '../../components/Cards/AvatarCard';
-import { useState } from 'react';
-import EditProfile from './EditProfile';
-import ControlledModal from '../../components/Modal/ControlledModal';
 
 const Profile = () => {
-  const [open, setOpen] = useState(false);
-
-  const editModalHandler = () => {
-    setOpen(true);
-  };
-
   return (
     <>
-      {/* LARGE SCREENS Modal*/}
-      <ControlledModal open={open}>
-        <EditProfile />
-      </ControlledModal>
-      <div className='px-4 my-[53px]'>
-        <AvatarCard />
+      <div className=''>
+        <AvatarCard bigSize />
         <div className='pb-[44px] mt-9'>
           <h1 className='text-xl font-semibold leading-8 mb-2.5 md:mb-6 text-left'>
             About
@@ -42,7 +29,6 @@ const Profile = () => {
             href={'profile/edit'}
             label={'Edit profile'}
             className={'bg-[#F58800] text-white'}
-            onClick={editModalHandler}
           />
         </div>
 
