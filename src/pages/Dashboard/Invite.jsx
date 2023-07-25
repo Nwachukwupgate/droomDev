@@ -1,15 +1,15 @@
 import React from 'react';
 import Badge from '../../components/Badge/Badge';
-import MilestoneTable from '../../components/Table/MilestoneTable';
-import Layout from '../../Layout/Layout';
+import ClientDetails from '../../components/Cards/ClientDetails';
+import InvitationDetails from '../../components/Cards/InvitationDetails';
+import Divider from '../../components/Divider';
 
 const Invite = () => {
   return (
-    // <Layout>
     <div>
-      <div className='px-4 py-11 text-left flex flex-col gap-[25px]'>
+      <div className='text-left flex flex-col gap-[25px]'>
         <div className='pb-[30px] border-b border-divider-grey'>
-          <h1 className='text-xl font-semibold leading-8 mb-[30px] md:mb-6 text-left'>
+          <h1 className='text-xl lg:text-2xl font-semibold leading-8 mb-[30px] md:mb-6 text-left'>
             Client's Request
           </h1>
           <p>
@@ -44,9 +44,13 @@ const Invite = () => {
             <Badge />
           </div>
         </div>
+        {/* CLIENT DETAILS */}
+        <ClientDetails />
+        <Divider />
+        {/* INVITATION DETAILS */}
+        <InvitationDetails />
       </div>
     </div>
-    // </Layout>
   );
 };
 

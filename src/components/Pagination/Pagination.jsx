@@ -3,7 +3,7 @@ import { CiCircleChevLeft, CiCircleChevRight } from 'react-icons/ci';
 
 const Pagination = () => {
   return (
-    <div aria-label='table pagination' className='m-auto'>
+    <div aria-label='table pagination' className='m-auto mt-12 lg:mt-[70px]'>
       <ul className=' flex gap-11 justify-center items-center'>
         <li>
           <div

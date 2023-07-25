@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
-import Table from './Table';
-import { tableList } from '../../mockData/index';
+import Table from '../../components/Table/Table';
+import { tableList } from '../../mockData';
 
-const MatchedJob = () => {
+const MatchedJobsTable = () => {
   const tableHeader = useMemo(
     () => [
       {
@@ -36,4 +36,4 @@ const MatchedJob = () => {
   );
 };
 
-export default MatchedJob;
+export default MatchedJobsTable;

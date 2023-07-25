@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import AvatarCard from '../../components/Cards/AvatarCard';
-import MatchedJob from '../../components/Table/MatchedJob';
 import LinkButton from '../../components/Button/LinkButton';
+import MatchedJobsTable from './MatchedJobsTable';
+import Pagination from '../../components/Pagination/Pagination';
 
 const Overview = () => {
   const [showEarnings, setShowEarnings] = useState(true);
 
   const amount = '$8,690.62';
   return (
-    // <Layout>
-    <div className='py-11 px-4 xl:pr-[62px]'>
+    <div className=''>
       {/* AVATAR & NAME */}
       <AvatarCard />
       <div className=' mt-[72px] flex flex-col md:flex-row gap-10 flex-wrap justify-start'>
@@ -76,10 +76,10 @@ const Overview = () => {
       </div>
       {/* TABLE */}
       <div className=' mt-14 px-4'>
-        <MatchedJob />
+        <MatchedJobsTable />
+        <Pagination />
       </div>
     </div>
-    // </Layout>
   );
 };
 
