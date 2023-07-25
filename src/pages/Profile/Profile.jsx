@@ -36,6 +36,7 @@ const Profile = () => {
           <LinkButton
             label={'Retake Test'}
             className={'bg-primary text-white'}
+            href={'profile/edit'}
           />
           <LinkButton
             href={'profile/edit'}

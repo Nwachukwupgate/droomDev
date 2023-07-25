@@ -31,9 +31,9 @@ const EditProfile = () => {
     }
 
     setIsLoading(true);
-    console.log(isLoading);
+    // console.log(isLoading);
     setStep(STEPS.LEVEL);
-    console.log(step);
+    // console.log(step);
     setIsLoading(false);
   };
 
