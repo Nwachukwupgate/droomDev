@@ -12,7 +12,7 @@ const RetakeTestModal = () => {
             <img src={Logo} alt='droomwork brand logo' />
           </div>
           <p className='text-xl bg-primary mb-5'>Retake CBT Test</p>
-          <p className='text-sm mb-20'>
+          <p className='text-sm mb-20 leading-5'>
             You have successfully updated your profile. You will be required to
             Retake Talent’s Test
           </p>

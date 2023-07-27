@@ -10,7 +10,7 @@ const InputBox = ({ label, type, name, id, placeholder }) => {
         {label || ''}
       </label>
       <input
-        className='border border-input rounded-md px-[13px] py-3'
+        className='border border-input rounded-md px-[13px] py-3 outline-0'
         type={type}
         id={id}
         name={name}

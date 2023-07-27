@@ -10,7 +10,7 @@ const TextArea = ({ placeholder, label, classname, name, value, type, id }) => {
         {label || ''}
       </label>
       <textarea
-        className='border border-input rounded-md px-[13px] py-3'
+        className='border border-input rounded-md px-[13px] py-3 outline-0'
         type={type}
         id={id}
         name={name}
