@@ -1,6 +1,7 @@
 import { BsFillPatchCheckFill } from 'react-icons/bs';
+import Status from '../Status/Status';
 
-const AvatarCard = ({ bigSize }) => {
+const AvatarCard = ({ bigSize, verified, showStatus }) => {
   return (
     <div className='flex items-end gap-5'>
       <div className='relative'>
@@ -17,11 +18,13 @@ const AvatarCard = ({ bigSize }) => {
             alt='Avatar'
           />
         </div>
-        <BsFillPatchCheckFill
-          className='absolute right-1 top-[80%]'
-          size={bigSize ? 20 : 16}
-          color='#F58800'
-        />
+        {verified && (
+          <BsFillPatchCheckFill
+            className='absolute right-1 top-[80%]'
+            size={bigSize ? 20 : 16}
+            color='#F58800'
+          />
+        )}
       </div>
       <div>
         <p
@@ -38,6 +41,7 @@ const AvatarCard = ({ bigSize }) => {
         >
           Node JS Developer
         </p>
+        {!verified && <Status label={'Not verified'} />}
       </div>
     </div>
   );

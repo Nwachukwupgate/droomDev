@@ -24,6 +24,8 @@ const sideNavItems = [
 
 const MenuItems = ({ setShowMobileMenu }) => {
   const location = useLocation();
+  let currentPath;
+  console.log(location.pathname.split(' '));
 
   return (
     <div>
