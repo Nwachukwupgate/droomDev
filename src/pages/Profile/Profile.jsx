@@ -143,6 +143,7 @@ const Profile = () => {
               </a>{' '}
             </div>
           </div>
+
           {/* HR RESULTS */}
           <div>
             <h2 className='text-base lg:text-2xl font-semibold mb-2'>

@@ -3,6 +3,8 @@ import EditProfileContent from '../../components/EditProfile/EditProfileContent'
 import Heading from '../../components/EditProfile/Heading';
 import LanguageSelect from '../../components/Inputs/LanguageSelect';
 import RadioInput from '../../components/Inputs/RadioInput';
+import CustomSelect from '../../components/CustomSelect/CustomSelect';
+import SelectTag from '../../components/CustomSelect/SelectTag';
 
 const STEPS = {
   LEVEL: 0,
@@ -10,6 +12,28 @@ const STEPS = {
   FRAMEWORK: 2,
   DETAILS: 3,
 };
+
+const stacks = [
+  { key: 'react', value: 'React' },
+  { key: 'vue', value: 'Vue' },
+  { key: 'django', value: 'Django' },
+  { key: 'flask', value: 'Flask' },
+  { key: 'angular', value: 'Angular' },
+];
+const languages = [
+  'Javascript',
+  'HTML',
+  'CSS',
+  'Typescript',
+  'Python',
+  'Golang',
+];
+const yearsOfExperience = [
+  { key: '0', value: 'Less than a year' },
+  { key: '1', value: '1 - 3 years' },
+  { key: 'django', value: '3 - 7 years' },
+  { key: 'flask', value: '7+ years' },
+];
 
 const EditProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -63,6 +87,9 @@ work with'
       <div className=''>
         <RadioInput />
       </div>
+      <div>
+        <CustomSelect options={stacks} title={'Select a stack'} />
+      </div>
     </div>
   );
 
@@ -73,7 +100,9 @@ work with'
           title='Select Language'
           subtitle='Choose the language that you work with'
         />
-        {/* <LanguageSelect /> */}
+        <div>
+          <SelectTag />
+        </div>{' '}
       </div>
     );
   }
