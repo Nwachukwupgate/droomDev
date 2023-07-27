@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react';
 import EditProfileContent from '../../components/EditProfile/EditProfileContent';
 import Heading from '../../components/EditProfile/Heading';
-import LanguageSelect from '../../components/Inputs/LanguageSelect';
 import RadioInput from '../../components/Inputs/RadioInput';
 import CustomSelect from '../../components/CustomSelect/CustomSelect';
 import SelectTag from '../../components/CustomSelect/SelectTag';
+import PersonalDetailsForm from './PersonalDetailsForm';
 
 const STEPS = {
   LEVEL: 0,
@@ -102,7 +102,7 @@ work with'
         />
         <div>
           <SelectTag />
-        </div>{' '}
+        </div>
       </div>
     );
   }
@@ -114,7 +114,9 @@ work with'
           title='Select Framework'
           subtitle='Choose the Framework you know'
         />
-        {/* <LanguageSelect /> */}
+        <div>
+          <SelectTag />
+        </div>
       </div>
     );
   }
@@ -126,7 +128,9 @@ work with'
           title='Personal Details'
           subtitle='Fill in the accurate details of your personal information'
         />
-        {/* <LanguageSelect /> */}
+        <div>
+          <PersonalDetailsForm />
+        </div>
       </div>
     );
   }
