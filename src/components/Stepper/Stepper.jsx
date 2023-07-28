@@ -17,7 +17,7 @@ const Stepper = ({ step }) => {
           <div
             className={`${
               step === 0 ? 'text-primary' : 'text-[#B7B3B3]'
-            } absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
+            } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
           >
             SELECT <br /> LEVEL
           </div>
@@ -40,7 +40,7 @@ const Stepper = ({ step }) => {
           <div
             className={`${
               step === 1 ? 'text-primary' : 'text-[#B7B3B3]'
-            } absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
+            } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
           >
             select <br /> language{' '}
           </div>
@@ -63,7 +63,7 @@ const Stepper = ({ step }) => {
           <div
             className={`${
               step === 2 ? 'text-primary' : 'text-[#B7B3B3]'
-            } absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
+            } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
           >
             select <br /> framework{' '}
           </div>
@@ -86,7 +86,7 @@ const Stepper = ({ step }) => {
           <div
             className={`${
               step === 3 ? 'text-primary' : 'text-[#B7B3B3]'
-            } absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
+            } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
           >
             personal <br /> detail
           </div>
@@ -103,7 +103,7 @@ const Stepper = ({ step }) => {
           <div
             className={`${
               step === 4 ? 'text-primary' : 'text-[#B7B3B3]'
-            } absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
+            } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
           >
             success{' '}
           </div>
