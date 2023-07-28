@@ -5,6 +5,10 @@ import RadioInput from '../../components/Inputs/RadioInput';
 import CustomSelect from '../../components/CustomSelect/CustomSelect';
 import SelectTag from '../../components/CustomSelect/SelectTag';
 import PersonalDetailsForm from './PersonalDetailsForm';
+import RetakeTestModal from '../../components/Modal/RetakeTestModal';
+import { useHistory, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import Stepper from '../../components/Stepper/Stepper';
 
 const STEPS = {
   LEVEL: 0,
@@ -38,6 +42,9 @@ const yearsOfExperience = [
 const EditProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(STEPS.LEVEL);
+  const [showModal, setShowModal] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = () => {};
 
@@ -55,12 +62,14 @@ const EditProfile = () => {
     }
 
     setIsLoading(true);
+    setShowModal(true);
     // console.log(isLoading);
-    setStep(STEPS.LEVEL);
+    // setStep(STEPS.LEVEL);
     // console.log(step);
     setIsLoading(false);
   };
 
+  // CONTROLS THE BACK AND NEXT LABELS
   const actionLabel = useMemo(() => {
     if (step === STEPS.DETAILS) {
       return 'Update';
@@ -137,15 +146,26 @@ work with'
 
   return (
     <div>
-      <EditProfileContent
-        disabled={isLoading}
-        title=''
-        actionLabel={actionLabel}
-        onSubmit={onSubmit}
-        secondaryActionLabel={secondaryActionLabel}
-        secondaryAction={step === STEPS.LEVEL ? undefined : onBack}
-        body={bodyContent}
-      />
+      <h1 className='text-xl lg:text-2xl font-bold leading-8 mt-10 mb-12 md:mb-[53px] text-left'>
+        Edit Profile
+      </h1>
+      <div>
+        <RetakeTestModal open={showModal} />
+      </div>
+      <div className='mb-32'>
+        <Stepper step={step} />
+      </div>
+      <div className=''>
+        <EditProfileContent
+          disabled={isLoading}
+          title=''
+          actionLabel={actionLabel}
+          onSubmit={onSubmit}
+          secondaryActionLabel={secondaryActionLabel}
+          secondaryAction={step === STEPS.LEVEL ? undefined : onBack}
+          body={bodyContent}
+        />
+      </div>
     </div>
   );
 };

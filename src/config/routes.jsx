@@ -1,7 +1,8 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageLoader from '../components/Loader/PageLoader';
 import Layout from '../Layout/Layout';
+import { ThemeContext } from '../context/ThemeContext';
 
 const AllRoutes = () => {
   const Overview = lazy(() => import('../pages/Dashboard/Overview'));
@@ -18,30 +19,34 @@ const AllRoutes = () => {
   const Test = lazy(() => import('../pages/Test/Test'));
   const Support = lazy(() => import('../pages/Support/Support'));
 
+  const { theme } = useContext(ThemeContext);
+
   return (
     <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
         <Layout>
-          <Routes>
-            <Route path='/' element={<Overview />} />
-            <Route path='/dashboard' element={<Overview />} />
-            <Route path='/alloffer' element={<AllOffers />} />
-            <Route path='/alloffer/:id' element={<MyOffers />} />
-            <Route path='/jobs' element={<MatchedJobs />} />
-            <Route path='/invites' element={<Invite />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/profile/edit' element={<EditProfile />} />
-            <Route path='/project' element={<Project />} />
-            <Route
-              path='/project/active-projects'
-              element={<ActiveProject />}
-            />
-            <Route path='/wallet' element={<Wallet />} />
-            <Route path='/wallet/withdraw' element={<Withdraw />} />
-            <Route path='/support' element={<Support />} />
-            <Route path='/test' element={<Test />} />
-            <Route path='/jobs' element={<Invite />} />
-          </Routes>
+          <div className={theme} id='app-container'>
+            <Routes>
+              <Route path='/' element={<Overview />} />
+              <Route path='/dashboard' element={<Overview />} />
+              <Route path='/alloffer' element={<AllOffers />} />
+              <Route path='/alloffer/:id' element={<MyOffers />} />
+              <Route path='/jobs' element={<MatchedJobs />} />
+              <Route path='/invites' element={<Invite />} />
+              <Route path='/profile' element={<Profile />} />
+              <Route path='/profile/edit' element={<EditProfile />} />
+              <Route path='/project' element={<Project />} />
+              <Route
+                path='/project/active-projects'
+                element={<ActiveProject />}
+              />
+              <Route path='/wallet' element={<Wallet />} />
+              <Route path='/wallet/withdraw' element={<Withdraw />} />
+              <Route path='/support' element={<Support />} />
+              <Route path='/test' element={<Test />} />
+              <Route path='/jobs' element={<Invite />} />
+            </Routes>
+          </div>
         </Layout>
       </BrowserRouter>
     </Suspense>

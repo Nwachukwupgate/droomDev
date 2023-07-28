@@ -1,5 +1,6 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
+import { BsChevronDown } from 'react-icons/bs';
 
 const CustomSelect = ({ value, setValue, options, title }) => {
   return (
@@ -8,7 +9,7 @@ const CustomSelect = ({ value, setValue, options, title }) => {
         <div className='flex justify-between rounded-md bg-[#F0EEF1] text-grey-text cursor-pointer items-center gap-1 border border-grey-input p-4'>
           {/* {value[1]} */}
           <p className='text-sm text-[#A39F9F]'>Lorem Ipsum</p>
-          <p>djdjdk</p>
+          <BsChevronDown />{' '}
         </div>
       }
       on='click'
