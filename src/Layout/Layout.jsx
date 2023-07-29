@@ -3,17 +3,17 @@ import SideNav from '../components/Navigation/SideNav';
 
 const Layout = ({ children }) => {
   return (
-    <div className='relative'>
-      <header>
+    <div className='relative '>
+      <header className='mb-[113px]'>
         <Navbar />
       </header>
-      <div className='relative min-h-screen lg:mt-20 flex lg:gap-14 xl:gap-[83px] lg:px-[60px]'>
-        <div className='lg:w-60 xl:w-80 hidden lg:block '>
-          <div className='fixed left-0 lg:w-60 xl:w-80 z-20 h-screen overflow-y-scroll scrollbar-hide'>
+      <div className='relative min-h-screen flex lg:gap-x-60 xl:gap-x-80 '>
+        <div className='hidden lg:block'>
+          <div className='fixed left-0 lg:w-60 xl:w-80 z-20 h-screen overflow-y-scroll scrollbar-hide bg-[#D9D9D9] '>
             <SideNav />
           </div>
         </div>
-        <main className='w-full lg:mt-0  min-h-screen overflow-x-hidden'>
+        <main className='w-full pt-11 px-4 pb-20 sm:px-8 md:px-12 lg:p-14 lg:pl-[60px] xl:py-[60px] xl:pl-[84px] min-h-screen overflow-x-hidden'>
           {children}
         </main>
       </div>

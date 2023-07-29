@@ -3,10 +3,8 @@ import React from 'react';
 // import SkeletonBox from '../SkeletonBox/SkeletonBox';
 
 const Table = ({ header, column, loader, url, label }) => {
-  console.log(column);
-  console.log(header);
   return (
-    <div className='rounded-[25px] border border-[rgba(141, 137, 137, 0.50] p-4 lg:p-8'>
+    <div className='rounded-[25px] border border-[rgba(141, 137, 137, 0.50] p-4 lg:p-8 shadow-table'>
       {/* HEADING */}
       {label && (
         <div className='pb-6 border-b border-[#8d8989] border-opacity-80'>

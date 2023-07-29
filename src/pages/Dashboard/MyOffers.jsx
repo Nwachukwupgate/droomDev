@@ -2,6 +2,7 @@ import React from 'react';
 import Badge from '../../components/Badge/Badge';
 import MilestoneTable from '../../components/Table/MilestoneTable';
 import ClientDetails from '../../components/Cards/ClientDetails';
+import Pagination from '../../components/Pagination/Pagination';
 
 const MyOffer = () => {
   return (
@@ -65,6 +66,7 @@ const MyOffer = () => {
         </h2>
 
         <MilestoneTable />
+        <Pagination />
       </div>
     </div>
     // </Layout>

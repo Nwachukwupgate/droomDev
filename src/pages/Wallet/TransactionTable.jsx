@@ -1,17 +1,16 @@
 import React, { useMemo } from 'react';
-import Table from './Table';
-import { tableList } from '../../mockData/index';
+import Table from '../../components/Table/Table';
 
-const MatchedJob = () => {
+const TransactionTable = () => {
   const tableHeader = useMemo(
     () => [
       {
-        title: 'Client',
-        key: 'client',
+        title: 'Type',
+        key: 'type',
       },
       {
-        title: 'Request',
-        key: 'request',
+        title: 'Amount',
+        key: 'amount',
       },
       {
         title: 'Date',
@@ -28,12 +27,11 @@ const MatchedJob = () => {
     ],
     []
   );
-
   return (
     <div>
-      <Table header={tableHeader} label='Matched Jobs' column={tableList} />
+      <Table header={tableHeader} label='Recent Transaction' />
     </div>
   );
 };
 
-export default MatchedJob;
+export default TransactionTable;

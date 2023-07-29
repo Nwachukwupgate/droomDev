@@ -7,8 +7,8 @@ const Icon = ({ width, height, name, ...rest }) => {
     <>
       {name && (
         <svg width={width} height={height} {...rest} color='black' fill='black'>
-          <use xlinkHref='/svgs/dashboard.svg' color='black' fill='black' />
-          {/* <use xlinkHref={iconPath} /> */}
+          {/* <use xlinkHref='/svgs/dashboard.svg' color='black' fill='black' /> */}
+          <use xlinkHref={iconPath} />
         </svg>
       )}
     </>

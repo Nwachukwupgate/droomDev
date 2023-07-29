@@ -1,12 +1,14 @@
-import { IoLocationSharp } from 'react-icons/io5';
+import { MdLocationOn } from 'react-icons/md';
+import OutlineButton from '../Button/OutlineButton';
+import Button from '../Button';
 const ClientDetails = () => {
   return (
     <section id='client-details'>
       <div>
-        <h2 className='text-[1.75rem] font-bold leading-8 mb-3.5'>
+        <h2 className='text-xl lg:text-2xl font-semibold leading-8 mb-3.5'>
           Client's details
         </h2>
-        <div className='flex flex-col lg:flex-row items-center gap-20'>
+        <div className='flex flex-col items-start lg:flex-row lg:flex-wrap  gap-10 lg:gap-20'>
           <div className='flex gap-[18px] items-center'>
             <div className='w-11 h-11'>
               <img
@@ -19,7 +21,7 @@ const ClientDetails = () => {
           <div>
             <div className='flex gap-3 items-center'>
               <h3 className='text-xl font-bold'>Location</h3>
-              <IoLocationSharp width={14} height={20} fill='#E27D03' />
+              <MdLocationOn width={14} height={20} color='#E27D03' />
             </div>
             <p className='lg:text-lg'>London, United Kingdom</p>
           </div>
@@ -31,6 +33,13 @@ const ClientDetails = () => {
             <h3 className='text-xl font-bold'>Proposed amount</h3>
             <p className='lg:text-lg'>$3,000.00 (Negotiable) </p>
           </div>
+        </div>
+        <div className='flex justify-start items-center gap-8 mt-16'>
+          <OutlineButton label={'Not Available'} />
+          <Button
+            className={'border border-transparent bg-primary text-white'}
+            label={'Available'}
+          />
         </div>
       </div>
     </section>

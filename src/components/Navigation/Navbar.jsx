@@ -11,9 +11,9 @@ const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
-    <div className='relative pb-16'>
+    <div className='relative'>
       <div className=' fixed top-0 left-0 w-full z-50'>
-        <div className='relative flex justify-between items-center py-8 px-[18px] lg:py-11 lg:px-[60px] shadow-md bg-white z-[1035]'>
+        <div className='flex justify-between items-center py-8 px-[18px] sm:px-8  md:px-12 lg:px-[60px] shadow-header bg-white z-[1035]'>
           {/* MENU AND LOGO  */}
           <div className='flex items-center gap-7'>
             <div className='lg:hidden'>
@@ -24,7 +24,7 @@ const Navbar = () => {
               <img src={Logo} alt='droomwork-logo' />
             </div>
           </div>
-          {/* Search */}
+          {/* SEARCH */}
           <div className='lg:hidden'>
             <FiSearch size={24} />
           </div>
@@ -45,7 +45,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className='lg:hidden w-72 h-screen overflow-y-scroll'>
+        <div className=' '>
           <MobileMenu
             showMobileMenu={showMobileMenu}
             setShowMobileMenu={setShowMobileMenu}

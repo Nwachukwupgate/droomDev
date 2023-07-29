@@ -6,15 +6,15 @@ const ToggleSwitch = () => {
       <label className='flex items-center relative w-max cursor-pointer select-none'>
         <input
           type='checkbox'
-          className='toggle-switch appearance-none transition-colors cursor-pointer w-[88px] h-11 rounded-full focus:outline-none  focus:ring-[#8D8989] bg-[#8D8989] p-5'
+          className='toggle-switch appearance-none transition-colors cursor-pointer w-[77px] h-8 rounded-full focus:outline-none  bg-[#8D8989] p-5 border border-[8D8989]'
         />
-        <span className='absolute font-medium text-xs uppercase right-2 text-primary'>
+        <span className='absolute font-medium text-xs uppercase right-1.5 text-primary tracking-tighter'>
           Dark
         </span>
-        <span className='absolute font-medium text-xs uppercase left-2 text-primary'>
+        <span className='absolute font-medium text-xs uppercase left-1.5 text-primary tracking-tighter'>
           Light
         </span>
-        <span className='w-11 h-11 right-12 absolute rounded-full transform transition-transform bg-primary' />
+        <span className='w-8 h-8 right-10 absolute rounded-full transform transition-transform bg-primary' />
       </label>
     </div>
   );
