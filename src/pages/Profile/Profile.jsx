@@ -140,7 +140,7 @@ const Profile = () => {
               </h2>
               <a href='wwww.facebook.com' className='text-blue-500 underline'>
                 www.facebook.com
-              </a>{' '}
+              </a>
             </div>
           </div>
 

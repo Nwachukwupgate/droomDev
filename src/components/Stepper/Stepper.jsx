@@ -42,7 +42,7 @@ const Stepper = ({ step }) => {
               step === 1 ? 'text-primary' : 'text-[#B7B3B3]'
             } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
           >
-            select <br /> language{' '}
+            select <br /> language
           </div>
         </div>
         <div
@@ -65,7 +65,7 @@ const Stepper = ({ step }) => {
               step === 2 ? 'text-primary' : 'text-[#B7B3B3]'
             } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
           >
-            select <br /> framework{' '}
+            select <br /> framework
           </div>
         </div>
         <div
@@ -105,7 +105,7 @@ const Stepper = ({ step }) => {
               step === 4 ? 'text-primary' : 'text-[#B7B3B3]'
             } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
           >
-            success{' '}
+            success
           </div>
         </div>
       </div>

@@ -6,8 +6,7 @@ import CustomSelect from '../../components/CustomSelect/CustomSelect';
 import SelectTag from '../../components/CustomSelect/SelectTag';
 import PersonalDetailsForm from './PersonalDetailsForm';
 import RetakeTestModal from '../../components/Modal/RetakeTestModal';
-import { useHistory, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Stepper from '../../components/Stepper/Stepper';
 
 const STEPS = {
