@@ -7,6 +7,7 @@ import Button from '../Button';
 import AvatarCard from '../Cards/AvatarCard';
 import MobileMenu from './MobileMenu';
 import Notification from '../Notification/Notification';
+import UserInfo from './UserInfo';
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -15,7 +16,7 @@ const Navbar = () => {
   return (
     <div className='relative'>
       <div className=' fixed top-0 left-0 w-full z-50'>
-        <div className='flex justify-between items-center py-8 px-[18px] sm:px-8  md:px-12 lg:px-[60px] shadow-header bg-white z-[1035]'>
+        <div className='flex justify-between items-center py-[26px] px-[18px] sm:px-8  md:px-12 lg:px-[60px] shadow-header bg-white z-[1035]'>
           {/* MENU AND LOGO  */}
           <div className='flex items-center gap-7'>
             <div className='lg:hidden'>
@@ -44,7 +45,7 @@ const Navbar = () => {
                 size={32}
                 onClick={() => setShowNotification((o) => !o)}
               />
-              <AvatarCard />
+              <UserInfo />
             </div>
             <div className=''>
               <Notification onOpen={showNotification} />
