@@ -21,6 +21,11 @@
   }
 }
 
+[data-theme='dark'] {
+  --color-bkg: 51, 51, 51;
+  --color-content: 237, 237, 237;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 32px;
@@ -49,13 +54,6 @@ table {
   color: #001935;
   line-height: 32px;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #333;
-    color: #ededed;
-  }
-} */
 
 /* TOGGLE SWITCH CSS */
 .toggle-switch:checked {

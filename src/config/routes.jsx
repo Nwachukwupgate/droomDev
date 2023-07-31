@@ -19,11 +19,11 @@ const AllRoutes = () => {
   const Test = lazy(() => import('../pages/Test/Test'));
   const Support = lazy(() => import('../pages/Support/Support'));
 
-  // const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   return (
     <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
-        <div className='dark:bg-[#333]' id='app-container'>
+        <div className={theme === 'dark' ? 'dark' : 'light'} id='app-container'>
           <Layout>
             <Routes>
               <Route path='/' element={<Overview />} />
