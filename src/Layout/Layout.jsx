@@ -13,7 +13,6 @@ const Layout = ({ children }) => {
       </header>
       <div className='relative min-h-screen flex lg:gap-x-60 xl:gap-x-80 '>
         <div className='hidden lg:block'>
-          {/* <div className='fixed left-0 lg:w-60 xl:w-80 z-20 h-screen overflow-y-scroll scrollbar-hide bg-[#D9D9D9] dark:bg-[#444444] '> */}
           <div
             className={`fixed left-0 lg:w-60 xl:w-80 z-20 h-screen overflow-y-scroll scrollbar-hide ${
               theme === 'dark' ? 'bg-[#444444]' : 'bg-[#D9D9D9]'
