@@ -3,8 +3,8 @@
 const Heading = ({ title, subtitle, center }) => {
   return (
     <div className={center ? 'text-center' : 'text-start'}>
-      <div className='text-2xl font-bold'>{title}</div>
-      <div className='font-light'></div>
+      <div className='text-2xl font-bold mb-10'>{title}</div>
+      <div className='font-light'>{subtitle}</div>
     </div>
   );
 };

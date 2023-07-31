@@ -6,8 +6,9 @@ module.exports = {
     extend: {
       colors: {
         primary: '#001935',
+        secondary: '#F58800',
         'divider-grey': '#8D8989',
-        input: 'rgba(141, 137, 137, 0.83)',
+        input: '#B7B3B3',
         grey: '#575555',
       },
       boxShadow: {

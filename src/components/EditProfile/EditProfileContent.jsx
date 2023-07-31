@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import OutlineButton from '../Button/OutlineButton';
 import Button from '../Button';
 
 const EditProfileContent = ({
@@ -27,11 +28,11 @@ const EditProfileContent = ({
 
   return (
     <div>
-      <section className='px-4 mt-11 mb-32 lg:hidden'>
+      <section className='px-4 mt-12 mb-32 sm:w-3/4 m-auto'>
         <div className='flex flex-col justify-between gap-11'>
           <div>{body}</div>
           <div className='flex justify-between items-center w-full pb-20'>
-            <Button
+            <OutlineButton
               label={secondaryActionLabel}
               className={'border border-primary text-primary'}
               onClick={handleSecondaryAction}
