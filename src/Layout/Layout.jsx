@@ -3,13 +3,13 @@ import SideNav from '../components/Navigation/SideNav';
 
 const Layout = ({ children }) => {
   return (
-    <div className='relative '>
+    <div className='relative'>
       <header className='mb-[113px]'>
         <Navbar />
       </header>
       <div className='relative min-h-screen flex lg:gap-x-60 xl:gap-x-80 '>
         <div className='hidden lg:block'>
-          <div className='fixed left-0 lg:w-60 xl:w-80 z-20 h-screen overflow-y-scroll scrollbar-hide bg-[#D9D9D9] '>
+          <div className='fixed left-0 lg:w-60 xl:w-80 z-20 h-screen overflow-y-scroll scrollbar-hide bg-[#D9D9D9] dark:bg-[#444444] '>
             <SideNav />
           </div>
         </div>

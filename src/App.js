@@ -6,7 +6,7 @@ function App() {
   return (
     <ThemeProvider>
       <div>
-        <div className=''>
+        <div className='bg-bkg text-content'>
           <AllRoutes />
         </div>
       </div>

@@ -19,13 +19,12 @@ const AllRoutes = () => {
   const Test = lazy(() => import('../pages/Test/Test'));
   const Support = lazy(() => import('../pages/Support/Support'));
 
-  const { theme } = useContext(ThemeContext);
-
+  // const { theme } = useContext(ThemeContext);
   return (
     <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
-        <Layout>
-          <div className={theme} id='app-container'>
+        <div className='dark:bg-[#333]' id='app-container'>
+          <Layout>
             <Routes>
               <Route path='/' element={<Overview />} />
               <Route path='/dashboard' element={<Overview />} />
@@ -46,8 +45,8 @@ const AllRoutes = () => {
               <Route path='/test' element={<Test />} />
               <Route path='/jobs' element={<Invite />} />
             </Routes>
-          </div>
-        </Layout>
+          </Layout>
+        </div>
       </BrowserRouter>
     </Suspense>
   );

@@ -5,6 +5,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        bkg: 'rgb(var(--color-bkg) / <alpha-value>)',
+        content: 'rgb(var(--color-bk) / <alpha-value>)',
         primary: '#001935',
         secondary: '#F58800',
         'divider-grey': '#8D8989',

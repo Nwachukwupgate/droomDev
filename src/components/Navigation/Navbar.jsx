@@ -51,8 +51,6 @@ const Navbar = () => {
               <Notification onOpen={showNotification} />
             </div>
           </div>
-          {/* <div> */}
-          {/* </div> */}
         </div>
 
         {/* Mobile Menu */}
