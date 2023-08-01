@@ -4,9 +4,13 @@ import AvatarCard from '../../components/Cards/AvatarCard';
 import LinkButton from '../../components/Button/LinkButton';
 import MatchedJobsTable from './MatchedJobsTable';
 import Pagination from '../../components/Pagination/Pagination';
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Overview = () => {
   const [showEarnings, setShowEarnings] = useState(true);
+  const { theme } = useContext(ThemeContext);
+
 
   const amount = '$8,690.62';
   return (
@@ -51,7 +55,7 @@ const Overview = () => {
                 <LinkButton
                   href='alloffer'
                   label='see offer'
-                  className={'inline-block bg-[#001935]'}
+                  className={`inline-block  ${theme==='dark'? 'bg-[#F58800]' : 'bg-[#001935]'}`}
                 />
               </div>
             </div>

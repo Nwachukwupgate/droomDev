@@ -20,10 +20,13 @@ const AllRoutes = () => {
   const Support = lazy(() => import('../pages/Support/Support'));
 
   const { theme } = useContext(ThemeContext);
+
   return (
     <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
-        <div className={theme === 'dark' ? 'dark' : 'light'} id='app-container'>
+      {/* <div  data-theme={theme==='dark'?'dark':'light'}>
+        <div className='bg-bkg text-content' id='app-container' > */}
+        <div className={theme === 'dark' ? 'dark' : 'light'} id='app-container' data-theme={theme==='dark'?'dark':'light'}>
           <Layout>
             <Routes>
               <Route path='/' element={<Overview />} />

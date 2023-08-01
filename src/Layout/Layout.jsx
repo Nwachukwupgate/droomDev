@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className='relative'>
-      <header className='mb-[113px]'>
+      <header className='mb-[102px] lg:mb-[112px]'>
         <Navbar />
       </header>
       <div className='relative min-h-screen flex lg:gap-x-60 xl:gap-x-80 '>

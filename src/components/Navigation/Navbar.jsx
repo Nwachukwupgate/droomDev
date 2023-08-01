@@ -4,19 +4,22 @@ import React, { useState } from 'react';
 import ToggleSwitch from '../Inputs/ToggleSwitch';
 import { IoMdNotifications } from 'react-icons/io';
 import Button from '../Button';
-import AvatarCard from '../Cards/AvatarCard';
 import MobileMenu from './MobileMenu';
 import Notification from '../Notification/Notification';
 import UserInfo from './UserInfo';
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const { theme } = useContext(ThemeContext);
+
 
   return (
     <div className='relative'>
       <div className=' fixed top-0 left-0 w-full z-50'>
-        <div className='flex justify-between items-center py-[26px] px-[18px] sm:px-8  md:px-12 lg:px-[60px] shadow-header bg-white z-[1035]'>
+        <div className={`${theme==='dark'? 'bg-black shadow-header-dark' : 'bg-white shadow-header'} flex justify-between items-center py-[26px] px-[18px] sm:px-8  md:px-12 lg:px-[60px]  z-[1035]`}>
           {/* MENU AND LOGO  */}
           <div className='flex items-center gap-7'>
             <div className='lg:hidden'>
@@ -28,8 +31,12 @@ const Navbar = () => {
             </div>
           </div>
           {/* SEARCH */}
-          <div className='lg:hidden'>
+          <div className='flex items-center gap-10 lg:hidden'>
             <FiSearch size={24} />
+            <IoMdNotifications
+                size={32}
+                onClick={() => setShowNotification((o) => !o)}
+              />
           </div>
 
           {/* LARGER SCREEN BUTTONS */}

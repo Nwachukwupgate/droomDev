@@ -1,14 +1,20 @@
 import React from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
 // import { SkeletonTheme } from 'react-loading-skeleton';
 // import SkeletonBox from '../SkeletonBox/SkeletonBox';
 
 const Table = ({ header, column, loader, url, label }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div className='rounded-[25px] border border-[rgba(141, 137, 137, 0.50] p-4 lg:p-8 shadow-table'>
       {/* HEADING */}
       {label && (
         <div className='pb-6 border-b border-[#8d8989] border-opacity-80'>
-          <h2 className='text-2xl font-extrabold text-primary text-left'>
+          <h2 className={`${
+              theme === 'dark' ? 'text-[#EDEDED]' : 'text-primary'
+            } 'text-2xl font-extrabold text-left'`}>
             {label}
           </h2>
         </div>

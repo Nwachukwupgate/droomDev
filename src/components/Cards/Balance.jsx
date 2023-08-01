@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Balance = () => {
   const [showEarnings, setShowEarnings] = useState(true);
+  const { theme } = useContext(ThemeContext);
   const amount = '$8,690.62';
 
   return (
     <div>
       <div>
-        <div className='mx-auto shadow-card-sm lg:shadow-card rounded-[25px] inline-block'>
+        <div className={`${
+              theme === 'dark' ? 'shadow-card-dark' : 'shadow-card-sm lg:shadow-card'
+            } mx-auto rounded-[25px] inline-block`}>
           <div className='flex flex-col items-start gap-7 p-7 pb-11'>
             <h2 className='text-[1.75rem] font-bold leading-8 '>My Balance</h2>
             <div className='flex justify-between w-full items-center gap-10'>
