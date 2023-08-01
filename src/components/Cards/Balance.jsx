@@ -25,7 +25,9 @@ const Balance = () => {
               </span>
             </div>
             <div className='flex gap-4'>
-              <span className='text-xl leading-10 text-black'>Coupon Bal:</span>
+            <span className={`${
+              theme === 'dark' ? 'text-white' : 'text-black'
+            } text-xl leading-10`}>Coupon Bal:</span>
               <span className='text-[1.75rem] font-semibold leading-10'>
                 $14
               </span>
