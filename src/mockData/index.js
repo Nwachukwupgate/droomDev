@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Status from '../components/Status/Status';
 
 export const tableList = [
@@ -14,8 +15,47 @@ export const tableList = [
     'Node JS Developer',
     'Feb 19th 2023',
     <Status label='Open' />,
-    <button className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'>
+    <Link className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]' to='/alloffer/:1'>
       Details
-    </button>,
+    </Link>,
+  ],
+];
+
+export const milestoneProgressList = [
+  [
+    'LoFi Wireframes',
+    '100',
+    '19-02-23',
+    '19-02-23',
+    'Open',
+    'Approved',
+    <Status label='unpaid' />,
+  ],
+  [
+    'HiFi Wireframes',
+    '100',
+    '19-02-23',
+    '19-02-23',
+    'Open',
+    'Approved',
+    <Status label='unpaid' />,
+  ],
+  [
+    'Mockups',
+    '100',
+    '19-02-23',
+    '19-02-23',
+    'Open',
+    'Approved',
+    <Status label='unpaid' />,
+  ],
+  [
+    'Prototyping',
+    '100',
+    '19-02-23',
+    '19-02-23',
+    'Open',
+    'Approved',
+    <Status label='unpaid' />,
   ],
 ];
