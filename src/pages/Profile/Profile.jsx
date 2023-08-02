@@ -47,7 +47,7 @@ const Profile = () => {
         <div className='lg:flex lg:items-start lg:gap-14 2xl:gap-[75px]'>
           <div className='inline-flex flex-col gap-5 lg:gap-11'>
             {/* LOCATION & EXPERIENCE */}
-            <div className='flex justify-between items-center'>
+            <div className='flex lg:inline-grid grid-cols-2 gap-7 justify-between items-center'>
               <div>
                 <div className='inline-flex items-center gap-4'>
                   <h2 className='text-base lg:text-2xl font-semibold'>
@@ -155,39 +155,39 @@ const Profile = () => {
                 <p>20</p>
               </div>
               <div className='flex gap-2'>
-                <p>Communication: </p>
+                <p>Productivity: </p>
                 <p>20</p>
               </div>
               <div className='flex gap-2'>
-                <p>Communication: </p>
+                <p>Motivation: </p>
                 <p>20</p>
               </div>
               <div className='flex gap-2'>
-                <p>Communication: </p>
+                <p>Learning: </p>
                 <p>20</p>
               </div>
               <div className='flex gap-2'>
-                <p>Communication: </p>
+                <p>Consistency: </p>
                 <p>20</p>
               </div>
               <div className='flex gap-2'>
-                <p>Communication: </p>
+                <p>Velocity: </p>
                 <p>20</p>
               </div>
               <div className='flex gap-2'>
-                <p>Communication: </p>
+                <p>Self-driven: </p>
                 <p>20</p>
               </div>
               <div className='flex gap-2'>
-                <p>Communication: </p>
+                <p>Leadership: </p>
                 <p>20</p>
               </div>
               <div className='flex gap-2'>
-                <p>Communication: </p>
+                <p>Creativity: </p>
                 <p>20</p>
               </div>
               <div className='flex gap-2'>
-                <p>Communication: </p>
+                <p>Value alignment: </p>
                 <p>20</p>
               </div>
             </div>

@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageLoader from '../components/Loader/PageLoader';
 import Layout from '../Layout/Layout';
 import { ThemeContext } from '../context/ThemeContext';
-const NotFound = lazy(() => import('../pages/NotFound/NotFound')); // Import the NotFound component
 
 const AllRoutes = () => {
+  const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
   const Overview = lazy(() => import('../pages/Dashboard/Overview'));
   const AllOffers = lazy(() => import('../pages/Dashboard/AllOffers'));
   const MyOffers = lazy(() => import('../pages/Dashboard/MyOffers'));
