@@ -45,7 +45,7 @@ const Profile = () => {
         </div>
         {/* LOCATION, SKILLS, RATINGS */}
         <div className='lg:flex lg:items-start lg:gap-14 2xl:gap-[75px]'>
-          <div className='flex flex-col gap-5 lg:gap-11'>
+          <div className='inline-flex flex-col gap-5 lg:gap-11'>
             {/* LOCATION & EXPERIENCE */}
             <div className='flex justify-between items-center'>
               <div>

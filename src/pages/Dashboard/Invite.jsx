@@ -20,7 +20,6 @@ const Invite = () => {
             faucibus suspendisse scelerisque orci pulvinar.
           </p>
         </div>
-
         {/* REQUIREMENTS */}
         <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7 pb-[30px] border-b border-divider-grey'>
           <div>

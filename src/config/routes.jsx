@@ -24,31 +24,36 @@ const AllRoutes = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
-      {/* <div  data-theme={theme==='dark'?'dark':'light'}>
-        <div className='bg-bkg text-content' id='app-container' > */}
-        <div className={theme === 'dark' ? 'dark' : 'light'} id='app-container' data-theme={theme==='dark'?'dark':'light'}>
-          <Layout>
-            <Routes>
-              <Route path='/' element={<Overview />} />
-              <Route path='/dashboard' element={<Overview />} />
-              <Route path='/alloffer' element={<AllOffers />} />
-              <Route path='/alloffer/:id' element={<MyOffers />} />
-              <Route path='/jobs' element={<MatchedJobs />} />
-              <Route path='/invites' element={<Invite />} />
-              <Route path='/profile' element={<Profile />} />
-              <Route path='/profile/edit' element={<EditProfile />} />
-              <Route path='/project' element={<Project />} />
-              <Route
-                path='/project/active-projects'
-                element={<ActiveProject />}
-              />
-              <Route path='/wallet' element={<Wallet />} />
-              <Route path='/wallet/withdraw' element={<Withdraw />} />
-              <Route path='/support' element={<Support />} />
-              <Route path='/test' element={<Test />} />
-              <Route path='/jobs' element={<Invite />} />
-            </Routes>
-          </Layout>
+        <div data-theme={theme === 'dark' ? 'dark' : 'light'}>
+          {/* <div className='bg-bkg text-content' id='app-container' > */}
+          <div
+            className={theme === 'dark' ? 'dark' : 'light'}
+            id='app-container'
+            data-theme={theme === 'dark' ? 'dark' : 'light'}
+          >
+            <Layout>
+              <Routes>
+                <Route path='/' element={<Overview />} />
+                <Route path='/dashboard' element={<Overview />} />
+                <Route path='/alloffer' element={<AllOffers />} />
+                <Route path='/alloffer/:id' element={<MyOffers />} />
+                <Route path='/jobs' element={<MatchedJobs />} />
+                <Route path='/invites' element={<Invite />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/profile/edit' element={<EditProfile />} />
+                <Route path='/project' element={<Project />} />
+                <Route
+                  path='/project/active-projects'
+                  element={<ActiveProject />}
+                />
+                <Route path='/wallet' element={<Wallet />} />
+                <Route path='/wallet/withdraw' element={<Withdraw />} />
+                <Route path='/support' element={<Support />} />
+                <Route path='/test' element={<Test />} />
+                <Route path='/jobs' element={<Invite />} />
+              </Routes>
+            </Layout>
+          </div>
         </div>
       </BrowserRouter>
     </Suspense>
