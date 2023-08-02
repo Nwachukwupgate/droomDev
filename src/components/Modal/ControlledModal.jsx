@@ -27,7 +27,6 @@ const ControlledModal = ({
               overflow: 'hidden',
               margin: 'auto',
               maxWidth: '350px',
-              overflowY: 'scroll'
             }
       }
     >
