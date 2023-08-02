@@ -1,65 +1,52 @@
-import React, { useState } from 'react';
-import { IoEye, IoEyeOff } from 'react-icons/io5';
+import React from 'react';
 import AvatarCard from '../../components/Cards/AvatarCard';
 import LinkButton from '../../components/Button/LinkButton';
 import MatchedJobsTable from './MatchedJobsTable';
 import Pagination from '../../components/Pagination/Pagination';
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
+import Earnings from '../../components/Cards/Earnings';
 
 const Overview = () => {
-  const [showEarnings, setShowEarnings] = useState(true);
+  const { theme } = useContext(ThemeContext);
 
-  const amount = '$8,690.62';
   return (
     <div className=''>
       {/* AVATAR & NAME */}
       <AvatarCard />
       <div className=' mt-[72px] flex flex-col md:flex-row gap-10 flex-wrap justify-start'>
         {/* EARNINGS */}
-        <div className='mx-auto shadow-md rounded-[25px] inline-block'>
-          <div className='flex flex-col items-start gap-7 p-7 pb-11'>
-            <h2 className='text-[1.75rem] font-bold leading-8 '>Earnings</h2>
-            <div className='flex justify-between w-full items-center gap-10'>
-              <span className='text-4xl font-semibold leading-8 text-[#575555] '>
-                {showEarnings ? amount : '****.**'}
-              </span>
-              <span onClick={() => setShowEarnings((o) => !o)}>
-                {!showEarnings && <IoEye size={25} />}
-                {showEarnings && <IoEyeOff size={25} />}
-              </span>
-            </div>
-            <div className='flex gap-4'>
-              <span className='text-[1.75rem] font-semibold leading-10'>
-                14
-              </span>
-              <span className='text-xl leading-10 text-black'>
-                completed projects
-              </span>
-            </div>
-          </div>
+        <div className='mx-auto'>
+        <Earnings/>
         </div>
         {/* MY OFFER */}
-        <div className='mx-auto shadow-md rounded-[25px] inline-block '>
-          <div className='flex flex-col items-start gap-7 p-7 pb-11'>
+        <div className={`${
+              theme === 'dark' ? 'shadow-card-dark' : 'shadow-card-sm lg:shadow-card'
+            } mx-auto rounded-[25px] inline-block w-[330px] h-[230px]` }>          <div className='flex flex-col items-start gap-7 p-7 pb-11'>
             <h2 className='text-[1.75rem] font-bold leading-8 '>My offer</h2>
             <div className='flex gap-12 items-end'>
               <div className='flex flex-col justify-center gap-2'>
-                <p className='text-xl text-left'>1 pending</p>
-                <p className='text-xl text-left'>1 accepted</p>
-                <p className='text-xl text-left'>1 declined</p>
+                <p className='text-xl text-left whitespace-nowrap'>1 pending</p>
+                <p className='text-xl text-left whitespace-nowrap'>1 accepted</p>
+                <p className='text-xl text-left whitespace-nowrap'>1 declined</p>
               </div>
               <div>
                 <LinkButton
                   href='alloffer'
                   label='see offer'
-                  className={'inline-block bg-[#001935]'}
+                  className={`inline-block  ${theme==='dark'? 'bg-[#F58800]' : 'bg-[#001935]'}`}
                 />
               </div>
             </div>
           </div>
         </div>
         {/* Invite */}
-        <div className='mx-auto shadow-md rounded-[25px] inline-block w-[300px]'>
-          <div className='flex flex-col items-start gap-7 p-7 pb-11'>
+        <div className={`${
+              theme === 'dark' 
+              ? 'shadow-card-dark' 
+              : 'shadow-card-sm lg:shadow-card'
+            } mx-auto rounded-[25px] inline-block  w-[330px] h-[230px]`}>          
+            <div className='flex flex-col items-start gap-7 p-7 pb-11'>
             <h2 className='text-[1.75rem] font-bold leading-8 '>invite</h2>
             <div className=''>
               <p className='text-xl mb-10'>2 new invites</p>

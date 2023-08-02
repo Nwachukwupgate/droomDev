@@ -24,8 +24,10 @@ const AllRoutes = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <BrowserRouter>
-        <Layout>
-          <div className={theme} id='app-container'>
+      {/* <div  data-theme={theme==='dark'?'dark':'light'}>
+        <div className='bg-bkg text-content' id='app-container' > */}
+        <div className={theme === 'dark' ? 'dark' : 'light'} id='app-container' data-theme={theme==='dark'?'dark':'light'}>
+          <Layout>
             <Routes>
               <Route path='/' element={<Overview />} />
               <Route path='/dashboard' element={<Overview />} />
@@ -46,8 +48,8 @@ const AllRoutes = () => {
               <Route path='/test' element={<Test />} />
               <Route path='/jobs' element={<Invite />} />
             </Routes>
-          </div>
-        </Layout>
+          </Layout>
+        </div>
       </BrowserRouter>
     </Suspense>
   );

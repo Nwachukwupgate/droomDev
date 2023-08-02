@@ -1,10 +1,16 @@
 import React from 'react';
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const OutlineButton = ({ label, className, onClick }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div>
       <button
-        className={`${className} text-sm rounded-lg px-[30px] py-3.5 border border-primary text-primary font-semibold`}
+        className={`${className} ${
+              theme === 'dark' ? 'border-white text-white ' : 'border-primary text-primary '
+            } text-sm rounded-lg px-[30px] py-3.5 border font-semibold`}
         onClick={onClick}
       >
         {label}

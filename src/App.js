@@ -5,11 +5,9 @@ import { ThemeProvider } from './context/ThemeContext';
 function App() {
   return (
     <ThemeProvider>
-      <div>
-        <div className=''>
+        <div >
           <AllRoutes />
         </div>
-      </div>
     </ThemeProvider>
   );
 }

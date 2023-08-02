@@ -3,9 +3,7 @@ import MenuItems from './MenuItems';
 
 const SideNav = () => {
   return (
-    <div
-      className={` bg-[#D9D9D9]  lg:px-7 lg:pt-[60px] xl:px-[60px] lg:pb-36`}
-    >
+    <div className={`lg:px-7 lg:pt-[60px] xl:px-[60px] lg:pb-36`}>
       <div className=' flex flex-col justify-between'>
         <MenuItems />
         <div className='px-4 flex justify-between items-center mb-[69px]'>

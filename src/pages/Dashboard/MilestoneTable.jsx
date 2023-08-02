@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
-import Table from './Table';
+import Table from '../../components/Table/Table';
+import { milestoneProgressList } from '../../mockData';
 
 const MilestoneTable = () => {
   const tableHeader = useMemo(
@@ -21,6 +22,10 @@ const MilestoneTable = () => {
         key: 'end',
       },
       {
+        title: 'State',
+        key: 'state',
+      },
+      {
         title: 'Payment',
         key: 'payment',
       },
@@ -33,7 +38,7 @@ const MilestoneTable = () => {
   );
   return (
     <div>
-      <Table header={tableHeader} />
+      <Table header={tableHeader} column={milestoneProgressList}/>
     </div>
   );
 };

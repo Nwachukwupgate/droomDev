@@ -2,8 +2,19 @@ import Divider from '../Divider';
 import ControlledModal from '../Modal/ControlledModal';
 
 const Notification = ({ onOpen }) => {
+  let contentStyle = {
+    padding: 0,
+    backgroundColor: 'white',
+    width: 'fit-content',
+    boxShadow: 'none',
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    height: 'calc(100vh - 112px)',
+  };
   return (
-    <ControlledModal open={onOpen}>
+    <ControlledModal open={onOpen} contentStyle={contentStyle}>
       <div className='w-[320px] sm:w-[390px] lg:w-[530px] h-screen px-4 lg:px-6 pt-8 pb-20'>
         <div className='justify-between flex'>
           <h2 className='text-xl lg:text-2xl'>Notifcations</h2>

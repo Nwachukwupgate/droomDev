@@ -4,6 +4,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @layer base {
+  :root {
+    --color-bkg: 255 255 255;
+    --color-content: 87 85 85;
+    --color-primary: 0 25 53;
+  }
+  @media(prefers-color-scheme: dark){
+    :root {
+      --color-bkg: 51 51 51;
+      --color-content: 237 237 237;
+      --color-primary: 245 135 0;
+    }
+  }
+  :root[data-theme='dark']  {
+      --color-bkg: 51 51 51;
+      --color-content: 237 237 237;
+      --color-primary: 245 135 0;
+    }
+  
+} */
+
+body {
+  background-color: rgb(255, 255, 255);
+  color: rgb(87 85 85);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(51, 51, 51);
+    color: rgb(237, 237, 237);
+  }
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 32px;
@@ -14,30 +47,26 @@ img {
   height: auto;
 }
 
-/* Global text color styles */
-/* :root {
-  --text-color: var(--color-text-light);
-} */
-
-body {
-  color: #575555;
-  background-color: #fff;
-}
-
 h1,
 h2,
 h3,
-h4,
-table {
-  color: #001935;
+h4 {
   line-height: 32px;
+  color: #001935;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #001935;
-    color: white;
-  }
+[data-theme = 'dark'] h1, h2, h3, h4{
+  color: rgb(237, 237, 237);
+}
+
+.dark {
+  background-color: rgb(51, 51, 51);
+  color: rgb(237, 237, 237);
+}
+
+.light {
+  background-color: rgb(255, 255, 255);
+  color: rgb(87 85 85);
 }
 
 /* TOGGLE SWITCH CSS */
