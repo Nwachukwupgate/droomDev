@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageLoader from '../components/Loader/PageLoader';
 import Layout from '../Layout/Layout';
 import { ThemeContext } from '../context/ThemeContext';
+const NotFound = lazy(() => import('../pages/NotFound/NotFound')); // Import the NotFound component
 
 const AllRoutes = () => {
   const Overview = lazy(() => import('../pages/Dashboard/Overview'));
@@ -51,6 +52,7 @@ const AllRoutes = () => {
                 <Route path='/support' element={<Support />} />
                 <Route path='/test' element={<Test />} />
                 <Route path='/jobs' element={<Invite />} />
+                <Route path='*' element={<NotFound />} />
               </Routes>
             </Layout>
           </div>
