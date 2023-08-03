@@ -18,6 +18,8 @@ const AllRoutes = () => {
   const Withdraw = lazy(() => import('../pages/Wallet/Withdraw'));
   const MatchedJobs = lazy(() => import('../pages/Dashboard/MatchedJobs'));
   const Test = lazy(() => import('../pages/Test/Test'));
+  const TakeTest = lazy(() => import('../pages/Test/TakeTest'));
+
   const Support = lazy(() => import('../pages/Support/Support'));
 
   const { theme } = useContext(ThemeContext);
@@ -50,9 +52,10 @@ const AllRoutes = () => {
                 <Route path='/wallet' element={<Wallet />} />
                 <Route path='/wallet/withdraw' element={<Withdraw />} />
                 <Route path='/support' element={<Support />} />
-                <Route path='/test' element={<Test />} />
                 <Route path='/jobs' element={<Invite />} />
                 <Route path='*' element={<NotFound />} />
+                <Route path='/test' element={<Test />} />
+                <Route path='/test/retake' element={<TakeTest />} />
               </Routes>
             </Layout>
           </div>

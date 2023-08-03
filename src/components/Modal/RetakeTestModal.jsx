@@ -2,9 +2,9 @@ import React from 'react';
 import ControlledModal from './ControlledModal';
 import Button from '../Button';
 import Logo from '../../assets/images/logo.png';
+import LinkButton from '../Button/LinkButton';
 
 const RetakeTestModal = ({ open, closeModal }) => {
-
   return (
     <div>
       <ControlledModal open={open}>
@@ -19,7 +19,11 @@ const RetakeTestModal = ({ open, closeModal }) => {
             You have successfully updated your profile. You will be required to
             Retake Talent’s Test
           </p>
-          <Button label={'Retake Test'} className={'bg-primary text-white'} />
+          <LinkButton
+            label={'Retake Test'}
+            className={'bg-primary text-white'}
+            href={'test/retake'}
+          />
         </div>
       </ControlledModal>
     </div>
