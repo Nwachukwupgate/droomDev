@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../../components/Button';
 import ProjectTable from './ProjectTable';
 import Pagination from '../../components/Pagination/Pagination';
 import OverallRating from '../../components/Rating/OverallRating';

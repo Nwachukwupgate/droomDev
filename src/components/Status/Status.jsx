@@ -12,12 +12,10 @@ const Status = ({ label }) => {
           ? 'bg-[#D89C51]'
           : label === 'Offered'
           ? 'bg-[#724de41a] text-[#596080]'
-          : label === 'Pending' || 'Processing'
-          ? 'bg-[#FFC043] bg-opacity-10 text-[#FFC043]'
           : label === 'Not verified'
           ? 'bg-[#EDDAC1] text-[0.5rem]'
           : label === 'To-start'
-          ? 'bg-[#FF543E]'
+          ? 'bg-[#FF543E] text-white'
           : 'bg-[#FF543E] font-bold'
       }`}
     >
