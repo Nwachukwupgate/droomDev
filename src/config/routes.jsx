@@ -45,10 +45,7 @@ const AllRoutes = () => {
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/profile/edit' element={<EditProfile />} />
                 <Route path='/project' element={<Project />} />
-                <Route
-                  path='/project/active-projects'
-                  element={<ActiveProject />}
-                />
+                <Route path='/project/:id' element={<MyOffers />} />
                 <Route path='/wallet' element={<Wallet />} />
                 <Route path='/wallet/withdraw' element={<Withdraw />} />
                 <Route path='/support' element={<Support />} />

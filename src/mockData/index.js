@@ -15,7 +15,10 @@ export const tableList = [
     'Node JS Developer',
     'Feb 19th 2023',
     <Status label='Open' />,
-    <Link className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]' to='/alloffer/:1'>
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/alloffer/:1'
+    >
       Details
     </Link>,
   ],
@@ -57,5 +60,67 @@ export const milestoneProgressList = [
     'Open',
     'Approved',
     <Status label='unpaid' />,
+  ],
+];
+export const projectList = [
+  [
+    'Lopez Lawrence',
+    'Node JS Developer',
+    'Feb 19, 2023',
+    <Status label='To-start' />,
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/alloffer/:1'
+    >
+      Details
+    </Link>,
+  ],
+  [
+    'Lopez Lawrence',
+    'Node JS Developer',
+    'Feb 19, 2023',
+    <Status label='On-going' />,
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/alloffer/:1'
+    >
+      Details
+    </Link>,
+  ],
+  [
+    'Lopez Lawrence',
+    'Node JS Developer',
+    'Feb 19, 2023',
+    <Status label='On-going' />,
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/alloffer/:1'
+    >
+      Details
+    </Link>,
+  ],
+  [
+    'Lopez Lawrence',
+    'Node JS Developer',
+    'Feb 19, 2023',
+    <Status label='Finished' />,
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/alloffer/:1'
+    >
+      Details
+    </Link>,
+  ],
+  [
+    'Lopez Lawrence',
+    'Node JS Developer',
+    'Feb 19, 2023',
+    <Status label='Finished' />,
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/alloffer/:1'
+    >
+      Details
+    </Link>,
   ],
 ];
