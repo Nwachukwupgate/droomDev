@@ -2,11 +2,11 @@ import React, { useContext, useState } from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { ThemeContext } from '../../context/ThemeContext';
 
-const Earnings = () => {
+const Earnings = ({finishedProjOffers, myTotalEarnings}) => {
   const [showEarnings, setShowEarnings] = useState(true);
   const { theme } = useContext(ThemeContext);
 
-  const amount = '$8,690.62';
+  const amount = `$${myTotalEarnings}`;
 
   return (
     <div>
@@ -25,7 +25,7 @@ const Earnings = () => {
             </span>
           </div>
           <div className='flex gap-4'>
-            <span className='text-[1.75rem] font-semibold leading-10'>14</span>
+            <span className='text-[1.75rem] font-semibold leading-10'>{finishedProjOffers}</span>
             <span className={`${
               theme === 'dark' ? 'text-white' : 'text-black'
             } text-xl leading-10`}>

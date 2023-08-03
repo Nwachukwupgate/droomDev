@@ -6,9 +6,12 @@ import Pagination from '../../components/Pagination/Pagination';
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 import Earnings from '../../components/Cards/Earnings';
+import { useGetDashboardQuery } from '../../features/api/apiSlice';
 
 const Overview = () => {
   const { theme } = useContext(ThemeContext);
+  const { data } = useGetDashboardQuery()
+  const { pendingInvites = 0, acceptedInvites = 0, declinedInvites = 0 } = data?.data ?? {};
 
   return (
     <div className=''>
@@ -17,7 +20,7 @@ const Overview = () => {
       <div className=' mt-[72px] flex flex-col md:flex-row gap-10 flex-wrap justify-start'>
         {/* EARNINGS */}
         <div className='mx-auto'>
-        <Earnings/>
+        <Earnings {...data?.data}/>
         </div>
         {/* MY OFFER */}
         <div className={`${
@@ -26,9 +29,9 @@ const Overview = () => {
             <h2 className='text-[1.75rem] font-bold leading-8 '>My offer</h2>
             <div className='flex gap-12 items-end'>
               <div className='flex flex-col justify-center gap-2'>
-                <p className='text-xl text-left whitespace-nowrap'>1 pending</p>
-                <p className='text-xl text-left whitespace-nowrap'>1 accepted</p>
-                <p className='text-xl text-left whitespace-nowrap'>1 declined</p>
+                <p className='text-xl text-left whitespace-nowrap'>{pendingInvites} pending</p>
+                <p className='text-xl text-left whitespace-nowrap'>{acceptedInvites} accepted</p>
+                <p className='text-xl text-left whitespace-nowrap'>{declinedInvites} declined</p>
               </div>
               <div>
                 <LinkButton
@@ -49,7 +52,7 @@ const Overview = () => {
             <div className='flex flex-col items-start gap-7 p-7 pb-11'>
             <h2 className='text-[1.75rem] font-bold leading-8 '>invite</h2>
             <div className=''>
-              <p className='text-xl mb-10'>2 new invites</p>
+              <p className='text-xl mb-10'>{data?.data?.pendingProjOffers} new invites</p>
               <div className='text-left'>
                 <LinkButton
                   href='invites'
