@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Popup from 'reactjs-popup';
 import { BsChevronDown } from 'react-icons/bs';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const CustomSelect = ({ value, setValue, options, title }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <Popup
       trigger={
-        <div className='flex justify-between rounded-md bg-[#F0EEF1] text-grey-text cursor-pointer items-center gap-1 border border-grey-input p-4'>
+        <div
+          className={`flex justify-between rounded-md bg-[#F0EEF1] text-grey-text cursor-pointer items-center gap-1 border border-grey-input p-4`}
+        >
           {/* {value[1]} */}
           <p className='text-sm text-[#A39F9F]'>Lorem Ipsum</p>
-          <BsChevronDown />{' '}
+          <BsChevronDown
+            className={`${theme === 'dark' && 'text-[#A39F9F]'} `}
+          />
         </div>
       }
       on='click'

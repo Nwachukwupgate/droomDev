@@ -31,7 +31,7 @@ const EditProfileContent = ({
       <section className='px-4 mt-12 mb-32 sm:w-3/4 m-auto'>
         <div className='flex flex-col justify-between gap-11'>
           <div>{body}</div>
-          <div className='flex justify-between items-center w-full pb-20'>
+          <div className='flex justify-between lg:justify-end lg:gap-6 items-center w-full pb-20'>
             <OutlineButton
               label={secondaryActionLabel}
               className={'border border-primary text-primary'}
