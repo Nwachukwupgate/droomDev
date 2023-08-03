@@ -1,10 +1,14 @@
 import React from 'react';
-import Button from '../../components/Button';
-import Rating from '../../components/Rating/Rating';
 import ProjectTable from './ProjectTable';
 import Pagination from '../../components/Pagination/Pagination';
+import OverallRating from '../../components/Rating/OverallRating';
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
+import LinkButton from '../../components/Button/LinkButton';
 
 const Project = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div>
       <div className='mx-auto shadow-card-sm lg:shadow-card rounded-[25px] inline-block mb-[72px] pt-7 px-[30px] pb-10 '>
@@ -12,26 +16,24 @@ const Project = () => {
           <h1 className='text-[1.75rem] leading-8 font-extrabold'>
             Active Project
           </h1>
-          <p className='mb-10 text-grey'>1 project ongoing</p>
-          <Button className={'text-white bg-[#F58800]'} label={'See detail'} />
+          <p
+            className={`${
+              theme === 'dark' ? 'text-[#EDEDED]' : 'text-grey'
+            } mb-10 `}
+          >
+            1 project ongoing
+          </p>
+          <LinkButton
+            className={'text-white bg-[#F58800]'}
+            label={'See detail'}
+            href={'project/:1'}
+          />
         </div>
       </div>
 
       {/* OVERALL RATINGS */}
       <div className='mb-[76px]'>
-        <h2>Overall Rating</h2>
-        <div className='grid grid-cols-2 gap-3'>
-          <p>Code Quality</p>
-          <Rating />
-          <p>Productivity</p>
-          <Rating />
-          <p>Consistency & Reliability</p>
-          <Rating />
-          <p>Communication</p>
-          <Rating />
-          <p>Timelines</p>
-          <Rating />
-        </div>
+        <OverallRating />
       </div>
 
       {/* WORK HISTORY */}

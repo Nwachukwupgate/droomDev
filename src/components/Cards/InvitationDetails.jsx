@@ -10,7 +10,7 @@ const InvitationDetails = () => {
       <h2 className='text-xl lg:text-2xl leading-8 mb-3.5 font-semibold'>
         Invitation details
       </h2>
-      <div className='inline-flex flex-col gap-20 lg:gap-7 lg:flex-row lg:justify-between lg:items-end'>
+      <div className='inline-flex flex-col gap-20 lg:gap-7 lg:flex-row lg:justify-between lg:items-end lg:w-full'>
         <div className='flex flex-col gap-2.5 pl-5 lg:pl-0'>
           <div className='flex items-center gap-5'>
             <LuCalendarDays size={20} />

@@ -1,10 +1,14 @@
+import { useContext } from 'react';
 import { AiOutlineCheck } from 'react-icons/ai';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Stepper = ({ step }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div>
       <div className='flex items-center'>
-        <div className='flex items-center text-teal-600 relative'>
+        <div className='flex items-center relative'>
           <div
             className={`${
               step === 0
@@ -16,8 +20,12 @@ const Stepper = ({ step }) => {
           </div>
           <div
             className={`${
-              step === 0 ? 'text-primary' : 'text-[#B7B3B3]'
-            } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
+              step === 0 && theme === 'light'
+                ? 'text-primary'
+                : step === 0 && theme === 'dark'
+                ? 'text-secondary'
+                : 'text-[#B7B3B3]'
+            } text-xs sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase tracking-tighter`}
           >
             SELECT <br /> LEVEL
           </div>
@@ -39,8 +47,12 @@ const Stepper = ({ step }) => {
           </div>
           <div
             className={`${
-              step === 1 ? 'text-primary' : 'text-[#B7B3B3]'
-            } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
+              step === 1 && theme === 'light'
+                ? 'text-primary'
+                : step === 0 && theme === 'dark'
+                ? 'text-secondary'
+                : 'text-[#B7B3B3]'
+            } text-xs sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase tracking-tighter`}
           >
             select <br /> language
           </div>
@@ -62,8 +74,12 @@ const Stepper = ({ step }) => {
           </div>
           <div
             className={`${
-              step === 2 ? 'text-primary' : 'text-[#B7B3B3]'
-            } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
+              step === 2 && theme === 'light'
+                ? 'text-primary'
+                : step === 0 && theme === 'dark'
+                ? 'text-secondary'
+                : 'text-[#B7B3B3]'
+            } text-xs sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase  tracking-tighter`}
           >
             select <br /> framework
           </div>
@@ -85,8 +101,12 @@ const Stepper = ({ step }) => {
           </div>
           <div
             className={`${
-              step === 3 ? 'text-primary' : 'text-[#B7B3B3]'
-            } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
+              step === 3 && theme === 'light'
+                ? 'text-primary'
+                : step === 0 && theme === 'dark'
+                ? 'text-secondary'
+                : 'text-[#B7B3B3]'
+            } text-xs sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase tracking-tighter`}
           >
             personal <br /> detail
           </div>
@@ -102,8 +122,12 @@ const Stepper = ({ step }) => {
           </div>
           <div
             className={`${
-              step === 4 ? 'text-primary' : 'text-[#B7B3B3]'
-            } text-sm sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase`}
+              step === 4 && theme === 'light'
+                ? 'text-primary'
+                : step === 0 && theme === 'dark'
+                ? 'text-secondary'
+                : 'text-[#B7B3B3]'
+            } text-xs sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase tracking-tighter`}
           >
             success
           </div>

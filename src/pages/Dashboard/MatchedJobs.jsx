@@ -23,10 +23,6 @@ const MatchedJobs = () => {
       {/* REQUIREMENTS */}
       <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7 pb-[30px] border-b border-divider-grey'>
         <div>
-          <h3 className='font-semibold leading-8'>Role</h3>
-          <p className='font-semibold'>Node JS Developer</p>
-        </div>
-        <div>
           <h3 className='font-semibold leading-8  mb-3'>Skills</h3>
           <Badge />
         </div>
@@ -39,11 +35,15 @@ const MatchedJobs = () => {
           <Badge />
         </div>
         <div>
-          <h3 className='font-semibold leading-8 mb-3'>Language</h3>
-          <Badge />
+          <h3 className='font-semibold leading-8 mb-3'>Talent</h3>
+          <p>Node JS Developer</p>
+        </div>
+        <div className='flex gap-2.5'>
+          <h3 className='font-semibold leading-8 mb-3'>Work-type: </h3>
+          <p>Fixed-cost</p>
         </div>
       </div>
-
+      {/* CLIENT DETAILS */}
       <ClientDetails />
 
       <div className='flex gap-8 justify-end'>
