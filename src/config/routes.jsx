@@ -13,7 +13,6 @@ const AllRoutes = () => {
   const Profile = lazy(() => import('../pages/Profile/Profile'));
   const EditProfile = lazy(() => import('../pages/Profile/EditProfile'));
   const Project = lazy(() => import('../pages/Project/Project'));
-  const ActiveProject = lazy(() => import('../pages/Project/ActiveProject'));
   const Wallet = lazy(() => import('../pages/Wallet/Wallet'));
   const Withdraw = lazy(() => import('../pages/Wallet/Withdraw'));
   const MatchedJobs = lazy(() => import('../pages/Dashboard/MatchedJobs'));
