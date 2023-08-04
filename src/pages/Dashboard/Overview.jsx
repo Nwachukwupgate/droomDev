@@ -11,7 +11,7 @@ import { useGetDashboardQuery } from '../../features/api/apiSlice';
 const Overview = () => {
   const { theme } = useContext(ThemeContext);
   const { data } = useGetDashboardQuery()
-  const { pendingInvites = 0, acceptedInvites = 0, declinedInvites = 0 } = data?.data ?? {};
+  const { pendingInvites='...', acceptedInvites='...', declinedInvites='...'  } = data?.data ?? {};
 
   return (
     <div className=''>
@@ -20,7 +20,7 @@ const Overview = () => {
       <div className=' mt-[72px] flex flex-col md:flex-row gap-10 flex-wrap justify-start'>
         {/* EARNINGS */}
         <div className='mx-auto'>
-        <Earnings {...data?.data}/>
+        <Earnings/>
         </div>
         {/* MY OFFER */}
         <div className={`${

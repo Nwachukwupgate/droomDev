@@ -3,6 +3,8 @@ import LinkButton from '../../components/Button/LinkButton';
 import AvatarCard from '../../components/Cards/AvatarCard';
 import { MdLocationOn } from 'react-icons/md';
 import OverallRating from '../../components/Rating/OverallRating';
+import { useGetAllMyCbtDetailsQuery } from '../../features/api/apiSlice';
+
 
 const Profile = () => {
   const skills = [

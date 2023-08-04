@@ -39,7 +39,11 @@ export const apiSlice = createApi({
       getMyMatchedJobs: builder.query({
         query: () => 'api/v1/dev/getAllMyMatchedJobs'
       }),
+
+      getAllMyCbtDetails: builder.query({
+        query: () => 'api/v1/dev/getAllMyCbtDetails'
+      }),
     })
   })
   
-export const { useGetDashboardQuery, useGetMyMatchedJobsQuery } = apiSlice
+export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery } = apiSlice

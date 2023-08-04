@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { ThemeContext } from '../../context/ThemeContext';
+import { useGetDashboardQuery } from '../../features/api/apiSlice';
 
-const Earnings = ({finishedProjOffers, myTotalEarnings}) => {
+const Earnings = () => {
   const [showEarnings, setShowEarnings] = useState(true);
   const { theme } = useContext(ThemeContext);
+  const { data } = useGetDashboardQuery()
+  const { myTotalEarnings='...', finishedProjOffers='...' } = data?.data ?? {};
 
   const amount = `$${myTotalEarnings}`;
 
