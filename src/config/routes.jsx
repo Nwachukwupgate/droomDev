@@ -15,6 +15,9 @@ const AllRoutes = () => {
   const Project = lazy(() => import('../pages/Project/Project'));
   const Wallet = lazy(() => import('../pages/Wallet/Wallet'));
   const Withdraw = lazy(() => import('../pages/Wallet/Withdraw'));
+  const WithdrawalDetails = lazy(() =>
+    import('../pages/Wallet/WithdrawalDetails')
+  );
   const MatchedJobs = lazy(() => import('../pages/Dashboard/MatchedJobs'));
   const Test = lazy(() => import('../pages/Test/Test'));
   const TakeTest = lazy(() => import('../pages/Test/TakeTest'));
@@ -47,6 +50,10 @@ const AllRoutes = () => {
                 <Route path='/project/:id' element={<MyOffers />} />
                 <Route path='/wallet' element={<Wallet />} />
                 <Route path='/wallet/withdraw' element={<Withdraw />} />
+                <Route
+                  path='/wallet/withdraw/details'
+                  element={<WithdrawalDetails />}
+                />
                 <Route path='/support' element={<Support />} />
                 <Route path='/jobs' element={<Invite />} />
                 <Route path='*' element={<NotFound />} />

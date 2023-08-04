@@ -1,15 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TransactionTable from './TransactionTable';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import Button from '../../components/Button';
 import OutlineButton from '../../components/Button/OutlineButton';
 import Pagination from '../../components/Pagination/Pagination';
+import SuccessModal from '../../components/Modal/SuccessModal';
+import { useNavigate } from 'react-router-dom';
 
 const Withdraw = () => {
   const [showEarnings, setShowEarnings] = useState(true);
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (!open) {
+  //     navigate('details');
+  //   }
+  // }, [open]);
+
+  const submitHandler = (e) => {
+    // e.preventDefault();
+    setOpen(true);
+  };
+  const closeModalHandler = () => {
+    setOpen(false);
+  };
+  const handleModalClose = () => {
+    closeModalHandler();
+    navigate('details'); // Navigate here when the modal is closed
+  };
   const amount = '$8,690.62';
+
   return (
     <div className='xl:flex justify-between gap-5 items-end'>
+      <SuccessModal
+        open={open}
+        closeModal={handleModalClose}
+        // onModalClose={handleModalClose}
+      />
       <div className='basis-1/2'>
         <div>
           <h2 className='md:text-lg lg:text-xl font-semibold mb-5'>
@@ -62,7 +90,12 @@ const Withdraw = () => {
             </div>
             <div className='flex gap-5 mt-12'>
               <OutlineButton label={'Cancel'} />
-              <Button label={'Continue'} className={'bg-primary text-white'} />
+              <Button
+                // type={'submit'}
+                label={'Continue'}
+                className={'bg-primary text-white'}
+                onClick={submitHandler}
+              />
             </div>
           </form>
         </section>

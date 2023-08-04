@@ -124,3 +124,11 @@ export const projectList = [
     </Link>,
   ],
 ];
+
+export const recentTransactionList = [
+  ['Withdrawal', '100', 'Feb 19, 2023', <Status label='Pending' />],
+  ['Withdrawal', '100', 'Feb 19, 2023', <Status label='Successful' />],
+  ['Withdrawal', '100', 'Feb 19, 2023', <Status label='Successful' />],
+  ['Withdrawal', '100', 'Feb 19, 2023', <Status label='Successful' />],
+  ['Withdrawal', '100', 'Feb 19, 2023', <Status label='Successful' />],
+];

@@ -15,7 +15,7 @@ const ControlledModal = ({
       modal
       overlayStyle={{ background: 'rgba(0, 25, 53, 0.20)' }}
       lockScroll
-      closeOnDocumentClick={closeOnDocumentClick || true}
+      closeOnDocumentClick={closeOnDocumentClick ? closeOnDocumentClick : true}
       // nested
       contentStyle={
         contentStyle

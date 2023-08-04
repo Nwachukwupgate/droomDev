@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import Table from '../../components/Table/Table';
+import { recentTransactionList } from '../../mockData';
 
 const TransactionTable = () => {
   const tableHeader = useMemo(
@@ -20,16 +21,16 @@ const TransactionTable = () => {
         title: 'Status',
         key: 'status',
       },
-      {
-        title: '',
-        key: 'details',
-      },
     ],
     []
   );
   return (
     <div>
-      <Table header={tableHeader} label='Recent Transaction' />
+      <Table
+        header={tableHeader}
+        label='Recent Transaction'
+        column={recentTransactionList}
+      />
     </div>
   );
 };

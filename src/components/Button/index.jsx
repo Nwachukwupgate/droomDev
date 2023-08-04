@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Button = ({ label, className, onClick }) => {
-  const onClickHandler = () => {
+  const onClickHandler = (e) => {
     if (typeof onClick === 'function') {
+      e.preventDefault();
       onClick();
     }
   };

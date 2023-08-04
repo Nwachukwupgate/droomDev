@@ -2,13 +2,16 @@ const Status = ({ label }) => {
   return (
     <div
       className={`inline-flex p-[15px] py-[2px] text-xs text-center capitalize rounded-[15px] text-white ${
-        label === 'successful' ||
+        label === 'Pending' ||
         label === 'Active' ||
         label === 'Open' ||
         label === 'Finished' ||
         label === 'completed'
           ? 'bg-[#7AB9FF] text-[#FFF]'
-          : label === 'Closed' || label === 'On-going' || label === 'unpaid'
+          : label === 'Closed' ||
+            label === 'On-going' ||
+            label === 'unpaid' ||
+            label === 'Successful'
           ? 'bg-[#D89C51]'
           : label === 'Offered'
           ? 'bg-[#724de41a] text-[#596080]'

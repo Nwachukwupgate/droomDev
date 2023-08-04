@@ -28,8 +28,6 @@ const MenuItems = ({ setShowMobileMenu }) => {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
 
-  let themeActiveBg = theme === 'dark' ? 'bg-[#F58800]' : 'bg-white';
-
   return (
     <div>
       <div className='overflow-y-scroll scrollbar-hide lg:mb-16'>
