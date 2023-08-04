@@ -10,32 +10,35 @@ import { useNavigate } from 'react-router-dom';
 const Withdraw = () => {
   const [showEarnings, setShowEarnings] = useState(true);
   const [open, setOpen] = useState(false);
+  const [shouldNavigate, setShouldNavigate] = useState(false);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!open) {
-  //     navigate('details');
-  //   }
-  // }, [open]);
-
   const submitHandler = (e) => {
-    // e.preventDefault();
     setOpen(true);
   };
-  const closeModalHandler = () => {
+
+  const handleDone = () => {
     setOpen(false);
+    setShouldNavigate(true);
   };
-  const handleModalClose = () => {
-    closeModalHandler();
-    navigate('details'); // Navigate here when the modal is closed
+
+  useEffect(() => {
+    handleNavigation();
+  }, [shouldNavigate]);
+
+  const handleNavigation = () => {
+    if (shouldNavigate) {
+      navigate('details');
+    }
   };
+
   const amount = '$8,690.62';
 
   return (
     <div className='xl:flex justify-between gap-5 items-end'>
       <SuccessModal
         open={open}
-        closeModal={handleModalClose}
+        closeModal={handleDone}
         // onModalClose={handleModalClose}
       />
       <div className='basis-1/2'>

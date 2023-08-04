@@ -4,16 +4,20 @@ import Button from '../Button';
 import ControlledModal from './ControlledModal';
 
 const SuccessModal = ({ open, closeModal }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
   const withdrawalDetailsHandler = () => {
-    closeModal();
-    if (!open) {
-      navigate('details');
-    }
+    setTimeout(() => {
+      closeModal();
+    }, 0);
   };
 
   return (
-    <ControlledModal open={open} closeOnDocumentClick={false}>
+    <ControlledModal
+      open={open}
+      closeOnDocumentClick={false}
+      closeModal={closeModal}
+    >
       <div className='m-auto px-[74px] text-center pb-24 pt-16'>
         <div className='w-12 mb-5 m-auto'>
           <img src={Logo} alt='droomwork brand logo' />
