@@ -2,6 +2,7 @@ import React from 'react';
 import Intro from '../../components/Intro/Intro';
 import Button from '../../components/Button';
 import Divider from '../../components/Divider';
+import LinkButton from '../../components/Button/LinkButton';
 
 const Test = () => {
   return (
@@ -13,7 +14,11 @@ const Test = () => {
         }
       />
       <div className='mt-10 md:mt-11 mb-16'>
-        <Button label={'Take Test'} className={'bg-primary text-white'} />
+        <LinkButton
+          label={'Take Test'}
+          className={'bg-primary text-white'}
+          href={'test/retake'}
+        />
       </div>
       <div>
         <h2 className='text-xl  lg:text-[1.75rem] font-bold'>

@@ -12,8 +12,8 @@ const WithdrawalDetails = () => {
     >
       <h1 className='text-xl mb-14 font-semibold'>Withdrawal details</h1>
       <div className='flex flex-col gap-5'>
-        <div className='flex justify-between'>
-          <p className=' '>Status</p>
+        <div className='flex justify-between gap-10'>
+          <p className='whitespace-nowrap '>Status</p>
           <p
             className={`${
               theme === 'dark' ? 'text-white' : 'text-black'
@@ -22,8 +22,8 @@ const WithdrawalDetails = () => {
             Completed
           </p>
         </div>
-        <div className='flex justify-between'>
-          <p className=' '>Date</p>
+        <div className='flex justify-between gap-10'>
+          <p className='whitespace-nowrap '>Date</p>
           <p
             className={`${
               theme === 'dark' ? 'text-white' : 'text-black'
@@ -32,8 +32,8 @@ const WithdrawalDetails = () => {
             Feb. 19, 2023
           </p>
         </div>
-        <div className='flex justify-between'>
-          <p className=' '>Amount</p>
+        <div className='flex justify-between gap-10'>
+          <p className='whitespace-nowrap '>Amount</p>
           <p
             className={`${
               theme === 'dark' ? 'text-white' : 'text-black'
@@ -42,18 +42,18 @@ const WithdrawalDetails = () => {
             $300
           </p>
         </div>
-        <div className='flex justify-between'>
-          <p className=' '>Account name</p>
+        <div className='flex justify-between gap-10'>
+          <p className='whitespace-nowrap '>Account name</p>
           <p
             className={`${
               theme === 'dark' ? 'text-white' : 'text-black'
-            } text-lg`}
+            } text-lg flex justify-end`}
           >
             Drew Ofuenweuche
           </p>
         </div>
-        <div className='flex justify-between'>
-          <p className=' '>Account number</p>
+        <div className='flex justify-between gap-10'>
+          <p className='whitespace-nowrap '>Account number</p>
           <p
             className={`${
               theme === 'dark' ? 'text-white' : 'text-black'
@@ -62,8 +62,8 @@ const WithdrawalDetails = () => {
             1234567890
           </p>
         </div>
-        <div className='flex justify-between'>
-          <p className=' '>Bank</p>
+        <div className='flex justify-between gap-10'>
+          <p className='whitespace-nowrap '>Bank</p>
           <p
             className={`${
               theme === 'dark' ? 'text-white' : 'text-black'

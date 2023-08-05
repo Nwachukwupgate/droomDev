@@ -23,7 +23,6 @@ const MobileMenu = ({ showMobileMenu, setShowMobileMenu }) => {
                 </div>
                 <button className='whitespace-nowrap'>Sign out</button>
               </div>
-
               {/* THEME TOGGLE SWITCH */}
               <ToggleSwitch />
             </div>

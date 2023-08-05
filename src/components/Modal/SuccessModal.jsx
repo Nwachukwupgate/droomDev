@@ -1,11 +1,8 @@
-import { useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
 import Button from '../Button';
 import ControlledModal from './ControlledModal';
 
 const SuccessModal = ({ open, closeModal }) => {
-  // const navigate = useNavigate();
-
   const withdrawalDetailsHandler = () => {
     setTimeout(() => {
       closeModal();
