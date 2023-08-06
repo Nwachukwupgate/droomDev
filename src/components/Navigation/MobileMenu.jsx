@@ -2,8 +2,19 @@ import AvatarCard from '../Cards/AvatarCard';
 import SignOut from '../../assets/svgs/logout-icon.svg';
 import ToggleSwitch from '../Inputs/ToggleSwitch';
 import MenuItems from './MenuItems';
+import { useState } from 'react';
+import ReferralModal from '../Modal/ReferralModal';
 
 const MobileMenu = ({ showMobileMenu, setShowMobileMenu }) => {
+  const [showReferralModal, setShowReferralModal] = useState(false);
+
+  const handleReferral = () => {
+    setShowReferralModal(true);
+  };
+
+  const closeModal = () => {
+    setShowReferralModal(false);
+  };
   return (
     <>
       {showMobileMenu && (
@@ -16,6 +27,15 @@ const MobileMenu = ({ showMobileMenu, setShowMobileMenu }) => {
               <AvatarCard />
             </div>
             <MenuItems setShowMobileMenu={setShowMobileMenu} />
+            <div className='px-4 text-left mt-7 lg:hidden mb-24'>
+              <button
+                className='text-lg font-semibold leading-8'
+                onClick={handleReferral}
+              >
+                Refer & Earn
+              </button>
+            </div>
+            <ReferralModal open={showReferralModal} closeModal={closeModal} />
             <div className='px-4 flex justify-between items-center pb-32'>
               <div className='flex gap-3'>
                 <div>

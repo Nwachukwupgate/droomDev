@@ -9,11 +9,20 @@ import Notification from '../Notification/Notification';
 import UserInfo from './UserInfo';
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
+import ReferralModal from '../Modal/ReferralModal';
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showReferralModal, setShowReferralModal] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const { theme } = useContext(ThemeContext);
+
+  const handleReferral = () => {
+    setShowReferralModal(true);
+  };
+  const closeModal = () => {
+    setShowReferralModal(false);
+  };
 
   return (
     <div className='relative'>
@@ -49,7 +58,9 @@ const Navbar = () => {
             <Button
               label={'Refer & Earn'}
               className={'bg-primary text-white'}
+              onClick={handleReferral}
             />
+            <ReferralModal open={showReferralModal} closeModal={closeModal} />
             <div className='inline-block h-[42px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 opacity-100 dark:opacity-50 m-auto'></div>
             <div className='flex items-center gap-10'>
               <IoMdNotifications

@@ -80,9 +80,6 @@ const MenuItems = ({ setShowMobileMenu }) => {
             })}
           </ul>
         </nav>
-        <div className='px-4 text-left mt-7 lg:hidden mb-24'>
-          <p className='text-lg font-semibold leading-8'>Refer & Earn</p>
-        </div>
       </div>
     </div>
   );

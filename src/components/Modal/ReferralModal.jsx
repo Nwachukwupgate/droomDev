@@ -10,8 +10,23 @@ const ReferralModal = ({ open, closeModal }) => {
   const closeModalHandler = () => {
     closeModal();
   };
+
+  let contentStyle = {
+    maxHeight: '90%',
+    borderRadius: '12px',
+    backgroundColor: 'white',
+    width: 'fit-content',
+    boxShadow: 'none',
+    overflow: 'hidden',
+    margin: 'auto',
+    maxWidth: '530px',
+  };
   return (
-    <ControlledModal open={open} closeModal={closeModalHandler}>
+    <ControlledModal
+      open={open}
+      closeModal={closeModalHandler}
+      contentStyle={contentStyle}
+    >
       <div className='relative text-center'>
         <div className='absolute right-4 top-4'>
           <AiOutlineClose size={24} onClick={closeModal} fill='#575555' />
@@ -25,16 +40,16 @@ const ReferralModal = ({ open, closeModal }) => {
               Earn 30% Cash Back on each Referral{' '}
             </p>
             <p className='mb-9 text-[#575555]'>
-              Lorem ipsum dolor sit amet consectetur. Pharetra varius tristique
-              mauris auctor mauris pellentesque odio accumsan eget. Nec at ut
-              malesuada
+              Refer your friends & earn coupons for your self{' '}
             </p>
           </div>
-          <div>
-            <p className='text-primary mb-14 font-semibold'>
-              Refer your friends & earn coupons for your self
-            </p>
-            <Copy fill='red' />
+          <div className='flex justify-between items-center p-6 bg-[#D0D5DA] flex-wrap gap-11'>
+            <span className='text-primary'>
+              http://www.droomwork.io/email/userid
+            </span>
+            <span>
+              <Copy />
+            </span>
           </div>
         </div>
         <div>
