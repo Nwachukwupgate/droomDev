@@ -21,6 +21,7 @@ const ReferralModal = ({ open, closeModal }) => {
     margin: 'auto',
     maxWidth: '530px',
   };
+
   return (
     <ControlledModal
       open={open}
