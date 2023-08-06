@@ -1,6 +1,6 @@
 import { BsFillPatchCheckFill } from 'react-icons/bs';
 import Status from '../Status/Status';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 
 const AvatarCard = ({ bigSize, verified, showStatus }) => {
@@ -34,7 +34,9 @@ const AvatarCard = ({ bigSize, verified, showStatus }) => {
         <p
           className={`text-left ${
             bigSize ? 'lg:text-[1.75rem] text-lg' : 'text-lg'
-          } leading-8 font-semibold ${theme==='dark'? 'text-white' : 'text-[#001935]'}`}
+          } leading-8 font-semibold ${
+            theme === 'dark' ? 'text-white' : 'text-[#001935]'
+          }`}
         >
           Alli Hussnain
         </p>
