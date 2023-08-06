@@ -13,7 +13,7 @@ const CongratulationsModal = ({ open, closeModal }) => {
     <ControlledModal open={open} closeModal={closeModalHandler}>
       <div className='relative text-center'>
         <div className='absolute right-4 top-4'>
-          <AiOutlineClose size={24} onClick={closeModal} />
+          <AiOutlineClose size={24} onClick={closeModal} fill='#575555' />
         </div>
         <div className='m-auto p-6 lg:p-9'>
           <div className='w-12 mb-5 m-auto'>
@@ -26,10 +26,10 @@ const CongratulationsModal = ({ open, closeModal }) => {
             <p className='text-primary mb-[37px] font-semibold'>
               1 New offer from Droomwork
             </p>
-            <p className='mb-9'>
+            <p className='mb-9 text-[#575555]'>
               Lorem ipsum dolor sit amet consectetur. Pharetra varius tristique
               mauris auctor mauris pellentesque odio accumsan eget. Nec at ut
-              malesuada{' '}
+              malesuada
             </p>
           </div>
           <p className='text-primary mb-14 font-semibold'>

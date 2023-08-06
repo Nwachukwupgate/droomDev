@@ -5,6 +5,7 @@ import ClientDetails from '../../components/Cards/ClientDetails';
 import OutlineButton from '../../components/Button/OutlineButton';
 import Button from '../../components/Button';
 import CongratulationsModal from '../../components/Modal/CongratulationsModal';
+import JobDetails from '../../components/JobDetails/JobDetails';
 
 const MyOffer = () => {
   const [showModal, setShowModal] = useState(false);
@@ -34,7 +35,7 @@ const MyOffer = () => {
       </div>
 
       {/* JOB DETAILS */}
-      <div className='gap-[30px] pb-7 grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 border-b border-divider-grey'>
+      {/* <div className='gap-[30px] pb-7 grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 border-b border-divider-grey'>
         <div>
           <h3 className='font-semibold leading-8 lg:text-xl'>Amount</h3>
           <p className='text-sm leading-8 lg:text-xl'>$2000.0</p>
@@ -65,6 +66,9 @@ const MyOffer = () => {
           <h3 className='font-semibold leading-8 lg:text-xl mb-3'>Framework</h3>
           <Badge />
         </div>
+      </div> */}
+      <div className='pb-7'>
+        <JobDetails />
       </div>
 
       {/* CLIENT DETAILS */}
