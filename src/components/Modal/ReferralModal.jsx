@@ -27,24 +27,24 @@ const ReferralModal = ({ open, closeModal }) => {
       closeModal={closeModalHandler}
       contentStyle={contentStyle}
     >
-      <div className='relative text-center'>
+      <div className='relative text-center px-5 sm:px-11 pt-16 pb-24'>
         <div className='absolute right-4 top-4'>
           <AiOutlineClose size={24} onClick={closeModal} fill='#575555' />
         </div>
-        <div className='m-auto p-6 lg:p-9'>
+        <div className='m-auto'>
           <div className='w-12 mb-5 m-auto'>
             <img src={Logo} alt='droomwork brand logo' />
           </div>
           <div>
-            <p className='text-2xl text-primary mb-4 font-semibold'>
+            <p className='text-2xl text-primary mb-8 font-semibold'>
               Earn 30% Cash Back on each Referral{' '}
             </p>
-            <p className='mb-9 text-[#575555]'>
+            <p className='mb-20 text-[#575555]'>
               Refer your friends & earn coupons for your self{' '}
             </p>
           </div>
-          <div className='flex justify-between items-center p-6 bg-[#D0D5DA] flex-wrap gap-11'>
-            <span className='text-primary'>
+          <div className='flex justify-between items-center p-2 sm:p-6 bg-[#D0D5DA] flex-wrap lg:gap-11'>
+            <span className='text-xs lg:text-base text-primary'>
               http://www.droomwork.io/email/userid
             </span>
             <span>
@@ -52,11 +52,8 @@ const ReferralModal = ({ open, closeModal }) => {
             </span>
           </div>
         </div>
-        <div>
-          <p></p>
-        </div>
         {/* SOCIALS */}
-        <div className='flex justify-center items-center gap-7 pb-[49px]'>
+        <div className='flex justify-center items-center gap-7 mt-11'>
           <a href='droomwork.io'>
             <BsLinkedin size={32} color='#0076B2' />
           </a>
