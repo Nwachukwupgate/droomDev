@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import Badge from '../../components/Badge/Badge';
+// import Badge from '../../components/Badge/Badge';
 import MilestoneTable from './MilestoneTable';
 import ClientDetails from '../../components/Cards/ClientDetails';
 import OutlineButton from '../../components/Button/OutlineButton';
 import Button from '../../components/Button';
 import CongratulationsModal from '../../components/Modal/CongratulationsModal';
 import JobDetails from '../../components/JobDetails/JobDetails';
+import Divider from '../../components/Divider';
 
 const MyOffer = () => {
   const [showModal, setShowModal] = useState(false);
@@ -33,58 +34,17 @@ const MyOffer = () => {
           faucibus suspendisse scelerisque orci pulvinar.
         </p>
       </div>
-
-      {/* JOB DETAILS */}
-      {/* <div className='gap-[30px] pb-7 grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 border-b border-divider-grey'>
-        <div>
-          <h3 className='font-semibold leading-8 lg:text-xl'>Amount</h3>
-          <p className='text-sm leading-8 lg:text-xl'>$2000.0</p>
-        </div>
-        <div>
-          <h3 className='font-semibold leading-8 lg:text-xl'>Payment type</h3>
-          <p>Milestone</p>
-        </div>
-        <div>
-          <h3 className='font-semibold leading-8 lg:text-xl'>
-            Project duration
-          </h3>
-          <p className='text-sm leading-8 lg:text-xl'>2 months</p>
-        </div>
-        <div>
-          <h3 className='font-semibold leading-8 lg:text-xl'>Role</h3>
-          <p>Node JS Developer</p>
-        </div>
-        <div>
-          <h3 className='font-semibold leading-8 lg:text-xl  mb-3'>Skills</h3>
-          <Badge />
-        </div>
-        <div>
-          <h3 className='font-semibold leading-8 lg:text-xl  mb-3'>Stack</h3>
-          <Badge />
-        </div>
-        <div>
-          <h3 className='font-semibold leading-8 lg:text-xl mb-3'>Framework</h3>
-          <Badge />
-        </div>
-      </div> */}
-      <div className='pb-7'>
-        <JobDetails />
-      </div>
-
-      {/* CLIENT DETAILS */}
+      <JobDetails />
+      <Divider />
       <div className='pb-[51px] border-b border-divider-grey'>
         <ClientDetails />
       </div>
-
-      {/* MILESTONE */}
       <div>
         <h2 className=' leading-8 mb-8 text-2xl font-extrabold'>
           Milestone Progress
         </h2>
         <MilestoneTable />
       </div>
-
-      {/* ACCEPT OR DECLINE BUTTON */}
       <form>
         <div className='flex flex-col gap-8 xl:flex-row md:justify-between mt-10'>
           <label

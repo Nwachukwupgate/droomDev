@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
 import Table from '../../components/Table/Table';
-import { projectList } from '../../mockData';
 
-const ProjectTable = () => {
+const ProjectTable = ({ data }) => {
   const tableHeader = useMemo(
     () => [
       {
@@ -31,7 +30,7 @@ const ProjectTable = () => {
 
   return (
     <div>
-      <Table header={tableHeader} label='Work History' column={projectList} />
+      <Table header={tableHeader} label='Work History' column={data} />
     </div>
   );
 };

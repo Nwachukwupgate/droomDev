@@ -6,6 +6,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
 import LinkButton from '../../components/Button/LinkButton';
 import AnnouncementBanner from '../../components/AnnouncementBanner/AnnouncementBanner';
+import { workHistoryList } from '../../mockData';
 
 const Project = () => {
   const { theme } = useContext(ThemeContext);
@@ -42,7 +43,7 @@ const Project = () => {
 
       {/* WORK HISTORY */}
       <div>
-        <ProjectTable />
+        <ProjectTable data={workHistoryList} />
         <div>
           <Pagination />
         </div>

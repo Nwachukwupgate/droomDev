@@ -125,6 +125,69 @@ export const projectList = [
   ],
 ];
 
+export const workHistoryList = [
+  [
+    'Lopez Lawrence',
+    'Node JS Developer',
+    'Feb 19, 2023',
+    <Status label='To-start' />,
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/project/:1'
+    >
+      Details
+    </Link>,
+  ],
+  [
+    'Lopez Lawrence',
+    'Node JS Developer',
+    'Feb 19, 2023',
+    <Status label='On-going' />,
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/project/:1'
+    >
+      Details
+    </Link>,
+  ],
+  [
+    'Lopez Lawrence',
+    'Node JS Developer',
+    'Feb 19, 2023',
+    <Status label='On-going' />,
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/project/:1'
+    >
+      Details
+    </Link>,
+  ],
+  [
+    'Lopez Lawrence',
+    'Node JS Developer',
+    'Feb 19, 2023',
+    <Status label='Finished' />,
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/project/:1'
+    >
+      Details
+    </Link>,
+  ],
+  [
+    'Lopez Lawrence',
+    'Node JS Developer',
+    'Feb 19, 2023',
+    <Status label='Finished' />,
+    <Link
+      className='inline-block rounded-md py-[2px] px-3 border border-[#575555] text-[#8D8989]'
+      to='/project/:1'
+    >
+      Details
+    </Link>,
+  ],
+];
+
 export const recentTransactionList = [
   ['Withdrawal', '100', 'Feb 19, 2023', <Status label='Pending' />],
   ['Withdrawal', '100', 'Feb 19, 2023', <Status label='Successful' />],

@@ -4,7 +4,7 @@ import Badge from '../Badge/Badge';
 const JobDetails = () => {
   return (
     <div>
-      <div className='gap-[30px] grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 border-b border-divider-grey'>
+      <div className='gap-[30px] grid xl:grid-cols-4 md:grid-cols-3 grid-cols-2 '>
         <div>
           <h3 className='font-semibold leading-8 lg:text-xl'>Amount</h3>
           <p className='text-sm leading-8 lg:text-xl'>$2000.0</p>
