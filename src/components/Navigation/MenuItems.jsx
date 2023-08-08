@@ -8,6 +8,7 @@ import Test from '../../assets/svgs/test-icon.svg';
 import Support from '../../assets/svgs/support.svg';
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
+import Icon from '../Icons/Icon';
 
 const sideNavItems = [
   {
@@ -45,12 +46,14 @@ const MenuItems = ({ setShowMobileMenu }) => {
                 <li className='' key={key}>
                   <NavLink
                     id={key}
-                    className={`px-4 flex gap-4 items-center p-3 ${
+                    className={`px-4 flex gap-3 items-center p-3 ${
                       isActive && theme === 'dark'
-                        ? 'bg-[#F58800] round-[0.675rem] rounded-[10px]'
+                        ? 'bg-[#F58800] round-[0.675rem] rounded-[10px] font-semibold'
                         : isActive && theme === 'light'
-                        ? 'bg-white round-[0.675rem] rounded-[10px]'
-                        : ''
+                        ? 'bg-white round-[0.675rem] rounded-[10px] font-semibold text-primary'
+                        : !isActive && theme === 'dark'
+                        ? 'text-[#BBB] '
+                        : ' '
                     }`}
                     to={`/${path}`}
                     onClick={(e) => {
@@ -62,11 +65,23 @@ const MenuItems = ({ setShowMobileMenu }) => {
                       }
                     }}
                   >
-                    {src && (
+                    {/* {src && (
                       <div>
                         <img src={src} alt='id' />
                       </div>
-                    )}
+                    )} */}
+                    <Icon
+                      name={label}
+                      color={`${
+                        isActive && theme === 'dark'
+                          ? '#EDEDED'
+                          : isActive && theme === 'light'
+                          ? '#001935'
+                          : !isActive && theme === 'dark'
+                          ? '#BBB'
+                          : '#575555'
+                      }`}
+                    />
                     <p
                       className={`${
                         theme === 'dark' ? 'text-[#ededed]' : 'text-primary'

@@ -32,7 +32,7 @@ const Navbar = () => {
             theme === 'dark'
               ? 'bg-black shadow-header-dark'
               : 'bg-white shadow-header'
-          } flex justify-between items-center py-[26px] px-[18px] sm:px-8  md:px-12 lg:px-[60px]  z-[1035]`}
+          } flex justify-between items-center py-[26px] px-[18px] sm:px-8  md:px-12 lg:px-[60px] z-[1035]`}
         >
           {/* MENU AND LOGO  */}
           <div className='flex items-center gap-7'>

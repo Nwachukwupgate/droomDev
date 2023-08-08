@@ -14,7 +14,7 @@ const Status = ({ label }) => {
             label === 'Successful'
           ? 'bg-[#D89C51]'
           : label === 'Offered'
-          ? 'bg-[#001935] text-white'
+          ? 'bg-[#001935]'
           : label === 'Not verified'
           ? 'bg-[#EDDAC1] text-[0.5rem]'
           : label === 'To-start'
