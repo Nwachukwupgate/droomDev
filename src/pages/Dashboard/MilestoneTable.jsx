@@ -1,8 +1,10 @@
 import React, { useMemo } from 'react';
 import Table from '../../components/Table/Table';
-import { milestoneProgressList } from '../../mockData';
+import Status from '../../components/Status/Status';
+import moment from 'moment';
 
-const MilestoneTable = () => {
+
+const MilestoneTable = ({projectDetailMilestone}) => {
   const tableHeader = useMemo(
     () => [
       {
@@ -36,9 +38,23 @@ const MilestoneTable = () => {
     ],
     []
   );
+
+  const mergedData = useMemo(() => {
+    return projectDetailMilestone.map((item) => {
+      return [
+        item?.description.slice(0, 15),
+        item?.amountPayable,
+        item?.startDate ? moment(item?.startDate).format("YYYY-MM-DD") : null,
+        item?.endDate ? moment(item?.endDate).format("YYYY-MM-DD") : null,
+        item?.state,
+        'Approved',
+        <Status label={item?.status} />,
+      ];
+    });
+  }, [projectDetailMilestone]);
   return (
     <div>
-      <Table header={tableHeader} column={milestoneProgressList}/>
+      <Table header={tableHeader} column={mergedData}/>
     </div>
   );
 };

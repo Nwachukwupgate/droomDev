@@ -28,22 +28,44 @@ export const apiSlice = createApi({
             return headers
         }
     }),
-    tagTypes: ['Project', 'Supplier'],
+    tagTypes: ['Dashboard', 'Cbt'],
 
     endpoints: builder => ({
 
       getDashboard: builder.query({
-        query: () => '/api/v1/dev/getAllMyDashboardParameters'
+        query: () => '/api/v1/dev/getAllMyDashboardParameters',
+        providesTags: ['Dashboard']
       }),
 
       getMyMatchedJobs: builder.query({
-        query: () => 'api/v1/dev/getAllMyMatchedJobs'
+        query: () => 'api/v1/dev/getAllMyMatchedJobs',
+        providesTags: ['Dashboard']
       }),
 
       getAllMyCbtDetails: builder.query({
-        query: () => 'api/v1/dev/getAllMyCbtDetails'
+        query: () => 'api/v1/dev/getAllMyCbtDetails',
+        providesTags: ['Cbt']
+      }),
+
+      getMyWorkHistory: builder.query({
+        query: () => 'api/v1/dev/getMyWorkHistory',
+        providesTags: ['Dashboard']
+      }),
+
+      getMyOverAllRating: builder.query({
+        query: () => 'api/v1/dev/getMyOverAllRating',
+        providesTags: ['Dashboard']
+      }),
+
+      acceptOffer: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/acceptOffer/${post.id}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
       }),
     })
   })
   
-export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery } = apiSlice
+export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery, useGetMyWorkHistoryQuery, useGetMyOverAllRatingQuery, useAcceptOfferMutation } = apiSlice

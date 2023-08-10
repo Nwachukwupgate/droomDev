@@ -1,7 +1,11 @@
 import React from 'react';
 import Rating from './Rating';
+import { useGetMyOverAllRatingQuery } from '../../features/api/apiSlice';
 
 const OverallRating = () => {
+  const {data} = useGetMyOverAllRatingQuery ()
+
+  const {code_quality ="0", communications="0", productivity ="0", reliability  ="0", timelines= "0"} = data?.data ?? {}
   return (
     <div>
       <div className=''>
@@ -10,15 +14,15 @@ const OverallRating = () => {
         </h2>
         <div className='grid grid-cols-2 gap-3'>
           <p>Code Quality</p>
-          <Rating rating={0} />
+          <Rating rating={code_quality} />
           <p>Productivity</p>
-          <Rating rating={2} />
+          <Rating rating={productivity} />
           <p className='whitespace-nowrap'>Consistency & Reliability</p>
-          <Rating rating={3} />
+          <Rating rating={reliability} />
           <p>Communication</p>
-          <Rating rating={4} />
+          <Rating rating={communications} />
           <p>Timelines</p>
-          <Rating rating={5} />
+          <Rating rating={timelines} />
         </div>
       </div>
     </div>

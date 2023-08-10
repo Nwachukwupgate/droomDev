@@ -4,19 +4,44 @@ import MilestoneTable from './MilestoneTable';
 import ClientDetails from '../../components/Cards/ClientDetails';
 import OutlineButton from '../../components/Button/OutlineButton';
 import Button from '../../components/Button';
-import CongratulationsModal from '../../components/Modal/CongratulationsModal'
+import CongratulationsModal from '../../components/Modal/CongratulationsModal';
+import { useParams } from 'react-router-dom';
+import { useGetMyWorkHistoryQuery } from '../../features/api/apiSlice';
+
 
 const MyOffer = () => {
+  const { id } = useParams();
+  const idAsInteger = parseInt(id, 10); 
   const [showModal, setShowModal] = useState(false)
+  const [isAgreed, setIsAgreed] = useState(false);
+  
+  const handleAgreeChange = (event) => {
+    setIsAgreed(event.target.checked);
+  };
 
-const acceptHandler = (e) => {
-e.preventDefault()
-setShowModal(true)
-}
 
-const closeModal=()=>{
-  setShowModal(false)
-}
+
+  const { post } = useGetMyWorkHistoryQuery(undefined, {
+    selectFromResult: ({ data }) => {
+      const posts = (data && data.data.data) || [];  
+      const selectedPost = posts.find((post) => post.id === idAsInteger);
+      return {
+        post: selectedPost,
+      };
+    },
+  });
+
+  const {projectDetailJobDetail ={}, projectDetailMilestone =[] } = post ?? {}
+  console.log("this pop", post)
+
+  const acceptHandler = (e) => {
+    e.preventDefault()
+    setShowModal(true)
+  }
+
+  const closeModal=()=>{
+    setShowModal(false)
+  }
 
   return (
     <div className='text-left flex flex-col gap-[25px]'>
@@ -26,11 +51,7 @@ const closeModal=()=>{
           Job Description
         </h1>
         <p className='xl:text-xl'>
-          Lorem ipsum dolor sit amet consectetur. Pharetra varius tristique
-          mauris auctor mauris pellentesque odio accumsan eget. Nec at ut
-          malesuada elit elementum non nunc. Tellus vel purus consectetur elit
-          tempus molestie ut tellus dignissim. Egestas elit eu aliquet euismod
-          faucibus suspendisse scelerisque orci pulvinar.
+          {projectDetailJobDetail.jobDescription}
         </p>
       </div>
 
@@ -42,17 +63,17 @@ const closeModal=()=>{
         </div>
         <div>
           <h3 className='font-semibold leading-8 lg:text-xl'>Payment type</h3>
-          <p>Milestone</p>
+          <p>{post?.payment_type}</p>
         </div>
         <div>
           <h3 className='font-semibold leading-8 lg:text-xl'>
             Project duration
           </h3>
-          <p className='text-sm leading-8 lg:text-xl'>2 months</p>
+          <p className='text-sm leading-8 lg:text-xl'>{post?.agreed_duration} months</p>
         </div>
         <div>
           <h3 className='font-semibold leading-8 lg:text-xl'>Role</h3>
-          <p>Node JS Developer</p>
+          <p>{projectDetailJobDetail?.jobTitle}</p>
         </div>
         <div>
           <h3 className='font-semibold leading-8 lg:text-xl  mb-3'>Skills</h3>
@@ -70,7 +91,7 @@ const closeModal=()=>{
 
       {/* CLIENT DETAILS */}
       <div className='pb-[51px] border-b border-divider-grey'>
-        <ClientDetails />
+        <ClientDetails {...projectDetailJobDetail} showAmount = {true} />
       </div>
 
       {/* MILESTONE */}
@@ -78,7 +99,7 @@ const closeModal=()=>{
         <h2 className=' leading-8 mb-8 text-2xl font-extrabold'>
           Milestone Progress
         </h2>
-        <MilestoneTable />
+        <MilestoneTable projectDetailMilestone={projectDetailMilestone}/>
       </div>
 
       {/* ACCEPT OR DECLINE BUTTON */}

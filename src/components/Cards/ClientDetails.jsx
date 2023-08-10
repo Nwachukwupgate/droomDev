@@ -2,7 +2,7 @@ import { MdLocationOn } from 'react-icons/md';
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
 
-const ClientDetails = ({ showAmount }) => {
+const ClientDetails = ({ showAmount, companyLocation, companyName, companyLogo}) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -16,7 +16,7 @@ const ClientDetails = ({ showAmount }) => {
             <div className='w-11 h-11'>
               <img
                 alt='avatar'
-                src='https://tecdn.b-cdn.net/img/new/avatars/2.webp'
+                src={companyLogo}
               />
             </div>
             <span
@@ -24,7 +24,7 @@ const ClientDetails = ({ showAmount }) => {
                 theme === 'dark' ? 'text-[#EDEDED]' : 'text-primary'
               } lg:text-lg`}
             >
-              Lopez Lawrence
+              {companyName}
             </span>
           </div>
           <div>
@@ -32,7 +32,7 @@ const ClientDetails = ({ showAmount }) => {
               <h3 className='text-xl font-bold'>Location</h3>
               <MdLocationOn width={14} height={20} color='#E27D03' />
             </div>
-            <p className='lg:text-lg'>London, United Kingdom</p>
+            <p className='lg:text-lg'>{companyLocation}</p>
           </div>
           <div className=''>
             <h3 className='text-xl font-bold'>Payment Verification</h3>
