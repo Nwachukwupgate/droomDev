@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 import Status from '../../components/Status/Status';
 import { useGetMyWorkHistoryQuery } from '../../features/api/apiSlice';
 
-const ProjectTable = () => {
-  const {data} = useGetMyWorkHistoryQuery()
+const ProjectTable = ({ data }) => {
+  const {data: work} = useGetMyWorkHistoryQuery()
+
+// const ProjectTable = ({ data }) => {
   const tableHeader = useMemo(
     () => [
       {
@@ -35,7 +37,7 @@ const ProjectTable = () => {
   );
 
   const mergedData = useMemo(() => {
-    return data?.data?.data?.map((item) => {
+    return work?.data?.data?.map((item) => {
       return [
         item?.projectDetailJobDetail?.companyName,
         item?.projectDetailJobDetail?.jobTitle,
@@ -49,7 +51,7 @@ const ProjectTable = () => {
         </Link>,
       ];
     });
-  }, [data]);
+  }, [work]);
 
   return (
     <div>

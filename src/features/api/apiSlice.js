@@ -28,7 +28,7 @@ export const apiSlice = createApi({
             return headers
         }
     }),
-    tagTypes: ['Dashboard', 'Cbt'],
+    tagTypes: ['Dashboard', 'Cbt', 'Transactions'],
 
     endpoints: builder => ({
 
@@ -59,13 +59,27 @@ export const apiSlice = createApi({
 
       acceptOffer: builder.mutation({
         query: post => ({
-          url: `api/v1/dev/acceptOffer/${post.id}`,
+          url: `api/v1/dev/acceptOffer/${post}`,
           method: 'PUT',
           body: post
         }),
         invalidatesTags: ['Dashboard']
       }),
+
+      rejectOffer: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/rejectOffer/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      getAllMyTransactions: builder.query({
+        query: () => 'api/v1/dev/getAllMyTransactions',
+        providesTags: ['Transactions']
+      })
     })
   })
   
-export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery, useGetMyWorkHistoryQuery, useGetMyOverAllRatingQuery, useAcceptOfferMutation } = apiSlice
+export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery, useGetMyWorkHistoryQuery, useGetMyOverAllRatingQuery, useAcceptOfferMutation, useRejectOfferMutation, useGetAllMyTransactionsQuery } = apiSlice

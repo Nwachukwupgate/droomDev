@@ -1,11 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import { ThemeContext } from '../../context/ThemeContext';
+import { useGetDashboardQuery } from '../../features/api/apiSlice';
+
 
 const Balance = () => {
   const [showEarnings, setShowEarnings] = useState(true);
   const { theme } = useContext(ThemeContext);
-  const amount = '$8,690.62';
+
+  const { data } = useGetDashboardQuery();
+  const { myBalance='...', myCashBackBalance = '...' } = data?.data ?? {};
+  const amount = `$${myBalance}`;
+
 
   return (
     <div>
@@ -29,7 +35,7 @@ const Balance = () => {
               theme === 'dark' ? 'text-white' : 'text-black'
             } text-xl leading-10`}>Coupon Bal:</span>
               <span className='text-[1.75rem] font-semibold leading-10'>
-                $14
+                {myCashBackBalance}
               </span>
             </div>
           </div>

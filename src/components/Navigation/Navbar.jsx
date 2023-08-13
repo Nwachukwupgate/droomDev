@@ -9,17 +9,31 @@ import Notification from '../Notification/Notification';
 import UserInfo from './UserInfo';
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
+import ReferralModal from '../Modal/ReferralModal';
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showReferralModal, setShowReferralModal] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const { theme } = useContext(ThemeContext);
 
+  const handleReferral = () => {
+    setShowReferralModal(true);
+  };
+  const closeModal = () => {
+    setShowReferralModal(false);
+  };
 
   return (
     <div className='relative'>
       <div className=' fixed top-0 left-0 w-full z-50'>
-        <div className={`${theme==='dark'? 'bg-black shadow-header-dark' : 'bg-white shadow-header'} flex justify-between items-center py-[26px] px-[18px] sm:px-8  md:px-12 lg:px-[60px]  z-[1035]`}>
+        <div
+          className={`${
+            theme === 'dark'
+              ? 'bg-black shadow-header-dark'
+              : 'bg-white shadow-header'
+          } flex justify-between items-center py-[26px] px-[18px] sm:px-8  md:px-12 lg:px-[60px] z-[1035]`}
+        >
           {/* MENU AND LOGO  */}
           <div className='flex items-center gap-7'>
             <div className='lg:hidden'>
@@ -34,18 +48,19 @@ const Navbar = () => {
           <div className='flex items-center gap-10 lg:hidden'>
             <FiSearch size={24} />
             <IoMdNotifications
-                size={32}
-                onClick={() => setShowNotification((o) => !o)}
-              />
+              size={32}
+              onClick={() => setShowNotification((o) => !o)}
+            />
           </div>
-
           {/* LARGER SCREEN BUTTONS */}
           <div className='relative hidden lg:flex items-center gap-7'>
             <ToggleSwitch />
             <Button
               label={'Refer & Earn'}
               className={'bg-primary text-white'}
+              onClick={handleReferral}
             />
+            <ReferralModal open={showReferralModal} closeModal={closeModal} />
             <div className='inline-block h-[42px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 opacity-100 dark:opacity-50 m-auto'></div>
             <div className='flex items-center gap-10'>
               <IoMdNotifications
@@ -59,7 +74,6 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
         {/* Mobile Menu */}
         <div className=' '>
           <MobileMenu

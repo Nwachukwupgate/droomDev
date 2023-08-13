@@ -1,15 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TransactionTable from './TransactionTable';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 import Button from '../../components/Button';
 import OutlineButton from '../../components/Button/OutlineButton';
 import Pagination from '../../components/Pagination/Pagination';
+import SuccessModal from '../../components/Modal/SuccessModal';
+import { useNavigate } from 'react-router-dom';
+import { useGetDashboardQuery } from '../../features/api/apiSlice';
 
 const Withdraw = () => {
   const [showEarnings, setShowEarnings] = useState(true);
-  const amount = '$8,690.62';
+  const [open, setOpen] = useState(false);
+  const [shouldNavigate, setShouldNavigate] = useState(false);
+  const navigate = useNavigate();
+  const {data} = useGetDashboardQuery()
+
+  const submitHandler = (e) => {
+    setOpen(true);
+  };
+
+  const handleDone = () => {
+    setOpen(false);
+    setShouldNavigate(true);
+  };
+
+  useEffect(() => {
+    handleNavigation();
+  }, [shouldNavigate]);
+
+  const handleNavigation = () => {
+    if (shouldNavigate) {
+      navigate('details');
+    }
+  };
+
+  const { myBalance='...' } = data?.data ?? {};
+  const amount = `$${myBalance}`;
+
   return (
     <div className='xl:flex justify-between gap-5 items-end'>
+      <SuccessModal
+        open={open}
+        closeModal={handleDone}
+        // onModalClose={handleModalClose}
+      />
       <div className='basis-1/2'>
         <div>
           <h2 className='md:text-lg lg:text-xl font-semibold mb-5'>
@@ -53,16 +87,28 @@ const Withdraw = () => {
               <label htmlFor='bank' className=''>
                 Bank name
               </label>
-              <input
-                type='text'
-                className='mt-[7px]   min-h-[auto] w-full rounded-md border border-input bg-transparent px-5 py-2.5 leading-[2.3] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200'
+              <select
+                className='mt-[7px] min-h-[auto] w-full rounded-md border border-input bg-transparent px-5 py-2.5 leading-[2.3] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200'
                 id='bank'
-                placeholder='Enter bank name'
-              />
+                defaultValue='default'
+              >
+                <option value='default' disabled>
+                  Select a bank
+                </option>
+                <option value='bank1'>Bank 1</option>
+                <option value='bank2'>Bank 2</option>
+                <option value='bank3'>Bank 3</option>
+                {/* Add more options for other banks */}
+              </select>
             </div>
             <div className='flex gap-5 mt-12'>
               <OutlineButton label={'Cancel'} />
-              <Button label={'Continue'} className={'bg-primary text-white'} />
+              <Button
+                // type={'submit'}
+                label={'Continue'}
+                className={'bg-primary text-white'}
+                onClick={submitHandler}
+              />
             </div>
           </form>
         </section>
