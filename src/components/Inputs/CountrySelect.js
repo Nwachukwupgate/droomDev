@@ -4,6 +4,8 @@ import Select from 'react-select';
 const CountrySelect = ({ value, onChange }) => {
   const { getAll } = useCountries();
 
+  console.log(getAll());
+
   const styles = {
     control: (baseStyles, state) => ({
       ...baseStyles,

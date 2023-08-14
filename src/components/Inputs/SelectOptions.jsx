@@ -8,6 +8,8 @@ const SelectOptions = ({
   label,
   placeholder,
   id,
+  name,
+  // setFieldValue,
 }) => {
   const styles = {
     control: (baseStyles, state) => ({
@@ -32,17 +34,28 @@ const SelectOptions = ({
     }),
   };
 
+  const handleChange = (e) => {
+    console.log(e);
+  };
+
   return (
     <div className='inline-flex flex-col'>
       <div className='mb-[3px] inline-block  dark:text-neutral-200'>
         {label}
       </div>
       <Select
+        id={id}
+        name={name}
         placeholder={placeholder}
         isClearable
         options={options}
         value={value}
-        onChange={(value) => onChange(value)}
+        onChange={handleChange}
+        formatOptionalLabel={(option) => (
+          <div className='flex flex-row items-center gap-3'>
+            <div>{option.label}</div>
+          </div>
+        )}
         classNames={{
           // control: () => 'p-3 border-2',
           input: () => 'text-lg m-0',

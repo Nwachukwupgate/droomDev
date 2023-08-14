@@ -9,11 +9,13 @@ import Pagination from '../../components/Pagination/Pagination';
 import SuccessModal from '../../components/Modal/SuccessModal';
 import { useNavigate } from 'react-router-dom';
 import InputBox from '../../components/Inputs/InputBox';
-import SelectOptions from '../../components/Inputs/SelectOptions';
 import {
   WithdrawalSchema,
   initialWithdrawalValues,
 } from '../../schema/withdraw.schema';
+import SearchSelectOptions from '../../components/SearchBar/SearchSelectOptions';
+
+const bankOptions = ['Zenith', 'UBA', 'Access'];
 
 const Withdraw = () => {
   const [showEarnings, setShowEarnings] = useState(true);
@@ -64,6 +66,7 @@ const Withdraw = () => {
               setFieldValue,
               errors,
               handleSubmit,
+              ...formik
             }) => (
               <div className='flex flex-col gap-6'>
                 <InputBox
@@ -86,14 +89,14 @@ const Withdraw = () => {
                   isValid={values?.account && !errors?.account}
                   setFieldTouched={setFieldTouched}
                 />
-                <SelectOptions
-                  label={'Bank name'}
-                  placeholder={'Enter bank name'}
-                  id={'bank'}
-                  value={values?.bank}
-                  isValid={values?.bank && !errors?.bank}
-                  setFieldTouched={setFieldTouched}
-                  setFieldValue
+                <SearchSelectOptions
+                  options={bankOptions}
+                  name='bank'
+                  setFieldValue={setFieldValue}
+                  label='Bank name'
+                  placeholder='Enter bank name'
+                  formik={formik}
+                  value={values?.search}
                 />
                 <div className='flex gap-5 mt-12'>
                   <OutlineButton label={'Cancel'} />
