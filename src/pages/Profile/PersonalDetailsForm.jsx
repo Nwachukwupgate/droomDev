@@ -9,7 +9,6 @@ const PersonalDetailsForm = () => {
   const countryHandler = (e) => {
     setValue(e);
   };
-  console.log(value);
 
   return (
     <div className='flex flex-col gap-7'>

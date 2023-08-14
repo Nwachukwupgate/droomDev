@@ -1,14 +1,12 @@
-import useCountries from '../../hooks/useCountries';
+import React from 'react';
 import Select from 'react-select';
 
-const CountrySelect = ({ value, onChange }) => {
-  const { getAll } = useCountries();
-
+const CustomSelect = ({ value, onChange, options }) => {
   const styles = {
     control: (baseStyles, state) => ({
       ...baseStyles,
-      borderColor: (state.isFocused || state.hover) && 'transparent',
-      outlineColor: (state.isFocused || state.hover) && 'transparent',
+      borderColor: (state.isFocused || state.hover) && '',
+      outlineColor: (state.isFocused || state.hover) && '',
       padding: '12px',
     }),
     input: (baseStyles, state) => ({
@@ -32,18 +30,9 @@ const CountrySelect = ({ value, onChange }) => {
       <Select
         placeholder='Anywhere'
         isClearable
-        options={getAll()}
+        options={options}
         value={value}
         onChange={(value) => onChange(value)}
-        formatOptionalLabel={(option) => (
-          <div className='flex flex-row items-center gap-3'>
-            <div>{option.flag} </div>
-            <div>
-              {option.label},
-              <span className='text-neutral-500 ml-1'>{option.region}</span>
-            </div>
-          </div>
-        )}
         classNames={{
           // control: () => 'p-3 border-2',
           input: () => 'text-lg m-0',
@@ -64,5 +53,4 @@ const CountrySelect = ({ value, onChange }) => {
     </div>
   );
 };
-
-export default CountrySelect;
+export default CustomSelect;
