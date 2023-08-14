@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useField } from 'formik';
 
 export const initialQuery = {
@@ -8,7 +8,7 @@ export const initialQuery = {
 };
 
 const SearchSelectOptions = ({
-  value,
+  // value,
   setValue,
   setFieldValue,
   options,
@@ -30,7 +30,7 @@ const SearchSelectOptions = ({
   };
 
   const handleOpenOptions = () => {
-    setOpen(true);
+    setOpen((current) => !current);
   };
 
   const handleSelectOptions = (selectedOption) => {
@@ -72,10 +72,9 @@ const SearchSelectOptions = ({
             {options?.map((option) => (
               <div
                 key={option}
-                className={`py-[8px] px-[21px] gap-1 cursor-pointer flex items-start w-full hover:bg-[#e3e3e3]`}
-                // className={`border-t border-t-grey-input py-[14px] px-[21px] gap-4 justify-between  cursor-pointer flex items-center w-full ${
-                //   value?.key === user_id && 'bg-[#F8F9FF]'
-                // }`}
+                className={`${
+                  field?.value === option && 'bg-[#e3e3e3]'
+                } py-[8px] px-[21px] gap-1 cursor-pointer flex items-start w-full hover:bg-[#ededed]`}
                 onClick={() => handleSelectOptions(option)}
               >
                 {option}
