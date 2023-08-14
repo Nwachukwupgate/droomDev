@@ -42,6 +42,7 @@ const EditProfile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState(STEPS.LEVEL);
   const [showModal, setShowModal] = useState(false);
+  const [levelStack, setLevelStack] = useState({})
 
   const navigate = useNavigate();
 
