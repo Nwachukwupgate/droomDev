@@ -1,7 +1,14 @@
 import React from 'react';
 import Select from 'react-select';
 
-const CustomSelect = ({ value, onChange, options }) => {
+const SelectOptions = ({
+  value,
+  onChange,
+  options,
+  label,
+  placeholder,
+  id,
+}) => {
   const styles = {
     control: (baseStyles, state) => ({
       ...baseStyles,
@@ -26,9 +33,12 @@ const CustomSelect = ({ value, onChange, options }) => {
   };
 
   return (
-    <div>
+    <div className='inline-flex flex-col'>
+      <div className='mb-[3px] inline-block  dark:text-neutral-200'>
+        {label}
+      </div>
       <Select
-        placeholder='Anywhere'
+        placeholder={placeholder}
         isClearable
         options={options}
         value={value}
@@ -53,4 +63,4 @@ const CustomSelect = ({ value, onChange, options }) => {
     </div>
   );
 };
-export default CustomSelect;
+export default SelectOptions;
