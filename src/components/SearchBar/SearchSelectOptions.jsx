@@ -8,9 +8,8 @@ export const initialQuery = {
 };
 
 const SearchSelectOptions = ({
-  // value,
   setValue,
-  setFieldValue,
+  // setFieldValue,
   options,
   title,
   isChecked,

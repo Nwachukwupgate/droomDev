@@ -23,7 +23,7 @@ const Withdraw = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (formValues) => {
-    console.log(formValues);
+    // console.log(formValues);
     setOpen(true);
   };
 
