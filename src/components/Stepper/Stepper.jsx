@@ -11,18 +11,18 @@ const Stepper = ({ step }) => {
         <div className='flex items-center relative'>
           <div
             className={`${
-              step === 0
+              step >= 0
                 ? 'bg-[#F58800] text-white border-transparent'
                 : 'text-[#B7B3B3]'
             } flex items-center justify-center rounded-full transition duration-500 ease-in-out h-12 w-12 border-2 border-[#B7B3B3]`}
           >
-            {step === 0 ? <AiOutlineCheck /> : '1'}
+            {step >= 0 ? <AiOutlineCheck /> : '1'}
           </div>
           <div
             className={`${
-              step === 0 && theme === 'light'
+              step >= 0 && theme === 'light'
                 ? 'text-primary'
-                : step === 0 && theme === 'dark'
+                : step >= 0 && theme === 'dark'
                 ? 'text-secondary'
                 : 'text-[#B7B3B3]'
             } text-xs sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase tracking-tighter`}
@@ -32,24 +32,24 @@ const Stepper = ({ step }) => {
         </div>
         <div
           className={`${
-            step === 0 ? 'border-secondary' : 'border-[#bfb3b3]'
+            step >= 0 ? 'border-secondary' : 'border-[#bfb3b3]'
           } flex-auto border-t-2 transition duration-500 ease-in-out`}
         ></div>
         <div className='flex items-center text-white relative'>
           <div
             className={`${
-              step === 1
+              step >= 1
                 ? 'bg-[#F58800] text-white border-transparent'
                 : 'text-[#B7B3B3]'
             } flex items-center justify-center rounded-full transition duration-500 ease-in-out h-12 w-12 border-2 border-[#B7B3B3]`}
           >
-            {step === 1 ? <AiOutlineCheck /> : '2'}
+            {step >= 1 ? <AiOutlineCheck /> : '2'}
           </div>
           <div
             className={`${
-              step === 1 && theme === 'light'
+              step >= 1 && theme === 'light'
                 ? 'text-primary'
-                : step === 0 && theme === 'dark'
+                : step >= 1 && theme === 'dark'
                 ? 'text-secondary'
                 : 'text-[#B7B3B3]'
             } text-xs sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase tracking-tighter`}
@@ -59,24 +59,24 @@ const Stepper = ({ step }) => {
         </div>
         <div
           className={`${
-            step === 1 ? 'border-secondary' : 'border-[#bfb3b3]'
+            step >= 1 ? 'border-secondary' : 'border-[#bfb3b3]'
           } flex-auto border-t-2 transition duration-500 ease-in-out`}
         ></div>
         <div className='flex items-center  relative'>
           <div
             className={`${
-              step === 2
+              step >= 2
                 ? 'bg-[#F58800] text-white border-transparent'
                 : 'text-[#B7B3B3]'
             } flex items-center justify-center rounded-full transition duration-500 ease-in-out h-12 w-12 border-2 border-[#B7B3B3]`}
           >
-            {step === 2 ? <AiOutlineCheck /> : '3'}
+            {step >= 2 ? <AiOutlineCheck /> : '3'}
           </div>
           <div
             className={`${
-              step === 2 && theme === 'light'
+              step >= 2 && theme === 'light'
                 ? 'text-primary'
-                : step === 0 && theme === 'dark'
+                : step >= 2 && theme === 'dark'
                 ? 'text-secondary'
                 : 'text-[#B7B3B3]'
             } text-xs sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase  tracking-tighter`}
@@ -86,24 +86,24 @@ const Stepper = ({ step }) => {
         </div>
         <div
           className={`${
-            step === 2 ? 'border-secondary' : 'border-[#bfb3b3]'
+            step >= 2 ? 'border-secondary' : 'border-[#bfb3b3]'
           } flex-auto border-t-2 transition duration-500 ease-in-out`}
         ></div>
         <div className='flex items-center  relative'>
           <div
             className={`${
-              step === 3
+              step >= 3
                 ? 'bg-[#F58800] text-white border-transparent'
                 : 'text-[#B7B3B3]'
             } flex items-center justify-center rounded-full transition duration-500 ease-in-out h-12 w-12 border-2 border-[#B7B3B3]`}
           >
-            {step === 3 ? <AiOutlineCheck /> : '4'}
+            {step >= 3 ? <AiOutlineCheck /> : '4'}
           </div>
           <div
             className={`${
-              step === 3 && theme === 'light'
+              step >= 3 && theme === 'light'
                 ? 'text-primary'
-                : step === 0 && theme === 'dark'
+                : step >= 3 && theme === 'dark'
                 ? 'text-secondary'
                 : 'text-[#B7B3B3]'
             } text-xs sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase tracking-tighter`}
@@ -113,7 +113,7 @@ const Stepper = ({ step }) => {
         </div>
         <div
           className={`${
-            step === 3 ? 'border-secondary' : 'border-[#bfb3b3]'
+            step >= 3 ? 'border-secondary' : 'border-[#bfb3b3]'
           } flex-auto border-t-2 transition duration-500 ease-in-out`}
         ></div>
         <div className='flex items-center  relative'>
@@ -124,7 +124,7 @@ const Stepper = ({ step }) => {
             className={`${
               step === 4 && theme === 'light'
                 ? 'text-primary'
-                : step === 0 && theme === 'dark'
+                : step === 4 && theme === 'dark'
                 ? 'text-secondary'
                 : 'text-[#B7B3B3]'
             } text-xs sm:text-base absolute top-0 -ml-10 text-center mt-16 w-32 font-semibold uppercase tracking-tighter`}
@@ -138,3 +138,21 @@ const Stepper = ({ step }) => {
 };
 
 export default Stepper;
+
+// const Stepper = ({ step }) => {
+//   return (
+//     <div className='flex items-center'>
+//       <StepperItem step={step} index={0} label='SELECT LEVEL' />
+//       <div className='flex-auto border-t-2 transition duration-500 ease-in-out'></div>
+//       <StepperItem step={step} index={1} label='select language' />
+//       <div className='flex-auto border-t-2 transition duration-500 ease-in-out'></div>
+//       <StepperItem step={step} index={2} label='select framework' />
+//       <div className='flex-auto border-t-2 transition duration-500 ease-in-out'></div>
+//       <StepperItem step={step} index={3} label='personal detail' />
+//       <div className='flex-auto border-t-2 transition duration-500 ease-in-out'></div>
+//       <StepperItem step={step} index={4} label='success' />
+//     </div>
+//   );
+// };
+
+// export default Stepper;

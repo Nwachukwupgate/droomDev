@@ -78,8 +78,13 @@ export const apiSlice = createApi({
       getAllMyTransactions: builder.query({
         query: () => 'api/v1/dev/getAllMyTransactions',
         providesTags: ['Transactions']
-      })
+      }),
+
+      getAllBanks: builder.query({
+        query: () => 'api/v1/all/getAllBanks',
+        providesTags: ['Transactions']
+      }),
     })
   })
   
-export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery, useGetMyWorkHistoryQuery, useGetMyOverAllRatingQuery, useAcceptOfferMutation, useRejectOfferMutation, useGetAllMyTransactionsQuery } = apiSlice
+export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery, useGetMyWorkHistoryQuery, useGetMyOverAllRatingQuery, useAcceptOfferMutation, useRejectOfferMutation, useGetAllMyTransactionsQuery, useGetAllBanksQuery } = apiSlice

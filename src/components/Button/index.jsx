@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Button = ({ label, className, onClick, disableButton, isLoading }) => {
+const Button = ({ label, className, onClick, disableButton, isLoading, type  }) => {
+
   const onClickHandler = (e) => {
     if (typeof onClick === 'function') {
       e.preventDefault();
@@ -10,6 +11,7 @@ const Button = ({ label, className, onClick, disableButton, isLoading }) => {
   return (
     <div>
       <button
+        type={type}
         className={`${className} text-sm rounded-lg px-[30px] py-3.5 border border-transparent whitespace-nowrap`}
         onClick={onClickHandler}
         disabled={disableButton}

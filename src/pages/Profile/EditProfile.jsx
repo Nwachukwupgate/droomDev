@@ -44,9 +44,9 @@ const EditProfile = () => {
   const [showModal, setShowModal] = useState(false);
   const [levelStack, setLevelStack] = useState({})
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleSubmit = () => {};
+  // const handleSubmit = () => {};
 
   const onBack = () => {
     setStep((value) => value - 1);
@@ -57,12 +57,26 @@ const EditProfile = () => {
   };
 
   const onSubmit = (data) => {
-    if (step !== STEPS.DETAILS) {
+    // Call the individual APIs for each step
+    if (step === STEPS.LEVEL) {
+      // API for Select Level
       return onNext();
+    } else if (step === STEPS.LANGUAGE) {
+      // API for Language
+      return onNext();
+    } else if (step === STEPS.FRAMEWORK) {
+      // API for Framework
+      return onNext();
+    } else {
+      // API for details
+      setShowModal(true);
     }
 
+    // if (step !== STEPS.DETAILS) {
+    //   return onNext();
+    // }
+
     setIsLoading(true);
-    setShowModal(true);
     // console.log(isLoading);
     // setStep(STEPS.LEVEL);
     // console.log(step);

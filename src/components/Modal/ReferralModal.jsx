@@ -38,10 +38,10 @@ const ReferralModal = ({ open, closeModal }) => {
           </div>
           <div>
             <p className='text-2xl text-primary mb-8 font-semibold'>
-              Earn 30% Cash Back on each Referral{' '}
+              Earn 30% Cash Back on each Referral
             </p>
             <p className='mb-20 text-[#575555]'>
-              Refer your friends & earn coupons for your self{' '}
+              Refer your friends & earn coupons for your self
             </p>
           </div>
           <div className='flex justify-between items-center p-2 sm:p-6 bg-[#D0D5DA] flex-wrap lg:gap-11'>

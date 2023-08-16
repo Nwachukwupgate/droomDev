@@ -12,7 +12,7 @@ const SuccessModal = ({ open, closeModal }) => {
   return (
     <ControlledModal
       open={open}
-      closeOnDocumentClick={false}
+      // closeOnDocumentClick={false}
       closeModal={closeModal}
     >
       <div className='m-auto px-[74px] text-center pb-24 pt-16'>

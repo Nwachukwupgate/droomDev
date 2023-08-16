@@ -1,16 +1,21 @@
-import useCountries from '../../hooks/useCountries';
+import React from 'react';
 import Select from 'react-select';
 
-const CountrySelect = ({ value, onChange }) => {
-  const { getAll } = useCountries();
-
-  console.log(getAll());
-
+const SelectOptions = ({
+  value,
+  onChange,
+  options,
+  label,
+  placeholder,
+  id,
+  name,
+  // setFieldValue,
+}) => {
   const styles = {
     control: (baseStyles, state) => ({
       ...baseStyles,
-      borderColor: (state.isFocused || state.hover) && 'transparent',
-      outlineColor: (state.isFocused || state.hover) && 'transparent',
+      borderColor: (state.isFocused || state.hover) && '',
+      outlineColor: (state.isFocused || state.hover) && '',
       padding: '12px',
     }),
     input: (baseStyles, state) => ({
@@ -29,21 +34,26 @@ const CountrySelect = ({ value, onChange }) => {
     }),
   };
 
+  const handleChange = (e) => {
+    console.log(e);
+  };
+
   return (
-    <div>
+    <div className='inline-flex flex-col'>
+      <div className='mb-[3px] inline-block  dark:text-neutral-200'>
+        {label}
+      </div>
       <Select
-        placeholder='Anywhere'
+        id={id}
+        name={name}
+        placeholder={placeholder}
         isClearable
-        options={getAll()}
+        options={options}
         value={value}
-        onChange={(value) => onChange(value)}
+        onChange={handleChange}
         formatOptionalLabel={(option) => (
           <div className='flex flex-row items-center gap-3'>
-            <div>{option.flag} </div>
-            <div>
-              {option.label},
-              <span className='text-neutral-500 ml-1'>{option.region}</span>
-            </div>
+            <div>{option.label}</div>
           </div>
         )}
         classNames={{
@@ -66,5 +76,4 @@ const CountrySelect = ({ value, onChange }) => {
     </div>
   );
 };
-
-export default CountrySelect;
+export default SelectOptions;
