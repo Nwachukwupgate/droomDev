@@ -1,6 +1,5 @@
 import React from 'react';
 import ControlledModal from './ControlledModal';
-import Button from '../Button';
 import Logo from '../../assets/images/logo.png';
 import LinkButton from '../Button/LinkButton';
 
@@ -15,7 +14,7 @@ const RetakeTestModal = ({ open, closeModal }) => {
           <p className='text-xl text-primary font-semibold mb-5'>
             Retake CBT Test
           </p>
-          <p className='text-sm mb-20 leading-5 m-auto'>
+          <p className='text-sm mb-20 leading-5 m-auto text-[#B7B3B3]'>
             You have successfully updated your profile. You will be required to
             Retake Talent’s Test
           </p>

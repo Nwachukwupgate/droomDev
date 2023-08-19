@@ -12,14 +12,14 @@ const SuccessModal = ({ open, closeModal }) => {
   return (
     <ControlledModal
       open={open}
-      // closeOnDocumentClick={false}
+      closeOnDocumentClick={false}
       closeModal={closeModal}
     >
       <div className='m-auto px-[74px] text-center pb-24 pt-16'>
         <div className='w-12 mb-5 m-auto'>
           <img src={Logo} alt='droomwork brand logo' />
         </div>
-        <p className='text-xl mb-[61px]'>Success</p>
+        <p className='text-xl mb-[61px] text-primary text-semibold'>Success</p>
         <Button
           label={'Done'}
           className={'bg-primary text-white'}

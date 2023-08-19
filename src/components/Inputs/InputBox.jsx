@@ -10,7 +10,7 @@ const InputBox = ({
   value,
   setFieldTouched,
   handleSubmit,
-  isValid,
+  onChange
 }) => {
   return (
     <div className='inline-flex flex-col'>
@@ -36,11 +36,10 @@ const InputBox = ({
         name={name}
         render={(msg) => (
           <div className='text-[12px] text-red-600 text-left flex gap-1 mt-2 font-normal'>
-            {/* <Icon id="danger-icon" width="16" height="13" /> */}
             {msg}
           </div>
         )}
-      />{' '}
+      />
     </div>
   );
 };

@@ -29,6 +29,7 @@ const Wallet = () => {
             href={'wallet/withdraw'}
             label={'Withdraw funds'}
             className={'text-white bg-primary'}
+            icon={'arrow-upright'}
           />
         </div>
       </section>

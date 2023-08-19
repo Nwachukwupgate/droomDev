@@ -12,8 +12,7 @@ const CustomSelect = ({ value, setValue, options, title }) => {
         <div
           className={`flex justify-between rounded-md bg-[#F0EEF1] text-grey-text cursor-pointer items-center gap-1 border border-grey-input p-4`}
         >
-          {/* {value[1]} */}
-          <p className='text-sm text-[#A39F9F]'>Lorem Ipsum</p>
+          <p className='text-sm text-[#A39F9F]'>{value || title}</p>
           <BsChevronDown
             className={`${theme === 'dark' && 'text-[#A39F9F]'} `}
           />
@@ -41,13 +40,10 @@ const CustomSelect = ({ value, setValue, options, title }) => {
     >
       {(close) => (
         <div className='min-w-[250px] text-grey-text gap-[5px] bg-white'>
-          <div className=' gap-[13px] bg-grey-bg px-[36px] py-[8px] cursor-pointer'>
-            {title ? title : ''}
-          </div>
           {options.map(({ key, value }) => (
             <div
               key={key}
-              className=' border-t border-t-grey-input py-[8px] px-[21px] gap-1 cursor-pointer flex items-start w-full'
+              className=' border-t py-[8px] px-[21px] gap-1 cursor-pointer flex items-start w-full'
               onClick={() => {
                 setValue([key, value]);
                 close();

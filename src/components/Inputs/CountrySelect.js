@@ -1,10 +1,12 @@
+// DEPRECATED FOR SearchSelectOptions COMPONENTS
+
 import useCountries from '../../hooks/useCountries';
 import Select from 'react-select';
 
 const CountrySelect = ({ value, onChange }) => {
   const { getAll } = useCountries();
 
-  console.log(getAll());
+  // console.log(getAll());
 
   const styles = {
     control: (baseStyles, state) => ({

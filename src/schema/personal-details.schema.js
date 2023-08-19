@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export const initialTalentProfile = {
+export const initialTalentProfileValues = {
   image: '',
   first_name: '',
   last_name: '',
@@ -27,10 +27,7 @@ export const TalentProfileSchema = Yup.object().shape({
     .max(25, 'Skills must be at most 25 characters')
     .required('Skills are required'),
   phone_number: Yup.string()
-    .matches(
-      /^\+(?:[0-9] ?){6,14}[0-9]$/,
-      'Invalid phone number format. Example: +1234567890'
-    )
+    .matches(/^\+\d+$/, 'Invalid phone number format. Example: +1234567890')
     .required('Phone number is required'),
   location: Yup.string()
     .max(25, 'Location must be at most 25 characters')

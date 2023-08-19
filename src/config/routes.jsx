@@ -55,7 +55,7 @@ const AllRoutes = () => {
                   element={<WithdrawalDetails />}
                 />
                 <Route path='/support' element={<Support />} />
-                <Route path='/jobs' element={<Invite />} />
+                {/* <Route path='/jobs' element={<Invite />} /> */}
                 <Route path='*' element={<NotFound />} />
                 <Route path='/test' element={<Test />} />
                 <Route path='/test/retake' element={<TakeTest />} />
