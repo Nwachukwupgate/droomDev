@@ -1,3 +1,5 @@
+// DEPRECATED FOR SEARCHSELECTOPTIONS COMPONENT
+
 import React from 'react';
 import Select from 'react-select';
 
