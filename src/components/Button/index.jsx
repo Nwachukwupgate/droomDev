@@ -8,7 +8,6 @@ const Button = ({ label, className, onClick, disableButton, isLoading, type, ico
     if (typeof onClick === 'function') {
       e.preventDefault();
       onClick();
-      console.log("clicked me");
     }
   };
 

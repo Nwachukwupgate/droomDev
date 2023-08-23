@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Formik } from 'formik';
+import { Formik, Field, Form } from "formik";
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 
 import TransactionTable from './TransactionTable';
@@ -16,8 +16,11 @@ import {
 } from '../../schema/withdraw.schema';
 import SearchSelectOptions from '../../components/SearchBar/SearchSelectOptions';
 import { useGetAllBanksQuery } from '../../features/api/apiSlice';
+import CustomInput from '../../components/Inputs/CustomInput';
+import CustomSelect from '../../components/Inputs/CustomSelect';
 
 const bankOptions = ['Zenith', 'UBA', 'Access'];
+
 
 const Withdraw = () => {
   const [showEarnings, setShowEarnings] = useState(true);
@@ -26,10 +29,16 @@ const Withdraw = () => {
   const { data } = useGetDashboardQuery();
   const { data: banks } = useGetAllBanksQuery();
 
-  const handleSubmit = (values) => {
-    console.log('Submit button clicked'); // This log will show when the form is submitted
-    console.log(values);
-    setOpen(true);
+  console.log('Component rendered'); // Add this line
+  // ... rest of the component
+
+  const onSubmit = async (values, formikProps) => {
+    console.log("onSubmit -> values, formikProps", values, formikProps);
+    console.log("button here clicked for check");
+      setTimeout(() => {
+        alert(JSON.stringify(values, null, 2));
+        console.log("resolved timeout at onSubmit");
+      }, 5000);
   };
 
   useEffect(()=> {console.log(initialWithdrawalValues);}, [initialWithdrawalValues])
@@ -61,67 +70,95 @@ const Withdraw = () => {
           </div>
         </div>
         <section id='withdrawal-form' className='mb-[30px] mt-12'>
-          <Formik
-            onSubmit={handleSubmit}
+        <Formik
+            initialValues={{
+              amount: '',
+              account: '',
+              country: '',
+              bank: '',
+            }}
             validationSchema={WithdrawalSchema}
-            enableReinitialize
-            initialValues={initialWithdrawalValues}
+            onSubmit={onSubmit}
+            
+            // enableReinitialize
+            
           >
-            {({
-              values,
-              setFieldTouched,
-              isValid,
-              setFieldValue,
-              errors,
-              handleChange,
-              handleSubmit,
-              ...formik
-            }) => (
-              <form>
-                <div className='flex flex-col gap-6'>
-                  <InputBox
-                    label={'Enter amount'}
-                    placeholder={'Email withdrawable amounts'}
-                    id={'amount'}
-                    name={'amount'}
-                    type={'number'}
-                    onChange={handleChange}
-                    value={values?.amount}
-                    isValid={values?.amount && !errors?.amount}
-                    setFieldTouched={setFieldTouched}
-                  />
-                  <InputBox
-                    label={'Account number'}
-                    placeholder={'Enter your account'}
-                    id={'account'}
-                    name={'account'}
-                    type={'number'}
-                    onChange={handleChange}
-                    value={values?.account}
-                    isValid={values?.account && !errors?.account}
-                    setFieldTouched={setFieldTouched}
-                  />
-                  <SearchSelectOptions
-                    options={bankOptions}
-                    name='bank'
-                    setFieldValue={setFieldValue}
-                    label='Bank name'
-                    placeholder='Enter bank name'
-                    formik={formik}
-                    value={values?.search}
-                  />
-                  <div className='flex gap-5 mt-12'>
-                    <OutlineButton label={'Cancel'} />
-                    <Button
-                      type={'submit'}
-                      label={'Continue'}
-                      className={'bg-primary text-white'}
-                      onClick={() => handleSubmit(values)}
-                    />
-                  </div>
+            
+            <Form>
+              <div className='flex flex-col gap-6'>               
+                <Field
+                  label='Enter amount'
+                  name='amount'
+                  placeholder='Enter withdrawable amounts'
+                  type='number'
+                  component={CustomInput}
+                />
+
+                <Field 
+                  label='Account number'
+                  name='account'
+                  placeholder='Enter your account'
+                  type='number'
+                  component={CustomInput}
+                />
+
+                <Field
+                  label='Bank name'
+                  name='bank'
+                  placeholder='Enter bank name'
+                  component={CustomSelect}
+                >
+                  <option>PLease select a bank</option>
+                  {bankOptions.map((bank, index) => (
+                    <option key={index}>{bank}</option>
+                  ))}
+                </Field>
+                {/* <InputBox
+                  label={'Enter amount'}
+                  placeholder={'Email withdrawable amounts'}
+                  id={'amount'}
+                  name={'amount'}
+                  type={'number'}
+                  value={values?.amount}
+                  isValid={values?.amount && !errors?.amount}
+                  setFieldTouched={setFieldTouched}
+                />
+                <InputBox
+                  label={'Account number'}
+                  placeholder={'Enter your account'}
+                  id={'account'}
+                  name={'account'}
+                  type={'number'}
+                  value={values?.account}
+                  isValid={values?.account && !errors?.account}
+                  setFieldTouched={setFieldTouched}
+                />
+                <SearchSelectOptions
+                  options={bankOptions}
+                  name='bank'
+                  setFieldValue={setFieldValue}
+                  label='Bank name'
+                  placeholder='Enter bank name'
+                  formik={props}
+                  value={values?.search}
+                /> */}
+                <div className='flex gap-5 mt-12'>
+                  {/* <OutlineButton label={'Cancel'} /> */}
+                  {/* <Button
+                    type={'submit'}
+                    label={'Continue'}
+                    disabled={isSubmitting}
+                    className={'bg-primary text-white'}
+                    // onClick={() => {
+                    //   console.log('Continue button clicked'); // Add this line
+                    //   handleSubmit();
+                    // }}
+                  /> */}
+                  <button type="button" onClick={onSubmit}>Submit me</button>
                 </div>
-              </form>
-            )}
+              </div>
+            </Form>
+            
           </Formik>
         </section>
       </div>
