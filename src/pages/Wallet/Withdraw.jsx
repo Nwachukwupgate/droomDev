@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Formik, Field, Form } from "formik";
+import React, { useState } from 'react';
+import { Formik } from 'formik';
 import { IoEye, IoEyeOff } from 'react-icons/io5';
 
 import TransactionTable from './TransactionTable';
@@ -32,21 +32,16 @@ const Withdraw = () => {
   console.log('Component rendered'); // Add this line
   // ... rest of the component
 
-  const onSubmit = async (values, formikProps) => {
-    console.log("onSubmit -> values, formikProps", values, formikProps);
-    console.log("button here clicked for check");
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        console.log("resolved timeout at onSubmit");
-      }, 5000);
+  const handleSubmit = (formValues) => {
+    console.log(formValues);
+    setOpen(true);
   };
-
-  useEffect(()=> {console.log(initialWithdrawalValues);}, [initialWithdrawalValues])
 
   const handleNavigation = () => {
-    setOpen(false);
+    setOpen(() => false);
     navigate('details');
   };
+
 
   const { myBalance = '...' } = data?.data ?? {};
   const amount = `$${myBalance}`;
@@ -70,50 +65,23 @@ const Withdraw = () => {
           </div>
         </div>
         <section id='withdrawal-form' className='mb-[30px] mt-12'>
-        <Formik
-            initialValues={{
-              amount: '',
-              account: '',
-              country: '',
-              bank: '',
-            }}
+          <Formik
+            onSubmit={handleSubmit}
             validationSchema={WithdrawalSchema}
-            onSubmit={onSubmit}
-            
-            // enableReinitialize
-            
+            enableReinitialize
+            initialValues={initialWithdrawalValues}
           >
-            
-            <Form>
-              <div className='flex flex-col gap-6'>               
-                <Field
-                  label='Enter amount'
-                  name='amount'
-                  placeholder='Enter withdrawable amounts'
-                  type='number'
-                  component={CustomInput}
-                />
-
-                <Field 
-                  label='Account number'
-                  name='account'
-                  placeholder='Enter your account'
-                  type='number'
-                  component={CustomInput}
-                />
-
-                <Field
-                  label='Bank name'
-                  name='bank'
-                  placeholder='Enter bank name'
-                  component={CustomSelect}
-                >
-                  <option>PLease select a bank</option>
-                  {bankOptions.map((bank, index) => (
-                    <option key={index}>{bank}</option>
-                  ))}
-                </Field>
-                {/* <InputBox
+            {({
+              values,
+              setFieldTouched,
+              isValid,
+              setFieldValue,
+              errors,
+              handleSubmit,
+              ...formik
+            }) => (
+              <div className='flex flex-col gap-6'>
+                <InputBox
                   label={'Enter amount'}
                   placeholder={'Email withdrawable amounts'}
                   id={'amount'}
@@ -139,26 +107,20 @@ const Withdraw = () => {
                   setFieldValue={setFieldValue}
                   label='Bank name'
                   placeholder='Enter bank name'
-                  formik={props}
+                  formik={formik}
                   value={values?.search}
-                /> */}
+                />
                 <div className='flex gap-5 mt-12'>
-                  {/* <OutlineButton label={'Cancel'} /> */}
-                  {/* <Button
+                  <OutlineButton label={'Cancel'} />
+                  <Button
                     type={'submit'}
                     label={'Continue'}
-                    disabled={isSubmitting}
                     className={'bg-primary text-white'}
-                    // onClick={() => {
-                    //   console.log('Continue button clicked'); // Add this line
-                    //   handleSubmit();
-                    // }}
-                  /> */}
-                  <button type="button" onClick={onSubmit}>Submit me</button>
+                    onClick={handleSubmit}
+                  />
                 </div>
               </div>
-            </Form>
-            
+            )}
           </Formik>
         </section>
       </div>

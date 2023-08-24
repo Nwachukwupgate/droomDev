@@ -55,7 +55,7 @@ const SearchSelectOptions = ({
             handleSearchInput(e.target.value);
             field.onBlur(e);
           }}
-          className={`border border-input rounded-md px-[13px] py-3 outline-0 ${
+          className={`border border-input rounded-md px-[13px] py-3 text-[#575555] outline-0 ${
             touched && error ? 'border-red-500' : ''
           }`}
         />

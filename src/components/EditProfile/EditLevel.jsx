@@ -29,7 +29,7 @@ const EditLevel = ({
     }
 
     onSubmit({ stackValue, radioValue });
-  }, [onSubmit, disabled]);
+  }, [onSubmit, disabled, stackValue, radioValue]);
 
   const handleSecondaryAction = useCallback(() => {
     if (disabled || !secondaryAction) {

@@ -10,7 +10,6 @@ const InputBox = ({
   value,
   setFieldTouched,
   handleSubmit,
-  onChange
 }) => {
   return (
     <div className='inline-flex flex-col'>
@@ -21,7 +20,7 @@ const InputBox = ({
         {label || ''}
       </label>
       <Field
-        className='border border-input rounded-md px-[13px] py-3 outline-0'
+        className='border border-input rounded-md px-[13px] py-3 outline-0 text-[#575555]'
         type={type}
         id={id}
         name={name}
