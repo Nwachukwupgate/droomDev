@@ -6,6 +6,8 @@ import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 import TestScoreModal from '../../components/Modal/TestScoreModal';
 import { useState } from 'react';
+import { useGetAllQuestionsQuery } from '../../features/api/apiSlice';
+
 
 const options = ['A', 'B', 'C', 'D'];
 const paragraphs = [
@@ -18,6 +20,7 @@ const paragraphs = [
 const TakeTest = () => {
   const [showModal, setShowModal] = useState(false);
   const { theme } = useContext(ThemeContext);
+  const {data} = useGetAllQuestionsQuery()
 
   const onSubmitHandler = (data) => {
     setShowModal(true);

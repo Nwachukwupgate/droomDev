@@ -3,8 +3,10 @@ import Badge from '../../components/Badge/Badge';
 import ClientDetails from '../../components/Cards/ClientDetails';
 import Button from '../../components/Button';
 import OutlineButton from '../../components/Button/OutlineButton';
+import { useGetAllMyMatchedJobsQuery } from '../../features/api/apiSlice';
 
 const MatchedJobs = () => {
+  const {data} = useGetAllMyMatchedJobsQuery()
   return (
     <section id='matched-jobs'>
       <div className='pb-[30px] border-b border-divider-grey lg:pb-16'>

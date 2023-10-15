@@ -84,7 +84,150 @@ export const apiSlice = createApi({
         query: () => 'api/v1/all/getAllBanks',
         providesTags: ['Transactions']
       }),
+
+      getAllQuestions: builder.query({
+        query: () => 'api/v1/dev/getMyRandomizedQuestion',
+        providesTags: ['Transactions']
+      }),
+
+      getCbtParams: builder.query({
+        query: (id) => `api/v1/all/getCbtParamsRealname/${id}/stack`,
+        providesTags: ['Transactions']
+      }),
+
+      getAllLevels: builder.query({
+        query: () => 'api/v1/dev/getLevels',
+        providesTags: ['Transactions']
+      }),
+
+      getAllStacks: builder.query({
+        query: () => 'api/v1/dev/getStacks',
+        providesTags: ['Transactions']
+      }),
+
+      addStack: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/chooseMyStacks/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      addLevel: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/chooseMyLevel/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      getLanguages: builder.query({
+        query: (id) => `api/v1/dev/getLanguagesBasedOnStacks/${id}`,
+        providesTags: ['Transactions']
+      }),
+
+      addLanguage: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/chooseMyLanguages/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      addLanguageExp: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/enterMyLanguageExperience/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      unChooseLanguage: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/UnchooseMyLanguages/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      getFrameworks: builder.query({
+        query: (post) => `api/v1/dev/getFrameworksBasedOnLanguages/${post.lang1}/${post.lang2}/${post.lang3}/${post.lang4}/${post.lang5}/${post.lang6}/${post.lang7}/${post.lang8}`,
+        providesTags: ['Transactions']
+      }),
+
+      addFramework: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/chooseMyFramework/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      addFrameworkExp: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/enterMyFrameworkExperience/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      unChooseFramework: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/UnchooseMyFramework/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      getSkills: builder.mutation({
+        query: post => ({
+          url: 'api/v1/dev/searchForMySkills',
+          method: 'POST',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      addSkill: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/chooseMySkill/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      unChooseSkill: builder.mutation({
+        query: post => ({
+          url: `UnchooseMySkill/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      enterBasicInfo: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/enterBasicInfo`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+       getAllMyMatchedJobs: builder.query({
+        query: () => 'api/v1/dev/getAllMyMatchedJobs',
+        providesTags: ['Transactions']
+      }),
     })
   })
   
-export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery, useGetMyWorkHistoryQuery, useGetMyOverAllRatingQuery, useAcceptOfferMutation, useRejectOfferMutation, useGetAllMyTransactionsQuery, useGetAllBanksQuery } = apiSlice
+export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery, useGetMyWorkHistoryQuery, useGetMyOverAllRatingQuery, useAcceptOfferMutation, useRejectOfferMutation, useGetAllMyTransactionsQuery, useGetAllBanksQuery, useGetAllQuestionsQuery, useGetCbtParamsQuery, useGetAllLevelsQuery, useGetAllStacksQuery, useAddStackMutation, useAddLevelMutation, useGetLanguagesQuery, useAddLanguageMutation, useAddLanguageExpMutation, useUnChooseLanguageMutation, useGetFrameworksQuery, useAddFrameworkExpMutation, useUnChooseFrameworkMutation, useAddFrameworkMutation, useGetSkillsMutation, useAddSkillMutation, useUnChooseSkillMutation, useEnterBasicInfoMutation, useGetAllMyMatchedJobsQuery } = apiSlice

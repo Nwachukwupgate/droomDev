@@ -3,8 +3,10 @@ import Popup from 'reactjs-popup';
 import { BsChevronDown } from 'react-icons/bs';
 import { ThemeContext } from '../../context/ThemeContext';
 
+
 const CustomSelect = ({ value, setValue, options, title }) => {
   const { theme } = useContext(ThemeContext);
+
 
   return (
     <Popup
@@ -40,16 +42,16 @@ const CustomSelect = ({ value, setValue, options, title }) => {
     >
       {(close) => (
         <div className='min-w-[250px] text-grey-text gap-[5px] bg-white'>
-          {options.map(({ key, value }) => (
+          {options.map(({ id, name, value }) => (
             <div
-              key={key}
+              key={id}
               className=' border-t py-[8px] px-[21px] gap-1 cursor-pointer flex items-start w-full'
               onClick={() => {
-                setValue([key, value]);
+                setValue([id, name || value]);
                 close();
               }}
             >
-              {value}
+              {name || value}
             </div>
           ))}
         </div>

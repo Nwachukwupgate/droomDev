@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { useField } from 'formik';
 
-const SearchSelectOptions = ({
+export const initialQuery = {
+  paginate: 1,
+  page: 1,
+  search: '',
+};
+
+const SearchSelectOption = ({
   setValue,
+  // setFieldValue,
   options,
-  displayAttribute,
+  title,
+  isChecked,
   label,
   placeholder,
   name,
-  dependentOptions,
   ...props
 }) => {
   const [, setSearchWord] = useState('');
@@ -16,11 +23,11 @@ const SearchSelectOptions = ({
   const [field, meta, helpers] = useField(name);
 
   const { touched, error } = meta;
-  
+
   const handleSearchInput = (value) => {
     setSearchWord(value);
   };
-  
+
   const handleOpenOptions = () => {
     setOpen((current) => !current);
   };
@@ -30,18 +37,12 @@ const SearchSelectOptions = ({
     setOpen(false);
   };
 
-  const sortedOptions = options?.slice().sort((a, b) => {
-    const nameA = a?.name?.common.toLowerCase();
-    const nameB = b?.name?.common.toLowerCase();
-    return nameA?.localeCompare(nameB);
-  });
-
   return (
     <div className='inline-flex flex-col'>
       <div className='inline-flex flex-col' onClick={handleOpenOptions}>
         <label
           htmlFor='searchWord'
-          className='mb-[3px] inline-block dark:text-neutral-200'
+          className='mb-[3px] inline-block  dark:text-neutral-200'
         >
           {label || ''}
         </label>
@@ -65,43 +66,24 @@ const SearchSelectOptions = ({
         </div>
       )}
       <div className='relative gap-[13px] bg-white '>
-        {sortedOptions?.length !== 0 && open && (
+        {options?.length !== 0 && open && (
           <div className='mt-2 max-h-52 overflow-y-scroll no-scrollbar border bg-white w-full rounded-md'>
-            {sortedOptions?.map((option) => (
+            {options?.map((option) => (
               <div
-                key={option?.name.common} // Assuming `name.common` is a unique identifier
+                key={option}
                 className={`${
-                  field?.value === option?.name.common && 'bg-[#e3e3e3]'
+                  field?.value === option && 'bg-[#e3e3e3]'
                 } py-[8px] px-[21px] gap-1 cursor-pointer flex items-start w-full hover:bg-[#ededed]`}
-                onClick={() => handleSelectOptions(option?.cca2)}
+                onClick={() => handleSelectOptions(option)}
               >
-                {option?.name.common}
+                {option}
               </div>
             ))}
           </div>
         )}
       </div>
-      {/* Display dependent options (banks) */}
-      {dependentOptions  && (
-        <div>
-          <label htmlFor='banks'>Select a bank:</label>
-          <select
-            id='banks'
-            name='banks'
-            onChange={(e) => setValue(e.target.value)}
-            value={dependentOptions}
-          >
-            <option value=''>Select a bank</option>
-            {dependentOptions.map((bank) => (
-              <option key={bank.id} value={bank.code}>
-                {bank?.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
     </div>
   );
 };
 
-export default SearchSelectOptions;
+export default SearchSelectOption;

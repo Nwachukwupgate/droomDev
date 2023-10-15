@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import { useField } from 'formik';
 
-const SearchSelectOptions = ({
-  setValue,
-  options,
-  displayAttribute,
-  label,
-  placeholder,
-  name,
-  dependentOptions,
-  ...props
-}) => {
-  const [, setSearchWord] = useState('');
+const SearchBank = (
+    {
+        setValue,
+        options,
+        displayAttribute,
+        label,
+        placeholder,
+        name,
+        dependentOptions,
+        ...props
+      }
+) => {
+    const [, setSearchWord] = useState('');
   const [open, setOpen] = useState(false);
   const [field, meta, helpers] = useField(name);
 
   const { touched, error } = meta;
-  
+
   const handleSearchInput = (value) => {
     setSearchWord(value);
   };
@@ -30,11 +32,6 @@ const SearchSelectOptions = ({
     setOpen(false);
   };
 
-  const sortedOptions = options?.slice().sort((a, b) => {
-    const nameA = a?.name?.common.toLowerCase();
-    const nameB = b?.name?.common.toLowerCase();
-    return nameA?.localeCompare(nameB);
-  });
 
   return (
     <div className='inline-flex flex-col'>
@@ -65,24 +62,24 @@ const SearchSelectOptions = ({
         </div>
       )}
       <div className='relative gap-[13px] bg-white '>
-        {sortedOptions?.length !== 0 && open && (
+        {dependentOptions?.length !== 0 && open && (
           <div className='mt-2 max-h-52 overflow-y-scroll no-scrollbar border bg-white w-full rounded-md'>
-            {sortedOptions?.map((option) => (
+            {dependentOptions?.map((option) => (
               <div
-                key={option?.name.common} // Assuming `name.common` is a unique identifier
+                key={option?.name} // Assuming `name.common` is a unique identifier
                 className={`${
-                  field?.value === option?.name.common && 'bg-[#e3e3e3]'
+                  field?.value === option?.name && 'bg-[#e3e3e3]'
                 } py-[8px] px-[21px] gap-1 cursor-pointer flex items-start w-full hover:bg-[#ededed]`}
-                onClick={() => handleSelectOptions(option?.cca2)}
+                onClick={() => handleSelectOptions(option?.code)}
               >
-                {option?.name.common}
+                {option?.name}
               </div>
             ))}
           </div>
         )}
       </div>
       {/* Display dependent options (banks) */}
-      {dependentOptions  && (
+      {/* {dependentOptions  && (
         <div>
           <label htmlFor='banks'>Select a bank:</label>
           <select
@@ -99,9 +96,9 @@ const SearchSelectOptions = ({
             ))}
           </select>
         </div>
-      )}
+      )} */}
     </div>
-  );
-};
+  )
+}
 
-export default SearchSelectOptions;
+export default SearchBank

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 
 import RetakeTestModal from '../../components/Modal/RetakeTestModal';
 import Stepper from '../../components/Stepper/Stepper';
@@ -7,6 +7,8 @@ import EditLanguage from '../../components/EditProfile/EditLanguage';
 import EditFramework from '../../components/EditProfile/EditFramework';
 import EditDetails from '../../components/EditProfile/EditDetails';
 import LoadingSpinner from '../../components/Loader/LoadingSpinner';
+import { useAddLevelMutation, useAddStackMutation, useEnterBasicInfoMutation } from '../../features/api/apiSlice';
+import { toast } from 'react-toastify';
 
 const STEPS = {
   LEVEL: 0,
@@ -21,6 +23,10 @@ const EditProfile = () => {
   const [showModal, setShowModal] = useState(false);
   const [levelStack, setLevelStack] = useState({})
 
+  const [addlevel] = useAddLevelMutation()
+  const [addStack, {data: stackData, isSuccess, error, isError}] = useAddStackMutation()
+  const [enterBasicInfo, {data: BasicData, isSuccess: BasicSuccess, error: BasicError}] = useEnterBasicInfoMutation()
+
   const onBack = () => {
     setStep((value) => value - 1);
   };
@@ -29,12 +35,13 @@ const EditProfile = () => {
     setStep((value) => value + 1);
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     // Call the individual APIs for each step
     if (step === STEPS.LEVEL) {
       // API for Select Level
       console.log(data);
-
+        await addlevel(data.radioValue);
+       await addStack(data.stackOption);
       return onNext();
     } else if (step === STEPS.LANGUAGE) {
       // API for Language
@@ -48,13 +55,32 @@ const EditProfile = () => {
       return onNext();
     } else {
       // API for details
-
-      console.log(data);
-      setShowModal(true);
+      await enterBasicInfo(data);
+      if (BasicSuccess) {
+        toast.success(BasicData?.message)
+        setShowModal(true);
+        return;
+      }
+      if(BasicError?.data?.status === false) {
+        toast.error(BasicError?.data?.message)
+      }
+      console.log("details", data);
+      
     }
 
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success(stackData?.message)
+      return;
+    }
+    if(error?.data?.status === false) {
+      toast.error(error?.data?.message)
+    }
+  }, [isSuccess, stackData, error])
+  
 
   // CONTROLS THE BACK AND NEXT LABELS
   const actionLabel = useMemo(() => {

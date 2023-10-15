@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import CustomSelect from './CustomSelect';
 import OutlineButton from '../Button/OutlineButton';
 import Button from '../Button';
-import { useAddLanguageMutation, useAddLanguageExpMutation, useUnChooseLanguageMutation  } from '../../features/api/apiSlice';
+import { useAddFrameworkMutation, useAddFrameworkExpMutation, useUnChooseFrameworkMutation, useGetFrameworksQuery  } from '../../features/api/apiSlice';
 import { toast } from 'react-toastify';
 import { addLanguages } from '../../features/userSlice';
 import { useDispatch } from 'react-redux';
 
 
-const SelectTag = ({ options, onSelect, userLanguages }) => {
+const SelectFramework = ({ options, onSelect, userLanguages, allLanguages }) => {
   const dispatch = useDispatch();
 
   const [showEditCard, setShowEditCard] = useState(false);
@@ -16,18 +16,17 @@ const SelectTag = ({ options, onSelect, userLanguages }) => {
   const [value, setValue] = useState('');
   const [styleSelect, setStyledSelect] = useState([])
 
-  const [addLanguage, {data: lang, isSuccess, error}] = useAddLanguageMutation()
-  const [addLanguageExp] = useAddLanguageExpMutation()
-  const [unChooseLanguage] = useUnChooseLanguageMutation()
+    // Use the useGetFrameworksQuery hook with allLanguages
+    const { data } = useGetFrameworksQuery(allLanguages);
+
+  const [addFramework, {data: lang, isSuccess, error, isError}] = useAddFrameworkMutation()
+  const [addFrameworkExp] = useAddFrameworkExpMutation()
+  const [unChooseFramework] = useUnChooseFrameworkMutation()
 
   const handleSelectedValue = (e) => {
     setValue(e[1]);
   };
-
-  useEffect(() =>{
-    dispatch(addLanguages(styleSelect))
-  }, [styleSelect])
-  
+ 
   const editCardHandler = (language) => {
     if (selectedLanguage === language) {
       // If the language is already selected, clicking again cancels the selection.
@@ -37,7 +36,7 @@ const SelectTag = ({ options, onSelect, userLanguages }) => {
       // If the language is already styled, clicking again cancels the selection.
       setStyledSelect(styleSelect.filter((lang) => lang.id !== language.id));
       const removeLang= language.id;
-      const res = unChooseLanguage(removeLang);
+      const res = unChooseFramework(removeLang);
     } else {
       // Otherwise, select the language.
       setSelectedLanguage(language);
@@ -53,8 +52,8 @@ const SelectTag = ({ options, onSelect, userLanguages }) => {
     const exp = options.find((exp) => exp.value === value)
     const langExp = exp.key
     const choosenLang = selectedLanguage.id
-    const response = await addLanguage(choosenLang);
-    const res = await addLanguageExp(langExp);
+    const response = await addFramework(choosenLang);
+    const res = await addFrameworkExp(langExp);
   };
 
   useEffect(() => {
@@ -76,7 +75,7 @@ const SelectTag = ({ options, onSelect, userLanguages }) => {
 
   return (
     <div className="flex">
-      {userLanguages?.data.map((language) => (
+      {data?.data.map((language) => (
         <div className='mb-2.5 ' key={language.id}>   
           <div
             className={`${
@@ -123,4 +122,4 @@ const SelectTag = ({ options, onSelect, userLanguages }) => {
   );
 };
 
-export default SelectTag;
+export default SelectFramework;

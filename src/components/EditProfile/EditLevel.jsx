@@ -4,14 +4,9 @@ import RadioInput from '../Inputs/RadioInput';
 import CustomSelect from '../CustomSelect/CustomSelect';
 import OutlineButton from '../Button/OutlineButton';
 import Button from '../Button';
-
-const stacks = [
-  { key: 'react', value: 'React' },
-  { key: 'vue', value: 'Vue' },
-  { key: 'django', value: 'Django' },
-  { key: 'flask', value: 'Flask' },
-  { key: 'angular', value: 'Angular' },
-];
+import { useGetAllStacksQuery } from '../../features/api/apiSlice';
+import { addId } from '../../features/userSlice';
+import { useDispatch } from 'react-redux';
 
 const EditLevel = ({
   disabled,
@@ -22,13 +17,20 @@ const EditLevel = ({
 }) => {
   const [stackValue, setStackValue] = useState('');
   const [radioValue, setRadioValue] = useState('');
+  
+  const dispatch = useDispatch();
+
+  const {data: stack} = useGetAllStacksQuery()
+  const { data=[] } = stack ?? {} ;
 
   const handleSubmit = useCallback(() => {
     if (disabled) {
       return;
     }
-
-    onSubmit({ stackValue, radioValue });
+    const stackId = data.find((stack) => stack.name === stackValue)
+    const stackOption = stackId?.id
+    dispatch(addId(stackOption))
+    onSubmit({ stackOption, radioValue });
   }, [onSubmit, disabled, stackValue, radioValue]);
 
   const handleSecondaryAction = useCallback(() => {
@@ -51,7 +53,7 @@ work with'
       </div>
       <div>
         <CustomSelect
-          options={stacks}
+          options={data}
           title={'Select your stack'}
           value={stackValue}
           setValue={(e) => setStackValue(e[1])}

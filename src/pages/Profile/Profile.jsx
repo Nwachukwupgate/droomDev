@@ -4,7 +4,7 @@ import LinkButton from '../../components/Button/LinkButton';
 import AvatarCard from '../../components/Cards/AvatarCard';
 import { MdLocationOn } from 'react-icons/md';
 import OverallRating from '../../components/Rating/OverallRating';
-import { useGetAllMyCbtDetailsQuery } from '../../features/api/apiSlice';
+import { useGetAllMyCbtDetailsQuery, useGetCbtParamsQuery } from '../../features/api/apiSlice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PageLoader from '../../components/Loader/PageLoader';
@@ -12,18 +12,92 @@ import PageLoader from '../../components/Loader/PageLoader';
 
 const Profile = () => {
   const {data, isLoading, error} = useGetAllMyCbtDetailsQuery()
-  const {short_bio = "...", userCbtSoftSkill = {}, cv="", continent= "", userCbtLevel={}} = data?.data ?? {}
+  const {short_bio = "...", userCbtSoftSkill = {}, cv="", continent= "", userCbtLevel={}, userCbtSkill
+  = {}, userCbtLanguage = {}, userCbtFramework={}, userCbtStack = {}} = data?.data ?? {}
+
+  const skillIdsObject = { skill1: userCbtSkill?.skill1, skill2: userCbtSkill?.skill2, skill3: userCbtSkill?.skill1, skill4: userCbtSkill?.skill4, skill5: userCbtSkill?.skill5, skill6: userCbtSkill?.skill6, skill7: userCbtSkill?.skill7, skill8: userCbtSkill?.skill8 };
+
+  const languageIdsObject = { skill1: userCbtLanguage?.language1, skill2: userCbtLanguage?.language2, skill3: userCbtLanguage?.language3, skill4: userCbtLanguage?.language4, skill5: userCbtLanguage?.language5, skill6: userCbtLanguage?.language6, skill7: userCbtLanguage?.language7, skill8: userCbtLanguage?.language8 };
+
+  const frameworkIdsObject = { skill1: userCbtFramework?.framework1, skill2: userCbtFramework?.framework2, skill3: userCbtFramework?.framework3, skill4: userCbtFramework?.framework4, skill5: userCbtFramework?.framework5, skill6: userCbtFramework?.framework6 };
+
+  const stackIdsObject = { skill1: userCbtStack?.stack1, skill2: userCbtStack?.stack2, skill3: userCbtStack?.stack1 }
+
+  // const skillIdsArray = Object.values(skillIdsObject);
+  // const { data: skillNames } = skillIdsArray.map((skillId) => {
+  //   return useGetCbtParamsQuery(skillId);
+  // });
+  console.log("sKill", skillIdsObject);
+  console.log("language", languageIdsObject);
+  console.log("framework", frameworkIdsObject);
+  console.log("stackIds", stackIdsObject);
+
+  const skillsQuery1 = useGetCbtParamsQuery(skillIdsObject.skill1);
+  const skillsQuery2 = useGetCbtParamsQuery(skillIdsObject.skill2);
+  const skillsQuery3 = useGetCbtParamsQuery(skillIdsObject.skill3);
+  const skillsQuery4 = useGetCbtParamsQuery(skillIdsObject.skill4);
+  const skillsQuery5 = useGetCbtParamsQuery(skillIdsObject.skill5);
+  const skillsQuery6 = useGetCbtParamsQuery(skillIdsObject.skill6);
+  const skillsQuery7 = useGetCbtParamsQuery(skillIdsObject.skill7);
+  const skillsQuery8 = useGetCbtParamsQuery(skillIdsObject.skill8);
+
+  const languageQuery1 = useGetCbtParamsQuery(languageIdsObject.skill1);
+  const languageQuery2 = useGetCbtParamsQuery(languageIdsObject.skill2);
+  const languageQuery3 = useGetCbtParamsQuery(languageIdsObject.skill3);
+  const languageQuery4 = useGetCbtParamsQuery(languageIdsObject.skill4);
+  const languageQuery5 = useGetCbtParamsQuery(languageIdsObject.skill5);
+  const languageQuery6 = useGetCbtParamsQuery(languageIdsObject.skill6);
+  const languageQuery7 = useGetCbtParamsQuery(languageIdsObject.skill7);
+  const languageQuery8 = useGetCbtParamsQuery(languageIdsObject.skill8);
+
+  const frameworkQuery1 = useGetCbtParamsQuery(frameworkIdsObject.skill1);
+  const frameworkQuery2 = useGetCbtParamsQuery(frameworkIdsObject.skill2);
+  const frameworkQuery3 = useGetCbtParamsQuery(frameworkIdsObject.skill3);
+  const frameworkQuery4 = useGetCbtParamsQuery(frameworkIdsObject.skill4);
+  const frameworkQuery5 = useGetCbtParamsQuery(frameworkIdsObject.skill5);
+  const frameworkQuery6 = useGetCbtParamsQuery(frameworkIdsObject.skill6);
+
+  const stackQuery1 = useGetCbtParamsQuery(stackIdsObject.skill1);
+  const stackQuery2 = useGetCbtParamsQuery(stackIdsObject.skill2);
+  const stackQuery3 = useGetCbtParamsQuery(stackIdsObject.skill3);
+  
+
   const skills = [
-    { title: 'Backend developer', experience: '4yrs' },
-    { title: 'Laravel', experience: '4yrs' },
+    { title: skillsQuery1?.data?.data, experience: userCbtSkill?.experience1 },
+    { title: skillsQuery2?.data?.data, experience: userCbtSkill?.experience2 },
+    { title: skillsQuery3?.data?.data, experience: userCbtSkill?.experience3 },
+    { title: skillsQuery4?.data?.data, experience: userCbtSkill?.experience4 },
+    { title: skillsQuery5?.data?.data, experience: userCbtSkill?.experience5 },
+    { title: skillsQuery6?.data?.data, experience: userCbtSkill?.experience6 },
+    { title: skillsQuery7?.data?.data, experience: userCbtSkill?.experience7 },
+    { title: skillsQuery8?.data?.data, experience: userCbtSkill?.experience8 },
   ];
 
   const languages = [
-    { title: 'Javascript', experience: '4yrs' },
-    { title: 'PHP', experience: '4yrs' },
+    { title: languageQuery1?.data?.data, experience: userCbtLanguage?.experience1 },
+    { title: languageQuery2?.data?.data, experience: userCbtLanguage?.experience2 },
+    { title: languageQuery3?.data?.data, experience: userCbtLanguage?.experience3 },
+    { title: languageQuery4?.data?.data, experience: userCbtLanguage?.experience4 },
+    { title: languageQuery5?.data?.data, experience: userCbtLanguage?.experience5 },
+    { title: languageQuery6?.data?.data, experience: userCbtLanguage?.experience6 },
+    { title: languageQuery7?.data?.data, experience: userCbtLanguage?.experience7 },
+    { title: languageQuery8?.data?.data, experience: userCbtLanguage?.experience8 },
   ];
 
-  console.log("the errror", error);
+  const frameworks = [
+    { title: frameworkQuery1?.data?.data, experience: userCbtFramework?.experience1 },
+    { title: frameworkQuery2?.data?.data, experience: userCbtFramework?.experience2 },
+    { title: frameworkQuery3?.data?.data, experience: userCbtFramework?.experience3 },
+    { title: frameworkQuery4?.data?.data, experience: userCbtFramework?.experience4 },
+    { title: frameworkQuery5?.data?.data, experience: userCbtFramework?.experience5 },
+    { title: frameworkQuery6?.data?.data, experience: userCbtFramework?.experience6 },
+  ];
+
+  const stack = [
+    { title: stackQuery1?.data?.data, experience: userCbtStack?.experience1 },
+    { title: stackQuery2?.data?.data, experience: userCbtStack?.experience2 },
+    { title: stackQuery3?.data?.data, experience: userCbtStack?.experience3 },
+  ];
 
   useMemo( () => {
     if(error?.status === "FETCH_ERROR") {
@@ -112,7 +186,7 @@ const Profile = () => {
                     Framework
                   </h2>
                   <div className='flex gap-4 flex-wrap'>
-                    {languages.map(({ title, experience }) => (
+                    {frameworks.map(({ title, experience }) => (
                       <Badge label={title} period={experience} key={title} />
                     ))}
                   </div>
@@ -122,7 +196,7 @@ const Profile = () => {
                     Stack
                   </h2>
                   <div className='flex gap-4 flex-wrap'>
-                    {languages.map(({ title, experience }) => (
+                    {stack.map(({ title, experience }) => (
                       <Badge label={title} period={experience} key={title} />
                     ))}
                   </div>

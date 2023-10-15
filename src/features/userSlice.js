@@ -27,15 +27,22 @@ const userDetails = JSON.parse(myArrayString);
 
 const initialState = {
     token: userDetails,
+    stackId: null,
+    languageIds: null,
 }
 
 const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-
+      addId: (state, {payload}) => {
+        state.stackId = payload
+      },
+      addLanguages: (state, {payload}) => {
+        state.languageIds = payload
+      },
     }
 });
 
-
+export const { addId, addLanguages } = userSlice.actions; 
 export default userSlice.reducer

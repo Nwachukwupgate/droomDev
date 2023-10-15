@@ -16,8 +16,10 @@ import {
 } from '../../schema/withdraw.schema';
 import SearchSelectOptions from '../../components/SearchBar/SearchSelectOptions';
 import { useGetAllBanksQuery } from '../../features/api/apiSlice';
+import useFetch from '../../features/api/useFetch';
 import CustomInput from '../../components/Inputs/CustomInput';
 import CustomSelect from '../../components/Inputs/CustomSelect';
+import SearchBank from '../../components/SearchBar/SearchBank';
 
 const bankOptions = ['Zenith', 'UBA', 'Access'];
 
@@ -28,15 +30,14 @@ const Withdraw = () => {
   const navigate = useNavigate();
   const { data } = useGetDashboardQuery();
   const { data: banks } = useGetAllBanksQuery();
-
-  console.log('Component rendered'); // Add this line
-  // ... rest of the component
+  const { countries } = useFetch('https://restcountries.com/v3.1/all');
 
   const handleSubmit = (formValues) => {
+    console.log("new sereee");
     console.log(formValues);
     setOpen(true);
   };
-
+  console.log(countries);
   const handleNavigation = () => {
     setOpen(() => false);
     navigate('details');
@@ -84,8 +85,8 @@ const Withdraw = () => {
                 <InputBox
                   label={'Enter amount'}
                   placeholder={'Email withdrawable amounts'}
-                  id={'amount'}
-                  name={'amount'}
+                  id='amount'
+                  name='amount'
                   type={'number'}
                   value={values?.amount}
                   isValid={values?.amount && !errors?.amount}
@@ -94,22 +95,36 @@ const Withdraw = () => {
                 <InputBox
                   label={'Account number'}
                   placeholder={'Enter your account'}
-                  id={'account'}
-                  name={'account'}
+                  id='account'
+                  name='account'
                   type={'number'}
                   value={values?.account}
                   isValid={values?.account && !errors?.account}
                   setFieldTouched={setFieldTouched}
                 />
                 <SearchSelectOptions
-                  options={bankOptions}
-                  name='bank'
-                  setFieldValue={setFieldValue}
-                  label='Bank name'
-                  placeholder='Enter bank name'
+                  options={countries}
+                  displayAttribute="name"
+                  name='country'
+                  setFieldValue={setFieldValue} // Pass setFieldValue as setValue
+                  label='Select a country'
+                  placeholder='Select a country'
                   formik={formik}
-                  value={values?.search}
+                  value={values?.country}
                 />
+                {values.country && (
+                  
+                  <SearchBank
+                  dependentOptions={banks?.data.filter((bank) => bank.country_name === values.country)}
+                  displayAttribute="name" // Change to the attribute you have for bank names
+                  name='bank'
+                  setFieldValue={setFieldValue} // Pass setFieldValue as setValue
+                  label='Select a bank'
+                  placeholder='Select a bank'
+                  formik={formik}
+                  value={values?.bank}
+                  />
+                )}
                 <div className='flex gap-5 mt-12'>
                   <OutlineButton label={'Cancel'} />
                   <Button
