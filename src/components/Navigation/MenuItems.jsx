@@ -22,7 +22,7 @@ const sideNavItems = [
   { label: 'wallet', key: '3', path: 'wallet', src: Wallet },
   { label: 'test', key: '4', path: 'test', src: Test },
   { label: 'support', key: '5', path: 'support', src: Support },
-  { label: 'find jobs', key: '6', path: 'jobs', src: Search },
+  { label: 'find jobs', key: '6', path: 'https://jobs.droomwork.io/', src: Search },
 ];
 
 const MenuItems = ({ setShowMobileMenu }) => {
@@ -35,13 +35,42 @@ const MenuItems = ({ setShowMobileMenu }) => {
         <nav id='sidenav' className=''>
           <ul className='flex flex-col gap-2.5 justify-center lg:gap-5'>
             {sideNavItems.map(({ label, key, path, src }) => {
+              const isExternalLink = path.startsWith('http');
               const isActive =
                 ['/', '/dashboard', '/invites', '/alloffer'].includes(
                   location.pathname
                 ) && path === 'dashboard'
                   ? true
                   : location.pathname.split(' ')[0].includes(`/${path}`);
-
+              
+              if (isExternalLink) {
+                return (
+                  <li key={key}>
+                    <a
+                      id={key}
+                      href={path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-4 flex gap-3 items-center p-3 ${
+                        theme === 'dark'
+                          ? 'text-[#EDEDED]'
+                          : theme === 'light'
+                          ? 'text-[#001935]'
+                          : 'text-[#BBB]'
+                      }`}
+                    >
+                      <Icon name={label} color={'#575555'} />
+                      <p
+                        className={`${
+                          theme === 'dark' ? 'text-[#ededed]' : 'text-primary'
+                        } leading-8 capitalize  lg:text-lg xl:text-[1.375rem]`}
+                      >
+                        {label}
+                      </p>
+                    </a>
+                  </li>
+                );
+              } else {
               return (
                 <li className='' key={key}>
                   <NavLink
@@ -92,6 +121,7 @@ const MenuItems = ({ setShowMobileMenu }) => {
                   </NavLink>
                 </li>
               );
+              }
             })}
           </ul>
         </nav>

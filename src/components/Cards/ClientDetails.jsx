@@ -2,7 +2,7 @@ import { MdLocationOn } from 'react-icons/md';
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
 
-const ClientDetails = ({ showAmount, companyLocation, companyName, companyLogo}) => {
+const ClientDetails = ({ showAmount, companyLocation, companyName, companyLogo, amount}) => {
   const { theme } = useContext(ThemeContext);
 
   return (
@@ -41,7 +41,7 @@ const ClientDetails = ({ showAmount, companyLocation, companyName, companyLogo})
           {showAmount && (
             <div className=''>
               <h3 className='text-xl font-bold'>Proposed amount</h3>
-              <p className='lg:text-lg'>$3,000.00 (Negotiable) </p>
+              <p className='lg:text-lg'>{amount}</p>
             </div>
           )}
         </div>

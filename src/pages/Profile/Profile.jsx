@@ -4,7 +4,7 @@ import LinkButton from '../../components/Button/LinkButton';
 import AvatarCard from '../../components/Cards/AvatarCard';
 import { MdLocationOn } from 'react-icons/md';
 import OverallRating from '../../components/Rating/OverallRating';
-import { useGetAllMyCbtDetailsQuery, useGetCbtParamsQuery } from '../../features/api/apiSlice';
+import { useGetAllMyCbtDetailsQuery, useGetCbtParamsQuery, useGetCbtFrameworkQuery, useGetCbtLanguageQuery, useGetCbtSkillsQuery } from '../../features/api/apiSlice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PageLoader from '../../components/Loader/PageLoader';
@@ -12,16 +12,17 @@ import PageLoader from '../../components/Loader/PageLoader';
 
 const Profile = () => {
   const {data, isLoading, error} = useGetAllMyCbtDetailsQuery()
+  
   const {short_bio = "...", userCbtSoftSkill = {}, cv="", continent= "", userCbtLevel={}, userCbtSkill
   = {}, userCbtLanguage = {}, userCbtFramework={}, userCbtStack = {}} = data?.data ?? {}
 
-  const skillIdsObject = { skill1: userCbtSkill?.skill1, skill2: userCbtSkill?.skill2, skill3: userCbtSkill?.skill1, skill4: userCbtSkill?.skill4, skill5: userCbtSkill?.skill5, skill6: userCbtSkill?.skill6, skill7: userCbtSkill?.skill7, skill8: userCbtSkill?.skill8 };
+  const skillIdsObject = { skill1: userCbtSkill?.skill1, skill2: userCbtSkill?.skill2, skill3: userCbtSkill?.skill3, skill4: userCbtSkill?.skill4, skill5: userCbtSkill?.skill5, skill6: userCbtSkill?.skill6, skill7: userCbtSkill?.skill7, skill8: userCbtSkill?.skill8 };
 
   const languageIdsObject = { skill1: userCbtLanguage?.language1, skill2: userCbtLanguage?.language2, skill3: userCbtLanguage?.language3, skill4: userCbtLanguage?.language4, skill5: userCbtLanguage?.language5, skill6: userCbtLanguage?.language6, skill7: userCbtLanguage?.language7, skill8: userCbtLanguage?.language8 };
 
   const frameworkIdsObject = { skill1: userCbtFramework?.framework1, skill2: userCbtFramework?.framework2, skill3: userCbtFramework?.framework3, skill4: userCbtFramework?.framework4, skill5: userCbtFramework?.framework5, skill6: userCbtFramework?.framework6 };
 
-  const stackIdsObject = { skill1: userCbtStack?.stack1, skill2: userCbtStack?.stack2, skill3: userCbtStack?.stack1 }
+  const stackIdsObject = { skill1: userCbtStack?.stack1, skill2: userCbtStack?.stack2, skill3: userCbtStack?.stack3 }
 
   // const skillIdsArray = Object.values(skillIdsObject);
   // const { data: skillNames } = skillIdsArray.map((skillId) => {
@@ -32,30 +33,30 @@ const Profile = () => {
   console.log("framework", frameworkIdsObject);
   console.log("stackIds", stackIdsObject);
 
-  const skillsQuery1 = useGetCbtParamsQuery(skillIdsObject.skill1);
-  const skillsQuery2 = useGetCbtParamsQuery(skillIdsObject.skill2);
-  const skillsQuery3 = useGetCbtParamsQuery(skillIdsObject.skill3);
-  const skillsQuery4 = useGetCbtParamsQuery(skillIdsObject.skill4);
-  const skillsQuery5 = useGetCbtParamsQuery(skillIdsObject.skill5);
-  const skillsQuery6 = useGetCbtParamsQuery(skillIdsObject.skill6);
-  const skillsQuery7 = useGetCbtParamsQuery(skillIdsObject.skill7);
-  const skillsQuery8 = useGetCbtParamsQuery(skillIdsObject.skill8);
+  const skillsQuery1 = useGetCbtSkillsQuery(skillIdsObject.skill1);
+  const skillsQuery2 = useGetCbtSkillsQuery(skillIdsObject.skill2);
+  const skillsQuery3 = useGetCbtSkillsQuery(skillIdsObject.skill3);
+  const skillsQuery4 = useGetCbtSkillsQuery(skillIdsObject.skill4);
+  const skillsQuery5 = useGetCbtSkillsQuery(skillIdsObject.skill5);
+  const skillsQuery6 = useGetCbtSkillsQuery(skillIdsObject.skill6);
+  const skillsQuery7 = useGetCbtSkillsQuery(skillIdsObject.skill7);
+  const skillsQuery8 = useGetCbtSkillsQuery(skillIdsObject.skill8);
 
-  const languageQuery1 = useGetCbtParamsQuery(languageIdsObject.skill1);
-  const languageQuery2 = useGetCbtParamsQuery(languageIdsObject.skill2);
-  const languageQuery3 = useGetCbtParamsQuery(languageIdsObject.skill3);
-  const languageQuery4 = useGetCbtParamsQuery(languageIdsObject.skill4);
-  const languageQuery5 = useGetCbtParamsQuery(languageIdsObject.skill5);
-  const languageQuery6 = useGetCbtParamsQuery(languageIdsObject.skill6);
-  const languageQuery7 = useGetCbtParamsQuery(languageIdsObject.skill7);
-  const languageQuery8 = useGetCbtParamsQuery(languageIdsObject.skill8);
+  const languageQuery1 = useGetCbtLanguageQuery(languageIdsObject.skill1);
+  const languageQuery2 = useGetCbtLanguageQuery(languageIdsObject.skill2);
+  const languageQuery3 = useGetCbtLanguageQuery(languageIdsObject.skill3);
+  const languageQuery4 = useGetCbtLanguageQuery(languageIdsObject.skill4);
+  const languageQuery5 = useGetCbtLanguageQuery(languageIdsObject.skill5);
+  const languageQuery6 = useGetCbtLanguageQuery(languageIdsObject.skill6);
+  const languageQuery7 = useGetCbtLanguageQuery(languageIdsObject.skill7);
+  const languageQuery8 = useGetCbtLanguageQuery(languageIdsObject.skill8);
 
-  const frameworkQuery1 = useGetCbtParamsQuery(frameworkIdsObject.skill1);
-  const frameworkQuery2 = useGetCbtParamsQuery(frameworkIdsObject.skill2);
-  const frameworkQuery3 = useGetCbtParamsQuery(frameworkIdsObject.skill3);
-  const frameworkQuery4 = useGetCbtParamsQuery(frameworkIdsObject.skill4);
-  const frameworkQuery5 = useGetCbtParamsQuery(frameworkIdsObject.skill5);
-  const frameworkQuery6 = useGetCbtParamsQuery(frameworkIdsObject.skill6);
+  const frameworkQuery1 = useGetCbtFrameworkQuery(frameworkIdsObject.skill1);
+  const frameworkQuery2 = useGetCbtFrameworkQuery(frameworkIdsObject.skill2);
+  const frameworkQuery3 = useGetCbtFrameworkQuery(frameworkIdsObject.skill3);
+  const frameworkQuery4 = useGetCbtFrameworkQuery(frameworkIdsObject.skill4);
+  const frameworkQuery5 = useGetCbtFrameworkQuery(frameworkIdsObject.skill5);
+  const frameworkQuery6 = useGetCbtFrameworkQuery(frameworkIdsObject.skill6);
 
   const stackQuery1 = useGetCbtParamsQuery(stackIdsObject.skill1);
   const stackQuery2 = useGetCbtParamsQuery(stackIdsObject.skill2);

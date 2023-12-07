@@ -227,7 +227,54 @@ export const apiSlice = createApi({
         query: () => 'api/v1/dev/getAllMyMatchedJobs',
         providesTags: ['Transactions']
       }),
+
+      getUserProfile: builder.mutation({
+        query: post => ({
+          url: 'api/v1/all/getUserProfile',
+          method: 'POST',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      getCbtLanguage: builder.query({
+        query: (id) => `api/v1/all/getCbtParamsRealname/${id}/language`,
+        providesTags: ['Transactions']
+      }),
+
+      getCbtFramework: builder.query({
+        query: (id) => `api/v1/all/getCbtParamsRealname/${id}/framework`,
+        providesTags: ['Transactions']
+      }),
+
+      getCbtSkills: builder.query({
+        query: (id) => `api/v1/all/getCbtParamsRealname/${id}/skill`,
+        providesTags: ['Transactions']
+      }),
+
+      getAllInvites: builder.query({
+        query: () => 'api/v1/dev/getAllMyInvites',
+        providesTags: ['Transactions']
+      }),
+
+      acceptInvite: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/acceptInvite/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
+
+      rejectInvite: builder.mutation({
+        query: post => ({
+          url: `api/v1/dev/rejectInvite/${post}`,
+          method: 'PUT',
+          body: post
+        }),
+        invalidatesTags: ['Dashboard']
+      }),
     })
   })
   
-export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery, useGetMyWorkHistoryQuery, useGetMyOverAllRatingQuery, useAcceptOfferMutation, useRejectOfferMutation, useGetAllMyTransactionsQuery, useGetAllBanksQuery, useGetAllQuestionsQuery, useGetCbtParamsQuery, useGetAllLevelsQuery, useGetAllStacksQuery, useAddStackMutation, useAddLevelMutation, useGetLanguagesQuery, useAddLanguageMutation, useAddLanguageExpMutation, useUnChooseLanguageMutation, useGetFrameworksQuery, useAddFrameworkExpMutation, useUnChooseFrameworkMutation, useAddFrameworkMutation, useGetSkillsMutation, useAddSkillMutation, useUnChooseSkillMutation, useEnterBasicInfoMutation, useGetAllMyMatchedJobsQuery } = apiSlice
+export const { useGetDashboardQuery, useGetMyMatchedJobsQuery, useGetAllMyCbtDetailsQuery, useGetMyWorkHistoryQuery, useGetMyOverAllRatingQuery, useAcceptOfferMutation, useRejectOfferMutation, useGetAllMyTransactionsQuery, useGetAllBanksQuery, useGetAllQuestionsQuery, useGetCbtParamsQuery, useGetAllLevelsQuery, useGetAllStacksQuery, useAddStackMutation, useAddLevelMutation, useGetLanguagesQuery, useAddLanguageMutation, useAddLanguageExpMutation, useUnChooseLanguageMutation, useGetFrameworksQuery, useAddFrameworkExpMutation, useUnChooseFrameworkMutation, useAddFrameworkMutation, useGetSkillsMutation, useAddSkillMutation, useUnChooseSkillMutation, useEnterBasicInfoMutation, useGetAllMyMatchedJobsQuery, useGetUserProfileMutation, useGetCbtFrameworkQuery, useGetCbtLanguageQuery, useGetCbtSkillsQuery, useGetAllInvitesQuery, useAcceptInviteMutation, useRejectInviteMutation } = apiSlice

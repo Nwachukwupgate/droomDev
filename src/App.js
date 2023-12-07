@@ -3,6 +3,7 @@ import AllRoutes from './config/routes';
 import { ThemeProvider } from './context/ThemeContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useGetUserProfileMutation } from './features/api/apiSlice';
 
 
 function App() {
